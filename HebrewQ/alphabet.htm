@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>alpha</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<base target="_blank">
+		<script type="text/javascript" src="./jquery.js"></script><script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+		<style type="text/css">
+.chkclr{
+	background: #ff0000;
+}
+#alef td, .hebrew, #inputextx, .script-hebrew{
+	/*font-size: 200%;*/
+	font-family: 'Times New Roman';
+}
+#ctrmenu{
+	float: top;
+	right:20px;
+	top:20px;
+}
+
+th{
+	background-color: #cccccc;
+	font-size: 50%;
+}		
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#alef td, .script-hebrew{
+	font-size: 200%;
+}
+#alef td:nth-child(11){
+	font-size: 50%;
+	background-color: #eeeeee;
+}		</style>
+		<script type="text/javascript">
+$(document).ready(function(){ 
+	enable_table_sorter();
+
+	unicode_2_hebrews();
+
+});	
+function unicode_2_hebrews(){
+	//all hebrews   /[\u0590-\u05FF]/
+	//https://stackoverflow.com/questions/2041859/javascript-how-to-find-hebrew
+	var tr="", idx=0;
+	for(var i=0x590;i<=0x05ff;i++){
+		var hex=i.toString(16).padStart(4,"0");
+		tr+="<tr>";
+		tr+="<td>"+(++idx)+"</td><td>"+i+"</td>";
+		tr+="<td>"+hex+"</td>";
+		tr+="<td>&#"+i+"</td>";
+		tr+="<td>&#x"+hex+";</td>";
+		tr+="</tr>";
+	}
+	$("#unicode_hebrew tbody").html(tr);
+}
+function enable_table_sorter(){
+	//table sorter
+	$("#alef").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });	
+}
+</script>
+	</head>
+	<body>
+		<div>
+			<table border="1" id="alef" style="float:left;">
+				<thead>
+					<tr>
+						<th>
+							&nbsp;</th>
+						<th>
+							<a href="https://www.sttmedia.com/characterfrequency-hebrew">Frq<br />
+							Gen</a></th>
+						<th>
+							<a href="http://xwalk.ca/lt.html">Freq<br />
+							Torah</a></th>
+						<th>
+							KB</th>
+						<th>
+							&nbsp;</th>
+						<th>
+							<span style="font-size:8px;">Dagesh<br />
+							Change<br />
+							Sound</span></th>
+						<th>
+							<span style="font-size:8px;"><a id=""> BeGaD<br />
+							KePhaT<br />
+							Begging<br />
+							word</a></span></th>
+						<th>
+							<span style="font-size:8px;">Final<br />
+							Form</span></th>
+						<th>
+							<span style="font-size:8px;">Gutteral</span></th>
+						<th>
+							<span style="font-size:8px;">Weak</span></th>
+						<th>
+							Pron</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>
+							1</th>
+						<th style="text-align: right;">
+							6.11</th>
+						<th style="text-align: right;">
+							27059</th>
+						<th>
+							A</th>
+						<td>
+							א</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							א</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Alef</td>
+					</tr>
+					<tr>
+						<th>
+							2</th>
+						<th style="text-align: right;">
+							4.57</th>
+						<th style="text-align: right;">
+							16345</th>
+						<th>
+							B</th>
+						<td>
+							ב</td>
+						<td>
+							בּ</td>
+						<td>
+							בּ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Beit</td>
+					</tr>
+					<tr>
+						<th>
+							3</th>
+						<th style="text-align: right;">
+							1.26</th>
+						<th style="text-align: right;">
+							2109</th>
+						<th>
+							G</th>
+						<td>
+							ג</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							גּ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Gimel</td>
+					</tr>
+					<tr>
+						<th>
+							4</th>
+						<th style="text-align: right;">
+							2.49</th>
+						<th style="text-align: right;">
+							7032</th>
+						<th>
+							D</th>
+						<td>
+							ד</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							דּ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Dalet</td>
+					</tr>
+					<tr>
+						<th>
+							5</th>
+						<th style="text-align: right;">
+							10.84</th>
+						<th style="text-align: right;">
+							28056</th>
+						<th>
+							H</th>
+						<td>
+							ה</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ה</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Hei</td>
+					</tr>
+					<tr>
+						<th>
+							6</th>
+						<th style="text-align: right;">
+							10.35</th>
+						<th style="text-align: right;">
+							30513</th>
+						<th>
+							V</th>
+						<td>
+							ו</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ו</td>
+						<td>
+							Vav</td>
+					</tr>
+					<tr>
+						<th>
+							7</th>
+						<th style="text-align: right;">
+							1.28</th>
+						<th style="text-align: right;">
+							2198</th>
+						<th>
+							Z</th>
+						<td>
+							ז</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Zayin</td>
+					</tr>
+					<tr>
+						<th>
+							8</th>
+						<th style="text-align: right;">
+							2.39</th>
+						<th style="text-align: right;">
+							7189</th>
+						<th>
+							J</th>
+						<td>
+							ח</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ח</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Cheit</td>
+					</tr>
+					<tr>
+						<th>
+							9</th>
+						<th style="text-align: right;">
+							1.19</th>
+						<th style="text-align: right;">
+							1804</th>
+						<th>
+							Y</th>
+						<td>
+							ט</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Teit</td>
+					</tr>
+					<tr>
+						<th>
+							10</th>
+						<th style="text-align: right;">
+							11.03</th>
+						<th style="text-align: right;">
+							31531</th>
+						<th>
+							I</th>
+						<td>
+							י</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							י</td>
+						<td>
+							Yod</td>
+					</tr>
+					<tr>
+						<th>
+							11</th>
+						<th style="text-align: right;">
+							2.6</th>
+						<th style="text-align: right;">
+							11968</th>
+						<th>
+							K</th>
+						<td>
+							כ</td>
+						<td>
+							כּ</td>
+						<td>
+							כּ</td>
+						<td>
+							ך</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Kaf/haf</td>
+					</tr>
+					<tr>
+						<th>
+							12</th>
+						<th style="text-align: right;">
+							7.36</th>
+						<th style="text-align: right;">
+							21570</th>
+						<th>
+							L</th>
+						<td>
+							ל</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Lamed</td>
+					</tr>
+					<tr>
+						<th>
+							13</th>
+						<th style="text-align: right;">
+							4.43</th>
+						<th style="text-align: right;">
+							25090</th>
+						<th>
+							M</th>
+						<td>
+							מ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ם</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Mem</td>
+					</tr>
+					<tr>
+						<th>
+							14</th>
+						<th style="text-align: right;">
+							2.76</th>
+						<th style="text-align: right;">
+							14128</th>
+						<th>
+							N</th>
+						<td>
+							נ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ן</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							נ</td>
+						<td>
+							Nun</td>
+					</tr>
+					<tr>
+						<th>
+							15</th>
+						<th style="text-align: right;">
+							1.43</th>
+						<th style="text-align: right;">
+							1833</th>
+						<th>
+							S</th>
+						<td>
+							ס</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Samek</td>
+					</tr>
+					<tr>
+						<th>
+							16</th>
+						<th style="text-align: right;">
+							3.11</th>
+						<th style="text-align: right;">
+							11250</th>
+						<th>
+							E</th>
+						<td>
+							ע</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ע</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Ayin</td>
+					</tr>
+					<tr>
+						<th>
+							17</th>
+						<th style="text-align: right;">
+							1.63</th>
+						<th style="text-align: right;">
+							4805</th>
+						<th>
+							P/F</th>
+						<td>
+							פ</td>
+						<td>
+							פּ</td>
+						<td>
+							פּ</td>
+						<td>
+							ף</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Pei/Fei</td>
+					</tr>
+					<tr>
+						<th>
+							18</th>
+						<th style="text-align: right;">
+							1.2</th>
+						<th style="text-align: right;">
+							3962</th>
+						<th>
+							C</th>
+						<td>
+							צ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ץ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Tzadei</td>
+					</tr>
+					<tr>
+						<th>
+							19</th>
+						<th style="text-align: right;">
+							2.06</th>
+						<th style="text-align: right;">
+							4695</th>
+						<th>
+							Q</th>
+						<td>
+							ק</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Qof</td>
+					</tr>
+					<tr>
+						<th>
+							20</th>
+						<th style="text-align: right;">
+							5.4</th>
+						<th style="text-align: right;">
+							18125</th>
+						<th>
+							R</th>
+						<td>
+							ר</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							ר</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Reish</td>
+					</tr>
+					<tr>
+						<th>
+							21</th>
+						<th style="text-align: right;">
+							4.25</th>
+						<th style="text-align: right;">
+							15595</th>
+						<th>
+							W</th>
+						<td>
+							ש</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Shin/sin<br />
+							שׁ:shift+w<br />
+							שׂ:opt+w</td>
+					</tr>
+					<tr>
+						<th>
+							22</th>
+						<th style="text-align: right;">
+							4.84</th>
+						<th style="text-align: right;">
+							17950</th>
+						<th>
+							T</th>
+						<td>
+							ת</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							תּ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							Tav</td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="1" style="float:top;">
+				<caption>
+					<a href="https://www.youtube.com/watch?v=FGrK-g0gC-M">Hebrew</a> Vowels&nbsp;&amp; Marks <a href="alphabet_HebrewInput.htm">...</a></caption>
+				<tbody>
+					<tr>
+						<th>
+							&nbsp;</th>
+						<th>
+							class</th>
+						<th>
+							names</th>
+						<th>
+							Sam</th>
+						<th>
+							kbd</th>
+						<th>
+							length</th>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="3">
+							1</th>
+						<td colspan="1" rowspan="3" style="text-align: center;" title="father, ark">
+							a<br />
+							<span style="font-size:8px;">father</span></td>
+						<td>
+							qamets</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אָ</span></td>
+						<td>
+							shift+a</td>
+						<td>
+							<span style="font-size:10px;"><font face="Times New Roman">long</font></span></td>
+					</tr>
+					<tr>
+						<td>
+							patach</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אַ</span></td>
+						<td>
+							opt+a</td>
+						<td>
+							<span style="font-size:10px;">short</span></td>
+					</tr>
+					<tr>
+						<td>
+							patach-shewa</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אֲ</span></td>
+						<td>
+							opt+1</td>
+						<td title="compound shewa: Hatef patach">
+							<span style="font-size:10px;">shortest</span></td>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="3">
+							2</th>
+						<td colspan="1" rowspan="3" style="text-align: center;" title="grey, egg">
+							<p>
+								e<br />
+								<span style="font-size:8px;">grey</span></p>
+						</td>
+						<td>
+							tsere</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אֵ</span></td>
+						<td>
+							shift+e&nbsp;</td>
+						<td>
+							<span style="font-size:10px;">long</span></td>
+					</tr>
+					<tr>
+						<td>
+							seghol</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אֶ</span></td>
+						<td>
+							opt+e</td>
+						<td>
+							<span style="font-size:10px;">short</span></td>
+					</tr>
+					<tr>
+						<td>
+							seghol-shewa</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אֱ</span></td>
+						<td>
+							opt+3</td>
+						<td title="compound shewa: hatef Seghol">
+							<span style="font-size:10px;">shortest</span></td>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="3">
+							3</th>
+						<td colspan="1" rowspan="3" style="text-align: center;" title="dish, ink">
+							i<br />
+							<span style="font-size:8px;">dish</span></td>
+						<td title="flee">
+							hiriq-yod</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אִי</span></td>
+						<td>
+							&nbsp;</td>
+						<td>
+							<span style="font-size:10px;">long</span></td>
+					</tr>
+					<tr>
+						<td>
+							hiriq</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אִ</span></td>
+						<td>
+							opt+i</td>
+						<td>
+							<span style="font-size:10px;">short</span></td>
+					</tr>
+					<tr>
+						<td>
+							-</td>
+						<td class="hebrew">
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							<strike><span style="font-size:10px;">shortest</span></strike></td>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="3">
+							4</th>
+						<td colspan="1" rowspan="3" style="text-align: center;" title="boat, OK">
+							o<br />
+							<span style="font-size:8px;">ok</span></td>
+						<td>
+							holem-waw</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">וֹ</span></td>
+						<td>
+							shift+o</td>
+						<td>
+							<span style="font-size:10px;">long</span></td>
+					</tr>
+					<tr>
+						<td>
+							holem</td>
+						<td class="hebrew">
+							<span style="font-size: 24px;">אֹ</span></td>
+						<td>
+							opt+o</td>
+						<td>
+							<span style="font-size:10px;">short</span></td>
+					</tr>
+					<tr>
+						<td>
+							qamet shewa</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">אֳ</span></td>
+						<td>
+							opt+2</td>
+						<td title="compound shewa: hatef qamet">
+							<span style="font-size:10px;">shortest</span></td>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="3">
+							5</th>
+						<td colspan="1" rowspan="3" style="text-align: center;" title="put">
+							u<br />
+							<span style="font-size:8px;">duke</span></td>
+						<td title="scoop">
+							shuriq-waw</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">וּ</span></td>
+						<td>
+							shift+u</td>
+						<td>
+							<span style="font-size:10px;">long</span></td>
+					</tr>
+					<tr>
+						<td title="book">
+							qibbuts</td>
+						<td class="hebrew">
+							<span style="font-size:24px;">ֻא</span>&nbsp;&nbsp;</td>
+						<td>
+							opt+u</td>
+						<td>
+							<span style="font-size:10px;">short</span></td>
+					</tr>
+					<tr>
+						<td>
+							-</td>
+						<td class="hebrew">
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td title="">
+							<strike><span style="font-size:10px;">shortest</span></strike></td>
+					</tr>
+					<tr>
+						<th>
+							6</th>
+						<td colspan="1" rowspan="5">
+							&nbsp;</td>
+						<td>
+							shewa</td>
+						<td class="hebrew">
+							<span style="font-size:18px;">וְ</span></td>
+						<td>
+							opt+:</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+					<tr>
+						<th>
+							7</th>
+						<td>
+							daghash</td>
+						<td class="hebrew">
+							בּ</td>
+						<td>
+							shift+b</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+					<tr>
+						<th>
+							8</th>
+						<td>
+							maqqeph</td>
+						<td class="hebrew">
+							כל־</td>
+						<td>
+							opt+ |</td>
+						<td>
+							<span style="font-size:10px;">hyphen</span></td>
+					</tr>
+					<tr>
+						<th>
+							9</th>
+						<td>
+							mapeek</td>
+						<td class="hebrew">
+							הּ</td>
+						<td>
+							&nbsp;</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+					<tr>
+						<th>
+							10</th>
+						<td>
+							seperator</td>
+						<td class="hebrew">
+							:</td>
+						<td>
+							shift+ :</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+			<table border="1" style="float:none;">
+				<tbody>
+					<tr>
+						<td>
+							#</td>
+						<td>
+							Literal</td>
+						<td>
+							Hebrew Letter</td>
+					</tr>
+					<tr>
+						<td>
+							1</td>
+						<td>
+							a,e,i,o,u</td>
+						<td class="hebrew">
+							א,צ</td>
+					</tr>
+					<tr>
+						<td>
+							2</td>
+						<td>
+							v</td>
+						<td class="hebrew">
+							ב,ו</td>
+					</tr>
+					<tr>
+						<td>
+							3</td>
+						<td>
+							h</td>
+						<td class="hebrew">
+							ה,ח,כ</td>
+					</tr>
+					<tr>
+						<td>
+							4</td>
+						<td>
+							t</td>
+						<td class="hebrew">
+							ט,ת</td>
+					</tr>
+					<tr>
+						<td>
+							5</td>
+						<td>
+							k</td>
+						<td class="hebrew">
+							כּ,ק</td>
+					</tr>
+					<tr>
+						<td>
+							6</td>
+						<td>
+							s</td>
+						<td class="hebrew">
+							ס,שׁ,שׂ</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div style="page-break-after: always;">
+			<span style="display: none;">&nbsp;</span></div>
+		<div id="ctrmenu">
+			<p>
+				<br />
+				<textarea id="inputext" style="margin: 0px; height: 70px; width: 224px;"></textarea></p>
+			<p>
+				&nbsp;</p>
+			<p>
+				&nbsp;</p>
+		</div>
+		<p>
+			&nbsp;</p>
+		<table id='unicode_hebrew'>
+			<thead>
+				<th>#</th>
+				<th>code</th>
+				<th>hex</th>
+				<th>Heb</th>
+			</thead>
+			<tbody>
+				<tr><td>--</td></tr>
+			</tbody>
+
+		</table>
+	</body>
+</html>

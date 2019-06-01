@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+  <TITLE>M</TITLE>    
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+		<base target="_blank" />
+		<script type="text/javascript" src="./../../jquery.js"></script>
+		<script src="../../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../noduti/css/table_Strong.css"></link>
+		<script src="../noduti/js/table_Indexer.js"></script>
+
+
+       <script src="./out/OT/oStrongCode_Usage.js"></script>
+       <script src="./out/OT/oStrongCode_Frq.js"></script>
+       <script src="./wget_node/blueletter/out/props/oStrongCode_5props.js"></script>
+       <script src="./wget_node/blueletter/out/props/oCollected_Props.js"></script>
+   
+
+        <script src="../../../HebrewQ/audjs/VocabChapsBuf.js"></script>
+        <script src="./datjs/RootCatalog.js"></script>
+
+
+        <script src="./d3/SidOfParents.js"></script>
+        <script src="./d3/SidRootTotFrq.js"></script>
+
+
+		<style type="text/css">
+body{
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+td:nth-child(3){
+
+}  
+
+#Hebrew{
+    font-family: 'Times New Roman';
+    font-size: 200%;
+    text-align: right;
+}
+.w{
+	background-color: yellow;
+	text-decoration: none;
+}
+.x{
+	background-color: #cde0eb;
+	text-decoration: none;
+}
+.numbers{
+	background-color: #dddddf;
+	text-decoration: none;
+} 
+.germini{
+	/*background-color: #d3ec9e;*/
+	text-decoration: none;
+    /*border-left-style: 2px 2px 2px 2px solid;*/
+    border: 2px solid #2233ff;
+}
+.backcross{
+    /*background-color: #c9ed3e;*/
+    text-decoration: none;
+    border: 2px solid #2233ff;
+}
+.frq{
+	font-size: 6px;
+}
+.paired{
+	color:#00ff00;
+}
+.heb{
+	text-decoration: none;
+    font-size: 150%;
+}
+.hiddentxt{
+    display:none;
+}
+input{
+    background-color: #efe800;
+}
+
+</style>
+		<script type="text/javascript">
+
+$(document).ready(function(){ 
+    genMenu();
+    strongMerged(oStrongCode_Frq, oStrongCode_5props);   
+	genTable();
+
+    $("#updateTable").click(function(){
+        genTable();
+    });
+    $("#rootcat_out").click(function(){
+        output_rootcat(RootCatalog);
+    });
+
+    $("#eng2txt").click(function(){
+        col2text(8);
+    });
+
+    $("label").click(function(){
+        $(this).next().val("");
+    });
+});//
+function col2text(icol){
+        var idx=icol;//$(this).parent().parent().index("th");
+        var s="ggg ";
+        $("tbody").find("tr").each(function(){
+            s+=$(this).find("td:eq("+idx+")").text()+"\n";
+        });
+        $("#tout").val(s);    
+}
+function strongMerged(StrongCode_Frq, StrongCode_5props){
+    for(var i=1;i<=8674;i++){
+        var sid=""+i; while(sid.length<4)sid="0"+sid;
+        var arr=StrongCode_Frq[sid];
+        if(!arr){
+            StrongCode_Frq[sid]=[];
+            StrongCode_Frq[sid].push("0");//frq
+            StrongCode_Frq[sid].push("na");//heb
+        }
+        var arr5=StrongCode_5props[sid];
+        StrongCode_Frq[sid].push(arr5[0]);//heb2
+        StrongCode_Frq[sid].push(arr5[2]);//PoS
+        StrongCode_Frq[sid].push(arr5[3]);//Root
+        StrongCode_Frq[sid].push(arr5[1]);//frq
+        StrongCode_Frq[sid].push(arr5[4]);//frq
+    }
+}
+function genTable(){
+	var s=save2Table();
+	$("#out").html(s).find(".aud").bind("click",function(){
+        var aud=$(this).attr("aud");
+        var txt=$(this).attr("txt");
+        var chp=$(this).attr("chp");
+        if(aud){
+            //if($(this).is(".eng")){
+            var lan="english";
+            if($(this).is(".heb")){
+                lan="hebrew";
+            }
+            var strm=get_AudioStreamFileName(lan,aud,chp,txt);
+            audioplay(strm);               //}
+        }
+    });
+    $("table").find("button").bind("click",function(){
+        col2text();
+        alert();
+    });
+
+    make_table_sortable();
+};
+function make_table_sortable(){
+    /////
+    $("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });
+}
+function get_AudioStreamFileName(lan,aud,chp, txt){
+        var audiofilename=txt;
+        if(".mp3"==aud){
+            var engstr=txt.replace("(fem.)","f");
+            engstr=engstr.replace(/\(/g," ");
+            engstr=engstr.replace(/\)/g," ");
+            engstr=engstr.replace(/!/g," ");
+            engstr=engstr.replace(/\//g," ");
+            var idx=engstr.indexOf("[");
+            if(idx>0){
+                engstr=engstr.substr(0,idx);
+                engstr=$.trim(engstr);              
+            }
+            engstr=$.trim(engstr);
+            var engar=engstr.split(/[,\s]/);
+            audiofilename=engar.join("_")+".mp3";
+            audiofilename=audiofilename.replace("__","_");
+            audiofilename=audiofilename.replace("__","_");
+            audiofilename=audiofilename.replace("__","_");
+            audiofilename=audiofilename.replace("__","_");
+        }   
+        else{
+            audiofilename=aud;
+        }
+        //if(audiofilename && audiofilename.indexOf("/")>=0){
+        //    return audiofilename;
+        //}   
+        return "../../../HebrewQ/audio/"+lan+"/"+chp+"/"+audiofilename;
+};
+var g_PATH="../../../../../../___bigdata/unzipped/rel/ham12/hgsbible/";
+var g_voiceUrl="https://www.blueletterbible.org/lang/Lexicon/Lexicon.cfm?strongs=H";
+function save2Table(){
+    
+        function ___filter_in(eid, tdTxt, func_special){
+            
+            var Pos=$(eid).val().trim();
+            if( Pos.length===0){
+                return true;//alway true;
+            };
+
+            var bCheckedForFilterIn=$(eid+"_FilterIn").is(":checked");
+            if(!tdTxt) {
+                return (bCheckedForFilterIn?false:true);
+            }
+
+            if( func_special ){
+                tdTxt=func_special(tdTxt);
+                Pos=func_special(Pos);
+            }
+            if(tdTxt.indexOf(Pos)>=0){
+                return (bCheckedForFilterIn?true:false);
+            }
+            return (bCheckedForFilterIn?false:true);
+        };
+
+    function _getCodeLink(StrongCode){
+        var iStrongCode=parseInt(StrongCode);
+        if(iStrongCode>8674){
+            var url="http://lexiconcordance.com/hebrew/";//8650.html
+            return "<a class='xsc' href='"+url+StrongCode+".html'>"+StrongCode+"</a>";
+        }
+        var ret="<a href='"+g_PATH+"s/h"+StrongCode+".htm'>"+StrongCode+"</a>";
+        return ret;
+    };
+
+    function getheb1(sid, heb){
+        var s="<a class='heb' href='"+g_PATH+"s/h"+sid+".htm'>"+heb+"</a>";
+        return s;
+    }
+    function getheb2(sid, heb){
+        var s="<a class='heb' href='"+g_voiceUrl+sid+"'>"+heb+"</a>";
+        return s;
+    }
+    function _getVacabChaps(sid){
+        function ___getObjArr(sid){
+            var ret=[];
+            $.each(VocabChapsBuf,function(chap,obj){
+                $.each(obj,function(heb,arr){
+                    if(sid===arr[2]){
+                        sheb=heb;
+                        ret.push({"heb":heb,"chp":chap,"arr":arr});
+                    }
+                });
+            }); 
+            return ret;  
+        };
+        
+
+        var ret="";
+        var arrObj=___getObjArr(sid);
+        $.each(arrObj,function(i,obj){
+            var shb="  <a class='heb aud' aud='"+obj.arr[1]+"' chp='"+obj.chp+"' txt='"+obj.arr[0]+"'>"+obj.heb +"</a>&lrm;";
+            var sen=" (<a class='eng aud' aud='"+obj.arr[1]+"' chp='"+obj.chp+"' txt='"+obj.arr[0]+"'>"+obj.arr[0] +")</a>&lrm; ";
+            ret+=shb+sen;
+        });
+        return ret;
+    };
+    function _get5PropVal(sid, icol){
+        if(!oStrongCode_5props) return "error oStrongCode_5props is null.";
+        if(!oStrongCode_5props[sid]) return "nosid";
+
+        return oStrongCode_5props[sid][icol];
+    };
+    var filterOutD3=$("#FilterOut_D3").is(":checked");
+
+
+    var stb="\n<table border='1'><thead><tr><th>#</th><th>SID</th><th>heb1</th><th>heb2</th><th>frq1</th><th>PoS<button id='PoS'></button></th><th>Root<button id='Root'></button></th><th>Par</th><th>Totfrq</th><th>frq2</th><th>Eng<button id='Eng'></button></th><th>Chap</th>";
+    stb+="<th>cat</tb>";
+    stb+="</tr><thead>\n";
+    stb+="<tbody>\n";
+    var keysArr=Object.keys(oStrongCode_Frq) ;
+    for(var i=0;i<keysArr.length;i++){
+        var sid=keysArr[i];
+        var arr=oStrongCode_Frq[sid];
+
+        var stid=_getCodeLink(sid);
+        var shbr=GetHebrewDivFromStrongCode(sid);
+        var frq=arr[0];
+        var heb1=getheb1(sid,arr[1]);
+        var heb2=getheb2(sid,arr[2]);
+        var Pos=(arr[3]);
+        var Root=(arr[4]);
+        var frq1=arr[5];//_get5PropVal(1);
+        var eng=arr[6];//_get5PropVal(4);
+        var ParentName='';
+        //////////fileter
+        var RowHebrew1=Remove_Pronunce_Hebrew(heb1);//+"---&#rlm;"+Remove_Pronunce_Hebrew(heb2);
+        var RowHebrew2=Remove_Pronunce_Hebrew(heb2);//+"---&#rlm;"+Remove_Pronunce_Hebrew(heb2);
+        
+
+        var parentSidAr=SidOfParents[sid];
+        if( filterOutD3 ){
+            if(parentSidAr) {
+                //console.log("ret ok",ret);
+                continue;
+            }
+            else{
+                //console.log("ret failed:",ret);
+            }
+        }
+        var sParentSid=parentSidAr?parentSidAr.join(", "):"";
+
+
+
+        if( ___filter_in("#POS",Pos)  && 
+            ___filter_in("#Root",Root) && 
+            ___filter_in("#English",eng) && 
+            ___filter_in("#ParentName",sParentSid) && 
+            (___filter_in("#Hebrew",RowHebrew1, Remove_Pronunce_Hebrew) || 
+             ___filter_in("#Hebrew",RowHebrew2, Remove_Pronunce_Hebrew) ) ) 
+        {
+        }
+        else{
+            continue;
+        }  
+        
+
+
+
+        var TotFrq="";
+        if(SidRootTotFrq[sid]){
+            TotFrq=SidRootTotFrq[sid].TotFrq;
+        }
+        /////////////////////
+
+        stb+="<tr><td>"+i+"</td>";
+        stb+="<td>"+stid+"</td>";
+        stb+="<td>"+heb2+"</td>";
+        stb+="<td>"+heb1+"</td>";
+        stb+="<td>"+frq+"</td>";
+        stb+="<td>"+Pos+"</td>";
+        stb+="<td>"+Root+"</td>";
+        stb+="<td>"+sParentSid+"</td>";
+        stb+="<td>"+TotFrq+"</td>";
+        stb+="<td>"+frq1+"</td>";
+        stb+="<td>"+eng+"</td>";
+        stb+="<td>"+_getVacabChaps(sid)+"</td>";
+        stb+="<td contenteditable class='rootcat'>"+RootCatalog[sid]+"</td>";
+        stb+="</tr>\n\n";
+        //}
+    }
+    stb+="</tbody></table>";
+    return stb;
+
+ }
+
+function GetHebrewDivFromStrongCode(StrongCode){
+    //$('p.c').each(process_verse);
+    var arr=oStrongCode_Frq[StrongCode];
+    var shbr="notfound";
+    if(arr){
+    	shbr=arr[1];
+    }
+    return "<a class='heb' href='"+g_voiceUrl+StrongCode+"'>"+ shbr +"</a>";
+}
+
+
+
+
+function Remove_Pronunce_Hebrew(phword){
+        var sword='';
+        for(var k=0;k<phword.length;k++){
+            var code=phword.charCodeAt(k);
+            if(code>=1488 && code<=1514){
+                var ch=phword.charAt(k);
+                sword+=ch;
+            }                
+        }  
+        return sword;
+}
+
+function getSelect(obj){
+    function _Names(obj){
+        var names={};
+        var arr=Object.keys(obj);//OStats_POS);
+        for(var i=0;i<arr.length;i++){
+            var key=arr[i];
+            var n=""+obj[key].length;
+            while(n.length<4)n="0"+n;
+
+            var txt="("+n+") "+key;
+            names[txt]=key;
+        }
+        return names;        
+    }
+    var Names=_Names(obj);
+    var arr=Object.keys(Names);//OStats_POS);
+    arr.sort();
+    var s="<select multiple  size='5'><option></option>";
+    for(var i=arr.length-1;i>=0;i--){
+        var txt=arr[i];
+        var val=Names[txt];
+        s+="<option value='"+val+"'>"+txt+"</option>";
+    }
+    s+="</select>";
+    return s;
+}
+function genMenu(){
+    var stb="<div border='1'>";
+    stb+="<input type='checkbox' checked='true' id='POS_FilterIn' title='checked for filter in'/><label>PoS</label><input id='POS' title='checked is for filter in'></input><br>";
+    stb+=getSelect(oCollected_Props["PoS"]);
+    stb+="<br><input type='checkbox' checked='true' id='Root_FilterIn' title='checked for filter in'/><label>Root</label><input id='Root'></input><br>";
+    stb+=getSelect(oCollected_Props["Root"]);
+    stb+="</span>";
+    stb+="<input type='checkbox' checked='true' id='Hebrew_FilterIn' title='checked for filter in'/><label>Hebrew</label><input id='Hebrew' title='checked for filter in'></input><br>";
+    stb+="<input type='checkbox' checked='true' id='English_FilterIn' title='checked for filter in'/><label>English</label><input id='English' title='checked is for filter in'></input><br>";
+
+    stb+="<input type='checkbox' checked='true' id='ParentName_FilterIn' title='checked for filter in'/><label>ParentName</label><input id='ParentName' title='checked is for filter in'></input><br>";
+
+    stb+="</div>";
+    $("#menu").html(stb).find("select").bind("change",function(){
+        //alert();
+        $(this).prev().prev().val($(this).val());
+    });
+}
+function audioplay(src){
+    var s2="<audio autoplay><source src='"+src+"' type='audio/mpeg' /></audio>";
+    $("#audio").html(s2);
+    console.log(src);       
+}
+
+function output_rootcat(obj){
+    ////var obj=RootCatalog;
+    $("tr").each(function(){
+        var sid=$(this).find("td:eq(1)").text().trim();
+        var cat=$(this).find("td:eq(10)").text().trim();
+        if(cat==="undefined" || cat.length===0) return true;
+        if(!obj[sid]){
+            obj[sid]=cat;
+        }
+    });
+    var s=JSON.stringify(obj, null, 2);
+    $("#tout").val("var RootCatalog=\n"+s);
+}
+</script>
+
+
+
+
+<script>
+///////////////////////////////
+////    RESEARCH
+////
+var Hebrew2LetterWord=function(){
+    this.HebrewAlphabets="אבגדהוזחטיכךלמנסעפףצץקרשת";
+    this.HebrewAlphabets="אבגדהוזחטיכלמנסעפצקרשת";
+    this.m_twoletterRootStats={};
+    this.TwoLetterRoot();
+    $("#Hebrew").val(this.HebrewAlphabets);
+    //this.ShowTable();
+};
+Hebrew2LetterWord.prototype.TwoLetterRoot = function(first_argument) {
+    // body...
+    var len=this.HebrewAlphabets.length;
+    console.log("HebrewLetters len",len);
+    var arr=[];
+    for(var i=0;i<len;i++){
+        var first=this.HebrewAlphabets[i];
+        for(var k=0;k<len;k++){
+            var second=this.HebrewAlphabets[k];
+            var two=first+second;
+            arr.push(two);
+        }
+    }
+    this.m_TwoLettersRoots=arr;
+    console.log("TwoLettersRoots len",arr.length);
+    return arr;
+}; 
+Hebrew2LetterWord.prototype.ShowTable_1 = function(first_argument) {
+    // body...
+    var s="<table border='1'><thead><tr><th>#</th><th>two</th><th>frq</th><th>words</th></tr></thead>";
+    s+="<tbody>"
+    for(var i=0; i<this.m_TwoLettersRoots.length; i++){
+        var two=this.m_TwoLettersRoots[i];
+        var frq=""+this.m_twoletterRootStats[two].length;
+        if("0"==frq) frq="";
+
+        s+="<tr><td>"+i+"</td><td>"+two+"</td><td>";
+        s+=frq;
+        s+="</td><td>";
+        s+=this.m_twoletterRootStats[two].join("&lrm;,&nbsp;&lrm;");
+        s+="</td></tr>";
+    };
+    s+="</tbody></table>";
+    $("#mresearch").html(s);
+    make_table_sortable();
+};
+Hebrew2LetterWord.prototype.ShowTable_sqr = function(first_argument) {
+    // body...
+    function _alphets_tab_ths(albets){
+        var s="";
+        for(var i=0;i<albets.length;i++){
+            s+="<th>"+albets[i]+"</th>";
+        }
+        return s;
+    };
+    function _find_paired_blanks(arr){
+        var pairsArr=[];
+        for(var i=0;i<arr.length;i++){
+            var two=arr[i];
+            if(two[0]==two[1])continue;
+            var owt=""+two[1]+""+two[0];
+            var ifind=arr.indexOf(owt);
+            if( ifind>=0){
+                pairsArr.push(two);
+                pairsArr.push(owt);
+                arr[ifind]="";
+                arr[i]="";
+            }
+        }
+        return pairsArr;
+    };
+
+    var s="<table border='1'><thead><tr><th>#</th><th>H</th>";
+    s+=_alphets_tab_ths(this.HebrewAlphabets);
+    s+="</tr></thead>";
+    s+="<tbody>";
+    var iMax=this.HebrewAlphabets.length;
+    var BlankArr=[];
+    for(var i=0; i<iMax; i++){
+        var first=this.HebrewAlphabets[i];
+        s+="<tr><td>"+i+"</td><th>"+first+"</th>";
+        for(var r=iMax-1, k=0; k<iMax; k++, r--){
+            var second=this.HebrewAlphabets[k];
+            var two=second+first;
+            var frq=this.m_twoletterRootStats[two].length;
+            var strclass=" class='a ";
+            if(first==second){
+                strclass+="germini ";
+            }
+            if(i==r){
+                strclass+="backcross ";
+            }
+            var txt=two;
+            //s+=this.m_twoletterRootStats[two].join("&lrm;,&nbsp;&lrm;");
+            if(frq>0){
+                txt=frq;
+                strclass+="numbers ";
+            }
+            else{
+                BlankArr.push(two);
+            }
+            strclass+="' ";
+            s+="<td "+strclass+" title='"+ two +"'>"+txt+"</td>";
+        }
+        s+="</tr>";
+    };
+    s+="</tbody></table>";
+
+
+    $("#mresearch").html(s);
+
+    //found paired blanks.
+    var pairsArr=_find_paired_blanks(BlankArr);
+    console.log(pairsArr,pairsArr.length);
+    s="blank pairs<br><table border='1'><thead><tr><th>#</th><th></th><th></th><tr></thead><tbody>";
+    for(var i=0; i<pairsArr.length;i++){
+        var two=pairsArr[i];
+        $("#mresearch").find("table tbody").find("tr").find("td:contains('"+two+"')").addClass("paired");
+
+        if(i%2==0){
+            s+="<tr><td></td>";
+            s+="<td>"+two+"</td>";
+            s+="</tr>";
+        }
+    }
+    s+="</tbody></table>";
+    $("#mresearch").append(s);
+
+    //
+    make_table_sortable();
+};
+Hebrew2LetterWord.prototype.RunShowTable = function(first_argument) {
+    // body...
+    this.run_serach_in_table();
+    this.ShowTable_1();
+    make_table_sortable();
+};
+Hebrew2LetterWord.prototype.run_serach_in_table = function(first_argument) {
+    // body...
+    this.m_twoletterRootStats={};//init again!.
+    for(var i=0; i<this.m_TwoLettersRoots.length; i++){
+        var two=this.m_TwoLettersRoots[i];
+        this.serach_in_table(two);
+    };
+};
+Hebrew2LetterWord.prototype.serach_in_table = function(two) {
+    // body...
+    var obj=this.m_twoletterRootStats;
+    if(!obj[two]){
+        obj[two]=[];
+    };     
+    var _This=this;
+    $("#out").find("table tbody").find("tr").each(function(){
+        var word0=$(this).find("td:eq(2)").text();
+        var word2=$(this).find("td:eq(2)").html();
+        var word=lettersOfWord(word0);
+        var ifound=word.indexOf(two);
+        if( ifound>=0 ){
+            obj[two].push(word2);           
+        };
+    });
+    return obj[two].length;
+};
+
+
+function lettersOfWord (phword) {
+    // body...ך ף ץ אבגדהוזחטיכךלמנסעפףצץקרשת צֹעַן
+    var final2low={"ך":"כ", "ף":"פ", "ץ":"צ", "ן":"נ","ם":"מ"};
+    var sword='';
+    for(var k=0;k<phword.length;k++){
+        var code=phword.charCodeAt(k);
+        if(code>=1488 && code<=1514){
+            var ch=phword.charAt(k);
+            if(final2low[ch]){
+                ch=final2low[ch];
+            }
+            sword+=ch;
+        }                
+    }  
+    return sword;
+};
+
+
+
+
+
+
+var Hebrew3LetterWord=function(){
+    this.HebrewAlphabets="אבגדהוזחטיכךלמנסעפףצץקרשת";//ם
+    this.HebrewAlphabets="אבגדהוזחטיכלמנסעפצקרשת";
+ 
+    //this.collect_3letterWords();
+};
+Hebrew3LetterWord.prototype.collect_3letterWords = function(first_argument) {
+    //init stats
+    this.m_3letterWords_Stats={};
+    for(var i=0;i<this.HebrewAlphabets.length;i++){
+        var alpha=this.HebrewAlphabets[i];
+        this.m_3letterWords_Stats[alpha]=[0,0,0,0,0];
+    }
+    ///////
+    this.m_3letterWords={};
+    var obj=this.m_3letterWords;   
+    var _This=this;
+    $("#out").find("table tbody").find("tr").each(function(){
+        var elm2=$(this).find("td:eq(2)");
+        var word0=$(elm2).text();
+        var wdhtm=$(elm2).html();
+        var word=lettersOfWord(word0);
+        if(word.length===3){
+            if(!obj[word]){
+                obj[word]=[wdhtm,""];
+            }
+        };
+    });    
+};
+Hebrew3LetterWord.prototype.run_3Ltr_stats = function(first_argument) {
+    var Stats=this.m_3letterWords_Stats;
+    console.log("m_3letterWords_Stats",Stats);
+    $.each(this.m_3letterWords,function(word,arr){
+        for(var k=0;k<word.length;k++){
+            var alp=word[k];
+            if(!Stats[alp]){
+                Stats[alp]=[0,0,0];
+                // console.error("k",k);
+                // console.error("word",word);
+                 console.error("alp",alp);
+                // console.error("obj3",obj3);
+                 console.error("Stats[alp]",Stats[alp]);
+            }
+            Stats[alp][k]++;
+        };
+    });
+
+    $.each(Stats,function(alpha,arr){
+        arr[3]=arr[0]+arr[1]+arr[2];
+    });
+};
+Hebrew3LetterWord.prototype.show_table = function(first_argument) {
+    var s="<table border='1'><thead><tr><th>#</th><th>H</th><th>III</th><th>II</th><th>I</th><th>sum</th></tr></thead><tbody>";
+    for(var i=0;i<this.HebrewAlphabets.length;i++){
+        var alpha=this.HebrewAlphabets[i];
+        s+="<tr><td>"+i+"</td><th>"+alpha+"</th>";
+        var Statsarr=this.m_3letterWords_Stats[alpha];
+        for(var j=2;j>=0;j--){
+            var frq=Statsarr[j];
+            if(frq==0)frq="";
+            s+="<td>"+frq+"</td>";
+        };
+        s+="<td>"+Statsarr[3]+"</td>";
+        s+="</tr>";
+    };
+    s+="</tbody>";
+    s+="<span><tr class='indexer_calc_total'><td>tot</td><td/><td/><td/><td/><td/></tr></span>";
+    s+="</table>";
+
+    $("#mresearch").html(s);
+};
+Hebrew3LetterWord.prototype.run = function(first_argument) {
+    this.collect_3letterWords();
+    this.run_3Ltr_stats();
+    this.show_table();
+    make_table_sortable();
+};
+/////
+/////
+///////////////////////////////
+////
+////
+$(document).ready(function(){ 
+///////////////////
+    var my_research= new Hebrew2LetterWord();
+    $("#gotoResearchTable").click(function(){
+        console.log("gotoResearchTable");        
+        $("#doresearch")[0].scrollIntoView();
+        console.log("gotoResearchTable");
+    });
+    $("#doresearch").click(function(){
+        my_research.run_serach_in_table();
+        alert("ok");
+    });
+    $("#show_vert").click(function(){
+        my_research.ShowTable_1();
+    });
+    $("#show_sqr").click(function(){
+        my_research.ShowTable_sqr();
+    });
+
+
+    /////////////
+    var my_3research= new Hebrew3LetterWord();
+    $("#do_3Ltr").click(function(){
+        my_3research.run();
+    });
+///////////////////
+});//
+</script>
+	</head>
+	<body>
+        <textarea id="tout"></textarea>
+<div id='menu'></div>
+<input type="checkbox" checked='true' id="FilterOut_D3">FilterOut_D3</input><br>
+ <button id="updateTable">updateTable</button>
+<button id='indxer'>indxer</button>
+<button id="rootcat_out">RootCat</button>
+<button id="eng2txt">eng2txt</button>
+<button id="gotoResearchTable">gotoResearchTable</button>
+<hr/>
+
+<div id='out'></div>
+<div id="audio"></div>
+<hr/>
+<a>research:</a><br>
+<button id="doresearch">do_2Ltr</button>
+<button id="show_vert">show_2Ltr_vert</button>
+<button id="show_sqr">show_2Ltr_sqr</button>
+<br>
+<button id="do_3Ltr">do_3Ltr</button>
+<button id="show_3Ltr_vert"> </button>
+<button id="show_3Ltr_sqr"> </button>
+<br/>
+<div id="mresearch"></div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>alpha</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="./jquery.js"></script><script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+		<style type="text/css">
+body{
+	font-family: 'Times New Roman';
+	font-size: 150%;
+}
+.chkclr{
+	background: #ff0000;
+}
+#alef td, .hebrew, #inputextx{
+	/*font-size: 200%;*/
+	font-family: 'Times New Roman';
+}
+#ctrmenu{
+	float: top;
+	right:20px;
+	top:20px;
+}
+
+th{
+	background-color: #cccccc;
+	font-size: 150%;
+}		
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#alef td{
+	font-size: 200%;
+}
+#alef td:nth-child(11){
+	font-size: 50%;
+	background-color: #eeeeee;
+}		</style>
+		<script type="text/javascript">
+$(document).ready(function(){ 
+	enable_table_sorter();
+});	
+
+function enable_table_sorter(){
+	//table sorter
+	$("#alef").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });	
+}
+</script>
+	</head>
+	<body>
+		<div>
+			<table border="1" style="float:top;">
+				<caption>
+					Vowels Classes and Types Marks</caption>
+				<tbody>
+					<tr>
+						<th>
+							&nbsp;</th>
+						<th>
+							types</th>
+						<th>
+							a</th>
+						<th colspan="2">
+							e</th>
+						<th>
+							i</th>
+						<th>
+							o</th>
+						<th>
+							u</th>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="2">
+							1</th>
+						<td colspan="1" rowspan="2">
+							Pure long vowels<br />
+							(cannot reduce)</td>
+						<td colspan="1" rowspan="2">
+							qamets rod(a)<br />
+							patach rod(a)<br />
+							qamets heh(a)</td>
+						<td colspan="2" rowspan="2">
+							<a class="hebrew">tָsere yod(e)</a><br />
+							seghol rod(e)</td>
+						<td class="hebrew" colspan="1" rowspan="2">
+							hiriq yod(i)</td>
+						<td class="hebrew" rowspan="2">
+							holem waw(o)</td>
+						<td class="hebrew" rowspan="2">
+							shuruq(u)</td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+						<th colspan="1" rowspan="2">
+							2</th>
+						<td colspan="1" rowspan="2">
+							Long vowels<br />
+							(can redue)</td>
+						<td colspan="1" rowspan="2">
+							qamets(a)</td>
+						<td class="hebrew" colspan="2" rowspan="2">
+							tsere(e)</td>
+						<td class="hebrew" colspan="1" rowspan="2" style="text-align: center;">
+							--------</td>
+						<td class="hebrew" rowspan="2">
+							holem(o)</td>
+						<td class="hebrew" rowspan="2" style="text-align: center;">
+							--------</td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+						<th>
+							3</th>
+						<td>
+							Short vowels</td>
+						<td>
+							patach(a)</td>
+						<td class="hebrew" colspan="2">
+							seghol(e)</td>
+						<td class="hebrew">
+							hiriq(i)</td>
+						<td class="hebrew">
+							qamets batuf(o)</td>
+						<td class="hebrew">
+							qibbuts(u)</td>
+					</tr>
+					<tr>
+						<th>
+							4</th>
+						<td>
+							Shortest Vowel</td>
+						<td>
+							shewa</td>
+						<td class="hebrew" colspan="2" rowspan="1">
+							shewa</td>
+						<td class="hebrew">
+							shewa</td>
+						<td class="hebrew">
+							shewa</td>
+						<td class="hebrew">
+							shewa</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<table border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+			<caption>
+				rules</caption>
+			<tbody>
+				<tr>
+					<td>
+						#</td>
+					<td>
+						names</td>
+					<td>
+						Letters</td>
+					<td>
+						Descriptions</td>
+					<td>
+						Samples</td>
+					<td>
+						ref</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						gutterals</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						weak word</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						Furtive Patach<br />
+						(p7)</td>
+					<td>
+						gutterals<br />
+						ע,ח,הּ<br />
+						&nbsp;</td>
+					<td>
+						1) appear at the end of a o word and are preceded by a long vowels, a patach appears under the gutterals.<br />
+						2) The patach is pronounced before the gutterals.</td>
+					<td>
+						מִזְבֵּחַ<br />
+						altar<br />
+						רֵעַ<br />
+						friend<br />
+						רוּחַ<br />
+						spirit<br />
+						שִׂיחַ<br />
+						conversation<br />
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						syllables</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						- closed syllables:<br />
+						consonant+vowel+consonant<br />
+						- open syllables:<br />
+						consonant+vowel</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						silent shewa</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						apears after a short vowel.</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						vocal shewa</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						1) beginning of a word.<br />
+						2) after a long vowel.<br />
+						3) the 2nd of consecutive shewa.<br />
+						4) by dagesh(forte)</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						dagesh lene(weak)</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						BeGaDKePhaT<br />
+						1) beginning of word.<br />
+						2) after silent shewa</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						dagesh Forte</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="page-break-after: always;">
+			<span style="display: none;">&nbsp;</span></div>
+		<div id="ctrmenu">
+			<p>
+				ַ<br />
+				<textarea id="inputext" style="margin: 0px; height: 70px; width: 224px;"></textarea></p>
+		</div>
+		<p>
+			&nbsp;</p>
+	</body>
+</html>

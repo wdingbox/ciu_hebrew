@@ -1,0 +1,365 @@
+אְַדֹנָי        נָי דֹ  אְַ n   my lord, Anonai
+אְַנַחְנוּ  נוּ חְ  נַ  אְַ pron    we
+אְַנָשִׁים  ם   שִׁי    נָ  אְַ n   people, men
+אְַשֶׁר     ל   שֶׁ אְַ pron    which, that
+אִם         ם   אִ  adv if, even if, so
+אִישׁ           שׁ  אִ  n   man
+אִשֶּׁה     ה   שֶּׁ    אִ  n   offering by fire
+אִשָּׁה     ה   שָּׁ    אִ  n   woman, wife
+אֵלֶּה      ה   לֶּ אֵ  pron    these
+אֵם         ם   אֵ  n   mother
+אֵשׁ            שׁ  אֵ  n   fire
+אֵיךְ           ךְ  אֵי q-pron  how
+אֵיכָה      ה   כָ  אֵי q-pron  how
+אֵין            ן   אֵי phrase  there is/are not
+אֶבֶן       ן   בֶ  אֶ  n   stone
+אֶחָד       ד   חָ  אֶ  num one
+אֶל         ל   אֶ  prep    to, toward
+אֶמֶשׁ      שׁ  מֶ  אֶ  adv yesterday
+אֶרֶז       ז   רֶ  אֶ  n   cedar
+אֶרֶצ       צ   רֶ  אֶ  n   earth, land
+אַדֶרֶת ת   רֶ  דֶ  אַ  n   royal robe
+אַח         ח   אַ  n   brother
+אַחַר       ר   חַ  אַ  prep    behind, after
+אַכַל       ל   כַ  אַ  v   ate
+אַלְמָנָה   נָה מָ  לְ  אַ  n   widow
+אַף         ף   אַ  adv also
+אַתְּ           תְּ אַ  pron    you (fs)
+אַתֶּם      ם   תֶּ אַ  pron    you (mp)
+אַתֶּן      ן   תֶּ אַ  pron    you (fp)
+אַתָּה      ה   תָּ אַ  pron    you (ms)
+אָב         ב   אָ  n   father
+אָבַד       ד   בַ  אָ  v   perished
+אָדוֹן      ן   דוֹ אָ  n   lord, master
+אָהַב       ב   הַ  אָ  v   loved
+אָחַז       ז   חַ  אָ  v   grasp
+אָחוֹת      ת   חוֹ אָ  n   sister(s)
+אָמַר       ר   מַ  אָ  v   said
+אָן         ן   אָ  q-pron  where
+אָנָּא,נָא      א   נָ  אָ  parti   please
+אָנָה       ה   נָ  אָ  q-pron  where
+אָנָה       ה   נָ  אָ  q-pron  where to
+אָנֹכִי,אְַנִי      כִי נֹ  אָ  pron    I
+אָסַר       ר   סַ  אָ  v   bound, prohibited
+אָרַךְ      ךְ  רַ  אָ  v   prolonged
+אָרוּר      ר   רוּ אָ  adj cursed
+אֹהֶל       ל   הֶ  אֹ  n   tent
+אֹרֶךְ      ךְ  רֶ  אֹ  n   length, long
+אֹרַח       ח   רַ  אֹ  n   way, path
+אוֹר            ר   אוֹ n   light
+אוּלַי          לַי אוּ adv perhaps
+בְּתוּלָה   ה   לָ  תוּ בְ  n   virgin
+בְּאֵר      ר   אֵ  בְּ n   pit, well
+בְּכוֹר     ר   כוֹ בְּ n   firstborn
+בְּלִי          לִי בְּ prep    without
+בְּרִית     ת   רִי בְּ n   covenant
+בְּרָכָה    ה   כָ  רָ  בְּ n   blessing
+בְּתוֹךְ        ךְ  תוֹ בְּ adv in the midst of
+בְּ             בְּ prep    in, with, by
+בֵּן            ן   בֵּ n   son
+בֵּרָךְ     ךְ  רָ  בֵּ v   blessed (Piel)
+בֶּגֶד      ד   גֶ  בֶּ n   garment
+בַּיִת      ת   יִ  בַּ n   family, house
+בַּעַל      ל   עַ  בַּ n   lord, husband
+בַּת            ת   בַּ n   daughter
+בָּא            א   בָּ v   came, entered
+בָּחַר      ר   חַ  בָּ v   chose
+בָּכָה      ה   כָ  בָּ v   cried
+בָּלַע      ע   לַ  בָּ v   swallowed
+בָּנָה      ה   נָ  בָּ v   built
+בָּעַר      ר   עַ  בָּ v   burned
+בָּקַשׁ     שׁ  קַ  בָּ v   sought (P)
+בָּרָא      א   רָ  בָּ v   created
+גִּבּוֹר        ר   בּוֹ    גִּ n   strong one
+גֵּר            ר   גֵּ n   sojourner, foreigner
+גֶּבֶר      ר   בֶ  גֶּ n   man
+גַּם            ם   גַּ adv also, moreover
+גָּדַל      ל   דַ  גָּ v   is/was great
+גָּדוֹל     ל   דוֹ גָּ adj great, big
+גָּלָה      ה   לָ  גָּ v   uncovered, revealed (Q)
+גָּלָה      ה   לָ  גָּ v   was exiled, in exile (H)
+גָּמָל      ל   מָ  גָּ n   camel
+גָּנַב      ב   נַ  גָּ v   stole
+גֹּלָה      ה   לָ  גֹּ n   exile
+גּוֹיִם     ם   יִ  גּוֹ    n   nations
+גּוֹרָל     ל   רָ  גּוֹ    n   lot
+דֶּרֶךְ     ךְ  רֶ  דֶ  n   way, path
+דְּבַשׁ     שׁ  בַ  דְּ n   honey
+דִּבֵּר     ר   בֵּ דִּ v   spoke (Piel)
+דָּבָר      ר   בָ  דָּ n   word, thing, matter
+דָּרַךְ     ךְ  רַ  דָּ v   treated, marched
+דָּרַשׁ     שׁ  רַ  דָּ v   sought
+דּוֹד           ד   דּוֹ    adj beloved
+הַ. הֶ הָ               ה   parti   the
+הְַ             הְַ parti   interrogative
+הִנֵּה      ה   נֵּ הִ  v   hear! Look! Behold!
+הִיא            א   הִי pron    she
+הֵמָּה,הֵם          ם   הֵ  pron    they (mp)
+הֵנָּה      ה   נָּ הֵ  pron    they (fp)
+הַר         ר   הַ  n   mountain
+הָיָה       ה   יָ  הָ  v   was
+הָלַךְ      ךְ  לַ  הָ  v   went
+הָלַל       ל   לַ  הָ  v   boasted (Q), praised (P)
+הָרַג       ג   רַ  הָ  v   killed
+הוּא            א   הוּ pron    he
+זְרוֹעַ     עַ  רוֹ זְ  n   arm, strength
+זֶה         ה   זֶ  pron    this
+זֶרַע       ע   רַ  זֶ  n   seed
+זָבַח       ח   בַ  זָ  v   sacrificed
+זָכַר       ר   כַ  זָ  v   remembered
+זָכָר       ר   כָ  זָ  adj male
+זָקֵן       ן   קֵ  זָ  adj old
+זֹאת        ת   א   זֹ  pron    this (fs)
+חֶרֶב       ב   רֶ  חֶ  n   sword
+חַג         ג   חַ  n   feast, festival
+חַטָּאת ת   א   טָּ חַ  n   sin
+חַיִּים     ם   יִּי    חַ  n   life
+חָדָשׁ      שׁ  דָ  חָ  adj new
+חָיָה       ה   יָ  חָ  v   lived
+חָכְמָה ה   מָ  כְ  חָ  n   wisdom
+חָכָם       ם   כָ  חָ  adj wise
+חָלַל       ל   לַ  חָ  v   polluted, profaned
+חָלַם       ם   לַ  חָ  v   dreamed
+חָסֵר       ר   סֵ  חָ  v   lacked
+חָפֵצ       צ   פֵ  חָ  v   delights in, desires
+חָרָה       ה   רָ  חָ  v   burned with anger
+חֹבֵל       ל   בֵ  חֹ  n   sailor
+חֹ֜דֶשׁ     שׁ  דֶ  חֹ  n   month, new moon
+טֶרֶם       ם   רֶ  טֶ  prep    before
+טָהַר       ר   הַ  טָ  v   was pure
+טוֹב            ב   טוֹ adj good
+יְשׁוּעָה   ה   עָ  שׁוּ    יְ  n   salvation
+יִרְאָה ה   אָ  רְ  יִ  n   fear
+יֵשׁ            שׁ  יֵ  phrase  there is/are
+יֶלֶד       ד   לֶ  יֶ  n   child
+יַד         ד   יַ  n   hand
+יַחְדָּו    ו   דָּ חְ  יַ  adv together
+יַיִן       ן   יִ  יַ  n   wine
+יַשַׁב      ב   שַׁ יַ  v   sat, dwell
+יָדַע       ע   דַ  יָ  v   knew
+יָדָה       ה   דָ  יָ  v   thanked (H)
+יָטַב       ב   טַ  יָ  v   was well
+יָכֹל       ל   כֹ  יָ  v   was able
+יָם         ם   יָ  n   sea
+יָמִין      ן   מִי יָ  n   right, right hand
+יָסַף       ף   סַ  יָ  v   added
+יָצַא       א   צַ  יָ  v   went out
+יָצַב       ב   צַ  יָ  v   took a stand
+יָרֵא       א   רֵ  יָ  v   he is afraid
+יָרַד       ד   רַ  יָ  v   went down
+יָרַשׁ      שׁ  רַ  יָ  v   possessed
+יָרָה       ה   רָ  יָ  v   shot (Q), instructed (H)
+יָשַׁן      ן   שַׁ יָ  v   slept / sleeps
+יָשַׁע      ע   שַׁ יָ  v   saved
+יָשָׁר      ר   שָׁ יָ  adj upright, straight
+יוֹם            ם   יוֹ n   day
+יוֹמָם      ם   מָ  יוֹ adv daily, by day
+כְּלִי          לִי כְּ n   vessel
+כְּנַעַן    ן   עַ  נַ  כְּ n   Canaan
+כְּסִיל     ל   סִי כְּ adj foolish, fool
+כְּ             כְּ prep    like, as, according to
+כִּסֵּא     א   סֵ  כִּ n   throne
+כִּי                כִּי    prep    for, that, because
+כֶּסֶף      ף   סֶ  כֶּ n   money
+כַּאְַשֶׁר  ר   שֶׁ אְַ כַּ prep    just as
+כָּבוֹד     ד   בוֹ כָּ n   glory, honor
+כָּסָה      ה   סָ  כָּ v   covered
+כָּרַת      ת   רַ  כָּ v   cut
+כָּתַב      ב   תַ  כָּ v   wrote
+כֹּהֵן      ן   הֵ  כֹּ n   priest
+כֹּל, כָּל          ל   כֹּ adv all
+לְמַעַן ן   עַ  מַ  לְ  adv in order that
+לְעוֹלָם    ם   לָ  עוֹ לְ  adv forever
+לְ              לְ  prep    to, for
+לִפְנֵי     נֵי פְ  לִ  adv before
+לוּן, לִין          ן   לִי v   lodged
+לֵבָב,לֵב       ב   בָ  לֵ  n   heart
+לֵךְ            ךְ  לֵ  v   go
+לֶחֶם       ם   חֶ  לֶ  n   bread
+לַיְלָה ה   לָ  יְ  לַ  n   night
+לָבַשׁ      שׁ  בַ  לָ  v   got dressed, wore
+לָחַם       ם   חַ  לָ  v   fought (N)
+לָמַד       ד   מַ  לָ  v   learned
+לָמָּה      ה   מָּ לָ  q-pron  why
+לָקַח       ח   קַ  לָ  v   took
+לוֹא, לֹא           א   לוֹ adv no, not
+מְאֹד       ד   אֹ  מְ  adv very, much
+מְלָאכָה    כָה א   לָ  מְ  n   occupation
+מְעַט       ט   עַ  מְ  adj a few
+מִדְבָּר    ר   בָּ דְ  מִ  n   wilderness
+מִזְבֵּחַ   חַ  בֵּ זְ  מִ  n   alter
+מִן         ן   מִ  prep    from
+מִצְרַיִם   ם   רַי צְ  מִ  n   Egypt
+מִקְדָּשׁ   שׁ  דָּ קְ  מִ  n   temple, sanctuary
+מִשְׁפָּחָה חָה פָּ שְׁ מִ  n   family
+מִי             מִי q-pron  who
+מֵאַיִן     ן   אַי מֵ  q-pron  where from
+מֵת, מוּת           ת   מֵ  v   died
+מֶלֶךְ      ךְ  לֶ  מֶ  n   king
+מַדּוּעַ        עַ  דּוּ    מַ  q-pron  why
+מַה         ה   מַ  q-pron  what
+מַלְאָךְ    ךְ  אָ  לְ  מַ  n   messenger
+מַלְכָּה    ה   כָּ לְ  מַ  n   queen
+מַלָּחִים   ם   חִי לָּ מַ  n   sailors
+מַצָּה      ה   צָּ מַ  n   unleavened bread
+מַרְאֶה ה   אֶ  רְ  מַ  n   vision
+מָהַר       ר   הַ  מָ  v   hurried (N)
+מָחָר       ר   חָ  מָ  adv tomorrow
+םָכַר       ר   כַ  מָ  v   sold
+מָלַךְ      ךְ  לַ  מָ  v   ruled, reigned
+מָנָה       ה   נָ  מָ  n   portion
+מָצָא       א   צָ  מָ  v   found
+מָקוֹם      ם   קוֹ מָ  n   place
+מָרוֹם      ם   רוֹ מָ  n   exalted place, haughty
+מָשַׁח      ח   שַׁ מָ  v   anointed
+מָשַׁל      ל   שַׁ מָ  v   ruled
+מָתַי           תַי מָ  q-pron  when
+מוֹלֶדֶת    ת   דֶ  לֶ  מוֹ n   relatives
+נְבִיאָה    ה   אָ  בִי נְ  n   porphetess
+נְקֵבָה ה   בָ  קֵ  נְ  adj female
+נֵר         ר   נֵ  n   lamp
+נֶגַע       ע   גַ  נֶ  n   stroke, plague
+נֶדֶר       ר   דֶ  נֶ  n   vow
+נֶפֶשׁ      שׁ  פֶ  נֶ  n   soul, life
+נַעַר       ר   עַ  נַ  n   boy, youth
+נָבִיא      א   בִי נָ  n   prophet
+נָגַד       ד   גַ  נָ  v   told (H)
+נָגַע       ע   גַ  נָ  v   touched
+נָהָר       ר   הָ  נָ  n   river
+נָחַל       ל   חַ  נָ  v   possessed
+נָחַם       ם   חַ  נָ  v    was sorry
+נָטָה       ה   טָ  נָ  v   stretched out
+נָכַר       ר   כַ  נָ  v   recognized (H)
+נָסַע       ע   סַ  נָ  v   set out
+נָעְַרָה    ה   רָ  עְַ נָ  n   young girl
+נָפַל       ל   פַ  נָ  v   fell
+נָצַל       ל   צַ  נָ  v   delivered, snatched away (H)
+נָקִי           קִי נָ  adj innocent, clean
+נָשִׁים     ם   שִׁי    נָ  n   women, wives
+נָשָׂא      א   שָׂ נָ  v   lifted up, carried
+נָתַן       ן   תַ  נָ  v   gave
+נוּס            ס   נוּ v   fled
+סְפִינָה    ה   נָ  פִי סְ  n   ship
+סֵפֶר       ר   פֶ  סֵ  n   book, letter
+סָבַב       ב   בַ  סָ  v   surrounded
+סָגַר       ר   גַ  סָ  v   shut, closed
+סָתַר       ר   תַ  סָ  v   hid (N, H)
+סָתַר       ר   תַ  סָ  v   hid
+עִבְרִי     רִי בְ  עִ  n   Hebrew
+עִם         ם   עִ  prep    with
+עִיר            ר   עִי n   city
+עֵצ         צ   עֵ  n   tree
+עֶבֶד       ד   בֶ  עֶ  n   servant
+עַד         ד   עַ  prep    up to
+עַיִן       ן   יִ  עַ  n   eye
+עַל־יַד ד   יַ  ל   עַ  prep    beside
+עַל         ל   עַ  prep    on, upon
+עַם         ם   עַ  n   people
+עַתָּה      ה   תָּ עַ  adv now
+עָבַד       ד   בַ  עָ  v   worked, served
+עָוֹן       ן   וֹ  עָ  n   sin
+עָזַב       ב   זַ  עָ  v   forsook
+עָלָה       ה   לָ  עָ  v   went up
+עָמַד       ד   מַ  עָ  v   stood
+עָנִי           נִי עָ  adj poor
+עָנָה       ה   נָ  עָ  v   answered
+עָשִׁיר     ר   שִׁי    עָ  adj rich
+עָשַׁת      ת   שַׁ עָ  v   noticed
+עָשָׂה      ה   שָׂ עָ  v   made, did
+עוֹד            ד   עוֹ adv other, more, also
+פֶּה            ה   פֶּ n   mouth
+פָּלַל      ל   לַ  פָּ v   prayed (Ht)
+פָּלָא      א   לָ  פָּ v   was wonderful
+פָּנָה      ה   נָ  פָּ v   turned
+פָּקַד      ד   קַ  פָּ v   appointed, visited
+פָּרַר      ר   רַ  פָּ v   divided, split
+פָּתַח      ח   תַ  פָּ v   opened
+פּוּץ           ץ   פּוּ    v   was scattered
+צִוָּה      ה   וָּ צִ  v   commanded (Piel)
+צֵל         ל   צֵ  n   shadow
+צָבָא       א   בָ  צָ  n   army, host
+צָלֵחַ      חַ  לֵ  צָ  v   prospered, succeeded
+צָרַר       ר   רַ  צָ  v   showed hostility
+צֹאן        ן   א   צֹ  n   flock
+צוֹם            ם   צוֹ n   fast (fasting)
+קֶדֶם       ם   דֶ  קֶ  n   east, front, formerly
+קָבַצ       צ   בַ  קָ  v   gathered
+קָבַר       ר   בַ  קָ  v   buried
+קָדִים      ם   דִי קָ  n   east wind
+קָטָן       ן   טָ  קָ  adj small
+קָלַל       ל   לַ  קָ  v   cursed (P)
+קָם         ם   קָ  v   arose
+קָנָא       א   נָ  קָ  v   was jealous
+קָנָה       ה   נָ  קָ  v   purchased
+קָרַב       ב   רַ  קָ  v   approached
+קָרַע       ע   רַ  קָ  v   tore, rent
+קָרָא       א   רָ  קָ  v   called, read
+קָשַׁר      ר   שַׁ קָ  v   bound
+קֹדֶשׁ      שׁ  דֶ  קֹ  n   holiness, sacredness
+קֹל         ל   קֹ  n   voice, sound
+רֵאשִׁית    ת   שִׁי    א   רֵ  n   beginning
+רֶגֶל       ל   גֶ  רֶ  n   foot
+רֶחֶם       מ   חֶ  רֶ  n   womb
+רֶכֶב       ב   כֶ  רֶ  n   chariot
+רַב         ב   רַ  adj much, many
+רַע         ע   רַ  adj evil
+רָאָה       ה   אָ  רָ  v   saw
+רָבָה       ה   בָ  רָ  v   was great
+רָחַק       ק   חַ  רָ  v   was far
+רָכַב       ב   כַ  רָ  v   rode a chariot
+רָעַע       ע   עַ  רָ  v   was displeased
+רָצַח       ח   צַ  רָ  v   murdered
+רָשָׁע      ע   שָׁ רָ  adj wicked
+רֹאשׁ       שׁ  א   רֹ  n   head
+רוּחַ           חַ  רוּ n   wind, breath, spirit
+שְׁאֵלָה    ה   לָ  אֵ  שְׁ n   question
+שְׁאוֹל     ל   אוֹ שְׁ n   Sheol
+שְׁמַע      ע   מַ  שְׁ v   hear
+שִׁפְחָה    ה   חָ  פְ  שִׁ n   female salves, maiden
+שִׁיר           ר   שִׁי    v   to sing
+שֵׁם            ם   שֵׁ n   name
+שֶׁבֶר      ר   בֶ  שֶׁ n   grain
+שֶׁמֶן      ן   מֶ  שֶׁ n   oil
+שֶׁמֶשׁ     שׁ  מֶ  שֶׁ n   sun
+שַׁעַר      ר   עַ  שַׁ n   gate’
+שָׁאַל      ל   אַ  שָׁ v   asked
+שָׁב            ב   שָׁ v   returned
+שָׁבַע      ע   בַ  שָׁ v   swore (N)
+שָׁבַר      ר   בַ  שָׁ v   broke
+שָׁבַת      ת   בַ  שָׁ v   rested
+שָׁדַד      ד   דַ  שָׁ v   destroyed
+שָׁחַט      ט   חַ  שָׁ v   slaughtered
+שָׁכַב      ב   כַ  שָׁ v   lay down
+שָׁכַח      ח   כַ  שָׁ v   forgot
+שָׁכַם      ם   כַ  שָׁ v   got up early (H)
+שָׁלַח      ח   לַ  שָׁ v   sent
+שָׁלַךְ     ךְ  לַ  שָׁ v   threw, cast (H)
+שָׁם            ם   שָׁ pron    there
+שָׁמַד      ד   מַ  שָׁ v   exterminated (N)
+שָׁמַיִם    ם   יִ  מַ  שָׁ n   heaven
+שָׁמַע      ע   מַ  שָׁ v   heard
+שָׁמַר      ר   מַ  שָׁ v   kept, guarded
+שָׁנִים     ם   נִי שָׁ n   years
+שָׁנָה      ה   נָ  שָׁ n   year
+שָׁרַת      ת   רַ  שָׁ v   served
+שָׁתָה      ה   תָ  שָׁ v   drank
+שְׂמֹאל ל   א   מֹ  שְׂ n   left (directionn)
+שִׂמְלָה    ה   לָ  מְ  שִׂ n   garment
+שַׂק            ק   שַׂ n   sackcloth
+שַׂר            ר   שַׂ n   prince
+שָׂבַע      ע   בַ  שָׂ v   was satisfied, content
+שָׂדֶה      ה   דֶ  שָׂ n   field
+שָׂטָן      ן   טָ  שָׂ n   adversary, satan
+שָׂם            ם   שָׂ v   put
+שָׂמַח      ח   מַ  שָׂ v   rejoiced
+תְּהִלָּה   ה   לָּ הִ  תְּ n   praise
+תְּפִלָּה   ה   לָּ פִ  תְּ n   prayer
+תַּחַת      ת   חַ  תַּ prep    under
+תָּוֶךְ     ךְ  וֶ  תָּ adv midst
+תָּעָה      ה   עָ  תָּ v   erred, wandered
+תָּפַשׂ     שׂ  פַ  תָּ v   seized
+תּוֹרָה     ה   רָ  תּוֹ    n   Torah, law
+לִזְבֹּחַ                   phrase  to sacrifice
+לָמוּת                  phrase  to die
+לְהִשְׁתַּחְַוֹת                    phrase  to bow down, worship
+אֶל שַׁדַּי                 phrase  God Almighty

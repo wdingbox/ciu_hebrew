@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he">
+    <head>
+        <title></title>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <base target="_blank" />
+        <script type="text/javascript" src="./../../../../jquery.js"></script>
+        <script src="../../../../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../../../noduti/css/table_Strong.css"></link>
+        <script src="../../../noduti/js/table_Indexer.js"></script>
+
+    <script src="./jsn/ChineseEtymologyStats.js"></script>
+
+    <script  language="javascript" src="../../../../../../../pb/git_svr_proj1/files/latx/ChineseCharacters/Pinyin_7kSimplified.js">
+    </script>
+    
+       
+
+        <style type="text/css">
+body{
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+
+
+.w{
+    background-color: yellow;
+    text-decoration: none;
+}
+
+</style>
+        <script type="text/javascript">
+
+$(document).ready(function(){ 
+    gen_table();
+    $("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+
+    });
+});//
+
+</script>
+
+</head>
+
+<script>
+
+var g_keyArr={"CharacterImages_Seal":0,"CharacterImages_Lst":0,"CharacterImages_Bronze":0,"CharacterImages_Oracle":0};
+function viewdata(){
+  var s="";
+  $.each(ChineseEtymologyStats,function(ch,obj){
+    s+=ch;
+    $.each(obj,function(sdir,arr){
+      s+="<a class='sdir'>"+sdir+"</a>"+arr.length;
+      $.each(arr,function(i,sn){
+        //s+="<a class='file'>"+sn+"</a>,"
+      });
+
+    });//
+    s+="<hr/>";
+  });
+  $("#base").html(s);  
+}
+function get_table_header(){
+  var s="<table border='1'>";
+
+
+  s+="<thead><tr><th>#</th><th>cha</th><th>PinYin</th>";
+  $.each(g_keyArr,function(v, m){
+    var tt=v.substr(16);
+    s+="<th>"+tt+"<br>"+m+"</th>";
+  });
+  s+="<th>cc</th>";
+  s+="</tr><thead>";
+  return s;
+}
+
+function gen_table(){
+  var s="<tbody>";
+  var idx=0;
+
+  $.each(ChineseEtymologyStats,function(ch,obj){
+    idx++;
+    var py=Pinyin7kziUti.GetPinyinOfZi(ch)
+    var alnk="<a href='./htm/"+ch+".htm' target='_blank' >"+ch+"</a>";
+    s+="<tr><td>"+idx+"</td><td>"+alnk+"</td><td>"+py+"</td>";
+    var colc=0;
+    $.each(g_keyArr, function(key, m){
+      if(obj[key]){
+        s+="<td>"+obj[key].length+"</td>";
+        g_keyArr[key]++;
+        colc++;
+      }
+      else{
+        s+="<td></td>";
+      }
+
+    });/////////////
+    s+="<td>"+colc+"</td>";
+    s+="</tr>";
+  });
+  s+="</tbody></table>";
+  s=get_table_header()+s;
+  $("#base").html(s);  
+}
+
+</script>
+  <body>
+  <textarea id="out"></textarea> 
+  <button id="indxer">indxer</button>  
+  </div>
+  <hr>
+
+
+  <div id="base"></div>
+
+
+  </body>
+</html>

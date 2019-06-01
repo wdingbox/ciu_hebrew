@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he">
+<head>
+  <TITLE>grp</TITLE>    
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+<script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+<script type="text/javascript" src="./audjs/VocabChapsBuf.js"></script>
+<script type="text/javascript" src="./hebrewTest.js"></script>
+
+
+<script type="text/javascript" src="wordsgroups.js"></script>
+<style type="text/css">
+.chkclr{
+	background: #ff0000;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.txtcolr_white{
+	color: white;
+}
+th{
+	background-color: #cccccc;
+}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+	//gen_table();
+	gen_table_ahat();
+
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });
+
+    $("#ctr_menu").click(function(){
+    	$(".eng").toggleClass("txtcolr_white");
+    });
+});//
+
+
+function gen_table_ahat(){
+	var s="";
+	$.each(wordsgroups,function(i,grp){
+		var str=table_trs(grp);
+		s+=trs_2_table(str,"");
+	});
+
+	$("#show").append(s);	
+	table_bind();
+}
+function table_trs(jsdat){
+	var s="";
+	var i=0;
+	$.each(jsdat,function(k,ar){
+		i++;
+		s+="<tr><td>"+i+"</td><td class='heb' aud='"+ar[1]+"''>"+k+"</td>";
+		s+="<td class='eng'>"+ar[0]+"</td>";
+		s+="</tr>";
+	});
+	return s;
+}
+function trs_2_table(trs,audio_dir){
+	var s="<table class='tablesorter' border='1'><caption>"+audio_dir+"</caption>";
+	s+="<thead>";
+	s+="<tr><th>#</th><th>Heb</th><th>Eng</th></tr>";
+	s+="</thead>";
+	s+="<tbody>";
+	s+=trs;
+	s+="</tbody>";
+	s+="</table>";
+	return (s);
+}
+
+function table_bind(){
+	$("#show").find("td").bind("click",function(){
+		$(this).toggleClass("chkclr");
+		var src=$(this).attr("aud");
+		if(!!src){
+			var s2="<audio autoplay><source src='"+src+"' type='audio/mpeg' /></audio>";
+			$("#audio").html(s2);
+			console.log(src);			
+		};
+	});		
+}
+
+</script>
+</head>
+<body id="top">
+
+
+<h1 id="ctr_menu">שְׁמַע | יִשְׂרָאֵל, יְיָ | אֱלֹהֵינוּ, יְיָ | אֶחָֽד: | רֵאשִׁית</h1>
+<div id="audio"></div>
+
+<div id="show"></div>
+
+<hr/>
+<table border="1">
+	<tr><td></td><td>we are sojourner/foreinger</td><td></td></tr>
+	<tr><td></td><td>I am sorry.</td><td></td></tr>
+
+
+</body></html>

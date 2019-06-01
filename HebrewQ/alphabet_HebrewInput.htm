@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>alpha</title>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<base target="_blank">
+	<script type="text/javascript" src="./jquery.js"></script>
+	<script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+	<script src="./audjs/VocabChapsDat.js"></script>
+	<style type="text/css">
+		.chkclr {
+			background: #ff0000;
+		}
+
+		#alef td,
+		.hebrew,
+		#inputextx,
+		.script-hebrew,
+		#htmxt,
+		#keysin,
+		#triple {
+			/*font-size: 200%;*/
+			font-family: 'Times New Roman';
+		}
+
+		#ctrmenu {
+			float: top;
+			right: 20px;
+			top: 20px;
+			width: 80%;
+		}
+
+		th {
+			background-color: #cccccc;
+			font-size: 50%;
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+
+		#alef td,
+		.script-hebrew,
+		#htmxt,
+		#keysin {
+			font-size: 300%;
+		}
+
+		.hebrew2 {
+			font-family: 'Times New Roman';
+			font-size: 200%;
+		}
+
+		#htmxt {
+			text-align: right;
+			background-color: #eeeeff;
+			border-width: 1px;
+		}
+
+		#keysin {
+			text-align: right;
+			background-color: #ffff00;
+			border-width: 1px;
+		}
+
+		#alef td:nth-child(11) {
+			font-size: 50%;
+			background-color: #eeeeee;
+		}
+
+		.kn {
+			font-weight: bold;
+			background-color: #aaaaff;
+		}
+
+		.ccd {
+			font-size: 80%;
+			font-weight: 0;
+			background-color: #cccccc;
+		}
+
+		.hexd {
+			background-color: #ccc000;
+		}
+
+		.hilit,
+		#triple {
+			background-color: #aaaaff;
+		}
+
+		#breaker {
+			display: inline-block;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function () {
+
+			$(".wikitable .ccd").click(onclick_ccd);
+			$("#inputext").click(function () {
+				$("#htmxt").html($(this).val());
+			});
+			$(".fntstart_red").click(function () {
+				var tt = $("#inputext").val() + "<font color='red'>";
+				$("#inputext").val(tt);
+			});
+			$(".fntend").click(function () {
+				var tt = $("#inputext").val() + "</font>";
+				$("#inputext").val(tt);
+			});
+			$(".space").click(function () {
+				var tt = $("#inputext").val() + "&nbsp;";
+				$("#inputext").val(tt);
+			});
+
+			$("#keysin").keyup(function () {
+				var bin = $(this).val();
+				var hxc = "";
+				for (var i = 0; i < bin.length; i++) {
+					hxc += "&#" + bin.charCodeAt(i) + ";";
+				};
+				$("#inputext").val(hxc);
+			});
+			$("td").click(function () {
+				$("td").removeClass("hilit");
+				$(this).addClass("hilit");
+			});
+
+			$(".regex").click(function () {
+				var tt = $("#inputext").val() + $(this).text();
+				$("#inputext").val(tt);
+			});
+
+			$(".script-hebrew").click(onclick_script_hebrew);
+
+			$(".kn").attr("title", "input Keyborad");
+
+			//gen_obj();
+			gen_Hebrew_Alphabet_Input_table();
+			unicode_2_hebrews();
+		});
+		function onclick_script_hebrew() {
+			var hch = $(this).text().trim();
+			//alert(hch);
+			var striple = $("#triple").text();
+			if (striple.length >= 3) {
+				$("#triple").text(hch);
+				striple = hch;
+			} else {
+				striple += hch;
+				$("#triple").text(striple);
+			}
+			var s = search_by_trible();
+		};
+		function onclick_ccd() {
+			var td = $(this).text().trim();
+			if ("&" != td[0]) td = "&#" + td + ";";
+			var tx = $("#inputext").val() + td;
+			$("#inputext").val(tx);
+			$("#htmxt").html(tx);
+		}
+		function onclick_hexd() {
+			var td = $(this).text().trim();
+			if ("&" != td[0]) td = "&#x" + td + ";";
+			var tx = $("#inputext").val() + td;
+			$("#inputext").val(tx);
+			$("#htmxt").html(tx);
+		}
+		function onclick_kb(){
+			var hex=$(this).attr("hex");
+			var tx = $("#inputext").val() +"[\\u"+hex+"]";
+			$("#inputext").val(tx);
+			$("#htmxt").html(tx);
+		}
+
+		function gen_Hebrew_Alphabet_Input_table() {
+			const Hebrew27 = "אבגדהוזחטיכךלמםנןסעפףצץקרשת";//22+5
+
+			function _td(alph) {
+				var chcod = alph.charCodeAt(0);
+				var hexcd = chcod.toString(16).padStart(4, "0");
+				var s = "<td><a class='script-hebrew'>" + alph + "</a><br><a class='ccd'>" + chcod + "</a> <a class='hexd'>" + hexcd + "</a>";
+				s += " <a class='kn' hex='"+hexcd+"'>" + Hbr2MacProKeyboard[alph] + "</a></td>";
+				return s;
+			}
+			var tr = "";
+			for (var i = 0; i < Hebrew27.length / 3; i++) {
+				tr += "<tr>";
+				for (j = 0; j < 3; j++) {
+					var n = i + 9 * j;
+					tr += _td(Hebrew27[n]);
+				}
+				//var hexcd=chcod.toString(16).padStart(4,"0");
+				tr += "<tr>";
+			}
+
+			$("#Tab_HebrewAlphabets tbody").html(tr).find(".script-hebrew").bind("click", onclick_script_hebrew);
+			$("#Tab_HebrewAlphabets tbody").find(".ccd").bind("click", onclick_ccd);
+			$("#Tab_HebrewAlphabets tbody").find(".hexd").bind("click", onclick_hexd);
+			$("#Tab_HebrewAlphabets tbody").find(".kn").bind("click", onclick_kb);
+		}
+		function search_by_trible() {
+			var striple = $("#triple").text();
+
+			function is_all_exist_in_word(striple, word) {
+				for (var i = 0; i < striple.length; i++) {
+					var char = striple[i];
+					if (word.indexOf(char) < 0) {
+						return false;
+					}
+				}
+				return true;
+			}
+			var i = 0;
+			var s = "<table border='1'>";
+			$.each(VocabChapsDat, function (chp, obj) {
+				$.each(obj, function (hkey, arr) {
+					if (is_all_exist_in_word(striple, hkey)) {
+						s += "<tr><td>" + (i++) + "</td><td class='hebrew2'>" + hkey + "</td><td>" + arr + "</td></tr>";
+					}
+				});
+			});
+			s += "</table>";
+			$("#tout").html(s).find(".hebrew2").bind("click", function () {
+				var v = $("#inputext").val();
+				v += $(this).text();
+				$("#inputext").val(v);
+			});
+			return s;
+		}
+
+
+		function unicode_2_hebrews() {
+			//all hebrews   /[\u0590-\u05FF]/
+			//https://stackoverflow.com/questions/2041859/javascript-how-to-find-hebrew
+			var tr = "", idx = 0;
+			for (var i = 0x590; i <= 0x05ff; i++) {
+				var hex = i.toString(16).padStart(4, "0");
+				var alph=String.fromCharCode(i);
+				var keybd = Hbr2MacProKeyboard[alph];
+				if(undefined===keybd){
+					keybd="";
+				}
+				
+				tr += "<tr>";
+				tr += "<td>" + (++idx) + "</td><td>" + i + "</td>";
+				tr += "<td>" + hex + "</td>";
+				tr += "<td>&#" + i + "</td>";
+				tr += "<td>&#x" + hex + ";</td>";
+				tr += "<td>&#x" + hex + ";</td>";
+				tr += "<td>" + keybd + "</td>";
+				tr += "</tr>";
+			}
+			$("#unicode_hebrew tbody").html(tr);
+		}
+
+
+		function gen_obj(){
+			var obj={};
+			$(".script-hebrew").each(function(i){
+				var ch=$(this).text().trim();
+				var key=$(".kn:eq("+i+")").text();
+				obj[ch]=key;
+			});
+			$("#inputext").val(JSON.stringify(obj,null,4));
+		
+		}
+		var Hbr2MacProKeyboard =
+		{
+    "ב": "b",
+    "בּ": "b",
+    "א": "a",
+    "ה": "h",
+    "ד": "d",
+    "ג": "g",
+    "ח": "j",
+    "ז": "z",
+    "ו": "v",
+    "כּ": "k",
+    "י": "i",
+    "ט": "y",
+    "ל": "l",
+    "ך": "sh+k",
+    "כ": "k",
+    "נ": "n",
+    "ם": "sh+m",
+    "מ": "m",
+    "ע": "e",
+    "ס": "s",
+    "ן": "sh+n",
+    "ף": "sh+p",
+    "פ": "p",
+    "פּ": "p",
+    "ק": "q",
+    "ץ": "sh+c",
+    "צ": "c",
+    "שׂ": "al+w",
+    "שׁ": "sh+w",
+    "ר": "r",
+    "ת": "t",
+    "תּ": "t",
+    "ש": "w",
+    "ַ": "opt+a",
+    "ָ": "shf+a",
+    "ֵ": "shf+e",
+    "ֶ": "opt+e",
+    "וֹ": "shf+o",
+    "ֹ": "opt+o",
+    "וּ": "shf+u",
+    "ֻ": "opt+u",
+    "ִ": "opt+i",
+    "ְֲ": "opt+1",
+    "ְֱ": "opt+3",
+    "ְֳ": "opt+2",
+    "ְ": "shf+:",
+    "ּ": "shf+b"
+}
+	</script>
+</head>
+
+<body>
+	<div>
+		&nbsp;</div>
+	<div id="ctrmenu">
+		<table>
+			<tbody>
+				<tr>
+					<td>
+						<div id="htmxt">
+							&nbsp;</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="inputext" style="margin: 0px; height: 70px; width: 524px;font-size: 20px;"></textarea></td>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="keysin" style="margin: 0px; height: 70px; width: 524px;"></textarea></td>
+				</tr>
+			</tbody>
+		</table>
+		<button class="fntstart_red">red</button>
+		<button class="fntend">end</button>
+		<button class="space"></button>
+		<button class="regex">[</button>
+		<button class="regex">\u0590-\u05cf</button>
+		<button class="regex">]</button>
+		<button class="regex">{,+}</button>
+		<a href="alphabet.htm">...</a>
+	</div>
+	<table id="Tab_HebrewAlphabets" align="left" border="1" cellpadding="0" cellspacing="0" class="wikitable" style="text-align:center;"
+	 width="300">
+		<tbody>
+			<tr>
+				<th colspan="7">
+					<b>Hebrew Alphabet</b></th>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ב</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">בּ</span>‬</td>
+				<td>
+					<span class="script-hebrew" hex="0x5D0" dir="rtl">א</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1489;</a><a class='kn'>b</a></td>
+				<td>
+					<a class='ccd'>&amp;#64305;</a><a class='kn'>b</a></td>
+				<td>
+					<a class='ccd'>&amp;#1488;</a><a class='kn'>a</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ה</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ד</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ג</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1492;</a><a class='kn'>h</a></td>
+				<td>
+					<a class='ccd'>&amp;#1491;</a><a class='kn'>d</a></td>
+				<td>
+					<a class='ccd'>&amp;#1490;</a><a class='kn'>g</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ח</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ז</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ו</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1495;</a><a class='kn'>j</a></td>
+				<td>
+					<a class='ccd'>&amp;#1494;</a><a class='kn'>z</a></td>
+				<td>
+					<a class='ccd'>&amp;#1493;</a><a class='kn'>v</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">כּ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">י</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ט</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#64315;</a><a class='kn'>k</a></td>
+				<td>
+					<a class='ccd'>&amp;#1497;</a><a class='kn'>i</a></td>
+				<td>
+					<a class='ccd'>&amp;#1496;</a><a class='kn'>y</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ל</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ך</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">כ</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1500;</a> <a class='kn'>l</a></td>
+				<td>
+					<a class='ccd'>&amp;#1498;</a> <a class='kn'>sh+k</a></td>
+				<td>
+					<a class='ccd'>&amp;#1499;</a> <a class='kn'>k</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">נ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ם</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">מ</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1504;</a> <a class='kn'>n</a></td>
+				<td>
+					<a class='ccd'>&amp;#1501;</a> <a class='kn'>sh+m</a></td>
+				<td>
+					<a class='ccd'>&amp;#1502;</a> <a class='kn'>m</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ע</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ס</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ן</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1506;</a> <a class='kn'>e</a></td>
+				<td>
+					<a class='ccd'>&amp;#1505;</a> <a class='kn'>s</a></td>
+				<td>
+					<a class='ccd'>&amp;#1503;</a> <a class='kn'>sh+n</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ף</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">פ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">פּ</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1507;</a><a class='kn'>sh+p</a></td>
+				<td>
+					<a class='ccd'>&amp;#1508;</a><a class='kn'>p</a></td>
+				<td>
+					<a class='ccd'>&amp;#64324;</a><a class='kn'>p</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ק</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ץ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">צ</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1511;</a><a class='kn'>q</a></td>
+				<td>
+					<a class='ccd'>&amp;#1509;</a><a class='kn'>sh+c</a></td>
+				<td>
+					<a class='ccd'>&amp;#1510;</a><a class='kn'>c</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">שׂ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">שׁ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ר</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#64299;</a><a class='kn'>al+w</a></td>
+				<td>
+					<a class='ccd'>&amp;#64298;</a><a class='kn'>sh+w</a></td>
+				<td>
+					<a class='ccd'>&amp;#1512;</a><a class='kn'>r</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">ת</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">תּ</span>‬</td>
+				<td>
+					<span class="script-hebrew" dir="rtl">ש</span>‬</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd' hex="0x5EA">&amp;#1514;</a><a class='kn'>t</a></td>
+				<td>
+					<a class='ccd'>&amp;#64330;</a><a class='kn'>t</a></td>
+				<td>
+					<a class='ccd'>&amp;#1513;</a><a class='kn'>w</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<table align="left" border="1" cellpadding="1" cellspacing="0" class="wikitable" style="text-align:center;" width="250">
+		<tbody>
+			<tr>
+				<th colspan="7">
+					<b>Vowels and Unique Characters</b></th>
+			</tr>
+			<tr>
+				<td width="50%">
+					(&nbsp;<span class="script-hebrew" dir="rtl">ַ</span>‬&nbsp;)</td>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ָ</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1463;</a><a class='kn'>opt+a</a></td>
+				<td>
+					<a class='ccd'>&amp;#1464;</a><a class='kn'>shf+a</a></td>
+			</tr>
+			<tr>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ֵ</span>‬&nbsp;)</td>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ֶ</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1461;</a><a class='kn'>shf+e</a></td>
+				<td>
+					<a class='ccd'>&amp;#1462;</a><a class='kn'>opt+e</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">וֹ</span>‬</td>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ֹ</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#64331;</a><a class='kn'>shf+o</a></td>
+				<td>
+					<a class='ccd'>&amp;#1465;</a><a class='kn'>opt+o</a></td>
+			</tr>
+			<tr>
+				<td>
+					<span class="script-hebrew" dir="rtl">וּ</span>‬</td>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ֻ</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#64309;</a><a class='kn'>shf+u</a></td>
+				<td>
+					<a class='ccd'>&amp;#1467;</a><a class='kn'>opt+u</a></td>
+			</tr>
+			<tr>
+				<td>
+					(&nbsp;<span class="script-hebrew" dir="rtl">ִ</span>‬&nbsp;)</td>
+				<td>
+					Letter Yod (&nbsp;<span class="script-hebrew" dir="rtl">י</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1460;</a><a class='kn'>opt+i</a></td>
+				<td>
+					<a class='ccd'>&amp;#1497;</a><a class='kn'></a></td>
+			</tr>
+			<tr>
+				<td>
+					patach shewa <span class="script-hebrew" dir="rtl" style="font-size: 32px;">ְֲ</span></td>
+				<td>
+					seghol shewa<span class="script-hebrew" dir="rtl" style="font-size: 32px;font:system-ui;">ְֱ</span></td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1458;</a><a class='kn'>opt+1</a></td>
+				<td>
+					<a class='ccd'>&amp;#1457;</a><a class='kn'>opt+3</a></td>
+			</tr>
+			<tr>
+				<td>
+					qamet shewa<span class="script-hebrew" dir="rtl" style="font-size: 32px;font:system-ui;">ְֳ</span></td>
+				<td>
+					Sh&#39;va Na (&nbsp;<span class="script-hebrew" dir="rtl" style="font-size: 32px;">ְ</span>‬&nbsp;)</td>
+			</tr>
+			<tr>
+				<td>
+					<a class='ccd'>&amp;#1459;</a><a class='kn'>opt+2</a></td>
+				<td>
+					<a class='ccd'>&amp;#1456;</a><a class='kn'>shf+:</a></td>
+			</tr>
+			<tr>
+				<td colspan="1">
+					Dagesh (&nbsp;<span class="script-hebrew" dir="rtl">ּ</span>‬&nbsp;)</td>
+				<td>כל־
+					<br>marqqeph
+				</td>
+			</tr>
+			<tr>
+				<td colspan="1">
+					<a class='ccd'>&amp;#1468;</a><a class='kn'>shf+b</a></td>
+				<td>
+					<a class='ccd'>&amp;#1470;</a>
+					<a class='kn'>opt+ |</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td><a title='each Hebrew Character itself means rlm. need lrm to change.'>ab~&#1488;&#x200E;&#1489; : wrong.</a><br>
+
+					<a class='ccd'>&amp;#8207;</a><br>
+					<a class='ccd' title='\u200F'>&amp;#x200F;</a><br>
+					<a class='kn' href='https://en.wikipedia.org/wiki/Right-to-left_mark'>&amp;rlm;</a></td>
+				<td><a title='each Hebrew Character itself means rlm.'>ab~&#1488;&#1489; : ok</a><br>
+
+					<a class='ccd'>&amp;#8206;</a><br>
+					<a class='ccd' title='\u200E'>&amp;#x200E;</a><br>
+					<a class='kn' href='https://en.wikipedia.org/wiki/Right-to-left_mark'>&amp;lrm;</a></td>
+			</tr>
+
+		</tbody>
+	</table>
+	<div id="triple">triple</div>
+	<div id="tout">
+		tout</div>
+
+	<div id='breaker'></div>
+	<table id='unicode_hebrew'>
+		<thead>
+			<th>#</th>
+			<th>code</th>
+			<th>hex</th>
+			<th>Heb</th>
+		</thead>
+		<tbody>
+			<tr>
+				<td>--</td>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+
+</html>

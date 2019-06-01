@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE>HebrewOT-rooter</TITLE>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8"></META>
+	<META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0"></META>
+
+
+	<script type="text/javascript" src="../jquery.js"></script>
+
+    <script src="../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+	<script src="./HebrewWordsStats.js"></script>
+<style type="text/css">
+body{
+    font-size: 150%;
+    font-family: 'Times New Roman';
+}  
+.Conjugation {
+    /*visibility: hidden;*/
+    display: none;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){ 
+	load2table();
+	enable_table_sorter();
+	$("#toggleConjugation").click(function(){
+		$(".Conjugation").show();
+	});
+});//
+
+function GetRoot(hebword){
+	var sWeak=[];
+	for(var i=0;i<hebword.length;i++){
+		var al=hebword.charCodeAt(i);
+		if(al>=1488&&al<=1516){
+			sWeak.push(hebword[i]);
+		}
+	}
+	return sWeak.join("");
+}
+function rooter(){
+	var rootStat={};
+	$.each(HebrewWordsFreq,function(i,obj){
+		var word=obj["key"];
+		var freq=obj["Freq"];
+		var srot=GetRoot(word);
+		if(!rootStat[srot]){
+			var ob={"war":[],"frq":0};
+			rootStat[srot]=ob;
+		}
+		rootStat[srot]["war"].push("("+freq+")"+word);
+		rootStat[srot]["frq"]+=parseInt(freq);
+	});
+	return rootStat;
+}
+function load2table(){
+	var stb="<table border='1' style='float:left;'><thead><tr><th>#</th><th>frq</th><th>root</th><th>Conjugation</th></tr></thead><tbody>";
+	var rootstat=rooter();
+	var stb2=second_table(rootstat);
+	var i=0;
+	$.each(rootstat,function(hroot,obj){
+		var word=obj["war"].join(" | ");
+		var freq=obj["frq"];
+		stb+="<tr><td>"+(i++)+"</td><td>"+freq+"</td><td>"+hroot+"</td><td class='Conjugation'>"+word+"</td></tr>";
+	});
+	stb+="</tbody><table>";
+	$("#out").html(stb+stb2);
+	//second_table(rootstat);
+}
+function second_table(rootstat){
+	var stb='<table border="1" style="float:top;">';
+	stb+="<thead><tr><th>#</th><th>w</th></tr><tr>root</tr></thead><tbody>";
+	var i=0;
+	var prefixArr=["וי","ות"];
+	$.each(rootstat,function(hebword,ob){
+		var prefix=hebword.substr(0,2);
+		var remain=hebword.substr(2);
+
+		if(prefixArr.indexOf(prefix)>=0){
+			var rot="-", war="";
+			if(rootstat[remain]){
+				rot=remain;
+				war=rootstat[remain]["war"].join(",");
+				rootstat[remain]["frq"]+=parseInt(ob["frq"]);
+				rootstat[remain]["war"].push("<hr>");
+				rootstat[remain]["war"].push(ob["war"]);
+				delete rootstat[hebword];
+			}
+			stb+="<tr><td>"+(i++)+"</td><td>"+hebword+"</td><td>"+rot+"</td><td>"+war+"</td></tr>";
+		}
+	});
+	
+	stb+="</tbody></table>";
+	//$("#out").append(stb);
+	return stb;
+}
+function enable_table_sorter(){
+	//table sorter
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });	
+}
+
+</script>
+</HEAD>
+<BODY>
+	<div id="test1">test1</div><div id="test2">test2</div>
+	<div id="ctlpanel">
+<button id="toggleConjugation">toggleConjugation</button>
+</div>
+<div id="out"></div>
+
+
+</BODY>
+</HTML>

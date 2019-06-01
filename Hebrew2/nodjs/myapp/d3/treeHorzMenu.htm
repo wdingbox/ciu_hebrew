@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+body{
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+  .node {
+    cursor: pointer;
+  }
+
+  .overlay{
+      background-color:#EEE;
+  }
+   
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+   
+  .node text {
+    font-size:10px; 
+    font-family:'Times New Roman';
+  }
+   
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show{
+      display:block;
+  }
+
+  .ghostCircle, .activeDrag .ghostCircle{
+       display: none;
+  }
+
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="treeHorzMenu.js?a=1"></script>
+<body>
+
+
+<div id="draggableMenu">
+<style type="text/css">
+ #draggableMenu{
+  position: fixed;
+
+  background-color: #aaffff;
+
+} 
+</style>
+<script>
+  $( function() {/////////////////
+    $( "#draggableMenu" ).draggable();
+
+
+    $("#NodeCenter").click(function(){
+        var name=$("#sid").val();
+        var d=Uti.searchNodeName(m_root,name);
+        if(!d){
+          d=m_root;
+        }
+        update(d);
+        centerNode(d);
+    });
+  });//////////////////////////////
+var Uti={
+
+  searchNodeName:function(node, name){
+
+    if(node.name===name)return node;
+    if(!node.children) return null;
+    for(var i=0;i<node.children.length;i++){
+      var child=node.children[i];
+      var find=this.searchNodeName(child, name);
+      if(find)return find; 
+    }
+    return null;
+  }
+}
+
+</script>
+  <a href='http://localhost/~weiding/weidroot/weidroot_2017-01-06/app/btool/tool/Hebrew2/nodjs/myapp/d3/tree.htm'>localhost</a>
+
+  <a href='http://localhost/~weiding/weidroot/weidroot_2017-01-06/app/jit/test1/ood3/circlePacking/tree.html'>sample</a>
+
+  <a href="../oStrongCodeTable_Merged.htm" target="_blank">Merged.htm</a><br>
+ 
+ <input id="sid" value="0006"></input><button id="NodeCenter">Center</button>
+</div>
+
+
+    <div id="tree-container"></div>
+</body>
+</html>

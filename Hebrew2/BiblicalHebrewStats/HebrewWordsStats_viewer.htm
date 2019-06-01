@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE>HebrewOT</TITLE>
+    <META http-equiv="Content-Type" content="text/html; charset=UTF-8"></META>
+	<META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0"></META>
+
+
+	<script type="text/javascript" src="../jquery.js"></script>
+
+    <script src="../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+	<script src="./HebrewWordsStats.js"></script>
+<style type="text/css">
+body{
+    font-size: 150%;
+    font-family: 'Times New Roman';
+}  
+</style>
+<script type="text/javascript">
+$(document).ready(function(){ 
+	load2table();
+	enable_table_sorter();
+});//
+function load2table(){
+	var stb="<table border='1'><thead><tr><th>#</th><th>key</th><th>frq</th></tr></thead><tbody>";
+	$.each(HebrewWordsFreq,function(i,obj){
+		var word=obj["key"];
+		var freq=obj["Freq"];
+		stb+="<tr><td>"+i+"</td><td>"+word+"</td><td>"+freq+"</td></tr>";
+	});
+	stb+="</tbody><table>";
+	$("#out").html(stb);
+}
+function enable_table_sorter(){
+	//table sorter
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });	
+}
+
+</script>
+</HEAD>
+<BODY>
+
+<div id="out"></div>
+
+
+</BODY>
+</HTML>

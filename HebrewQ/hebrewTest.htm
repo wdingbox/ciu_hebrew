@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>tst</title>
+<script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+<script type="text/javascript" src="./audjs/VocabChapsBuf.js"></script>
+
+<script type="text/javascript" src="./hebrewTest.js"></script>
+
+<style type="text/css">
+body{
+    font-family: 'Times New Roman';
+}
+.chkclr, .chkclr2{
+	background: #ff0000;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.hebT{
+    text-align: center;
+    background-color: grey;
+}
+.eng{
+    text-align: center;
+}
+.txtcolr_white{
+	background-color: green;
+}
+#ctr_menu{
+	position: fixed;
+	right:20px;
+	top:20px;
+	font-family: 'Times New Roman';
+}
+
+.quizTarget{
+	background-color: #cccccc;
+    text-align: center;
+}
+table{
+    width:700px;
+}
+</style>
+<script type="text/javascript">
+var gscoreSys=new ScoreSys("#tstclock");
+var gHebrewQuiz=null;
+function start(){
+    var qzlevel=$("#texta").val();
+    //akeQuize("#show", {qzSize:5,qzDfy:qzlevel});
+    gHebrewQuiz=new HebrewQuiz({
+        id:"#quiz",
+        qzDfy:qzlevel,
+        qzSize:5,
+        VocabChaps:VocabChapsBuf,
+        score:gscoreSys
+    });
+
+    //gscoreSys.init(); 
+    gHebrewQuiz.MakeQuize();   
+}
+$(document).ready(function(){ 
+    //makeQuize("#show", {qzSize:5,qzDfy:2});
+    
+    enable_table_sorter();
+ 
+
+    start();
+
+    $("#txtshowtoggle").click(function(){
+    	start();
+    });
+
+});////////
+
+
+</script>
+</head>
+<body id="top">
+
+
+<h1 id="hd1" onclick="window.open('hebrewTextbook.htm');">שְׁמַע | יִשְׂרָאֵל, יְיָ | אֱלֹהֵינוּ, יְיָ | אֶחָֽד: | רֵאשִׁית</h1>
+<div id="audio"></div>
+
+<div id="ctr_menu">
+
+</div>
+
+<input id="texta" value='2' title="Dfy level"></input>
+<button id="txtshowtoggle">Next</button>
+<div id="quiz"></div>
+<a id="tstclock"></a>
+<div id="show"></div>
+<textarea id='sout'></textarea>
+
+
+</body></html>

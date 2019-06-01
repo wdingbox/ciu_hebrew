@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he">
+
+<head>
+    <TITLE>HebrewQ</TITLE>
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+
+    <base target="_blank" />
+
+    <script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+    <script src="../Hebrew2/nodjs/noduti/js/table_Indexer.js"></script>
+
+    <script type="text/javascript" src="./audjs/VocabChapsBuf.js"></script>
+    <script type="text/javascript" src="./audjs/VocabChapsDat.js"></script>
+
+    <script type="text/javascript" src="./hebrewTest.js"></script>
+
+    <style type="text/css">
+        .chkclr {
+            background: #ff0000;
+        }
+
+        .heb {
+            font-size: 200%;
+            font-family: 'Times New Roman';
+            text-align: right;
+        }
+
+        .eng {}
+
+        .txtcolr_white {
+            color: white;
+        }
+
+        #ctr_menu {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            font-family: 'Times New Roman';
+        }
+
+        .SCH[contenteditable],
+        .frq[contenteditable],
+        .err[contenteditable],
+        .cat[contenteditable],
+        .pos[contenteditable] {
+            background-color: #ccccff;
+        }
+
+        th,
+        .hilite {
+            background-color: #cccccc;
+        }
+
+        a[href] {
+            text-decoration: none;
+        }
+
+        .modified {
+            color: #00ff00;
+        }
+
+        .diff2Eff {
+            border-width: 3px;
+            border-color: red;
+        }
+
+        .found {
+            background-color: #ffff00;
+        }
+    </style>
+    <script type="text/javascript">
+        function table_sorter() {
+            $("table").tablesorter({
+                //  theme: 'blue',
+                usNumberFormat: false,
+                sortReset: true,
+                sortRestart: true,
+
+                widgets: ['columns', 'output',],//'zebra', 'editable'
+
+            });
+        }
+        $(document).ready(function () {
+            //gen_table();
+            gen_table_ahard();
+            table_sorter();
+
+            $(".eng").click(function () {
+                var dfy = $(this).next().next().next().text();
+                var sdf = parseInt(dfy) + 1;
+                $(this).next().next().next().text(sdf);
+            });
+
+            $("#togEnglis").click(function () {
+                $(".eng")//.slideToggle();
+                    .toggleClass("txtcolr_white")
+            });
+            $("#togHebrew").click(function () {
+                $(".heb")//.slideToggle();
+                    .toggleClass("txtcolr_white")
+            });
+
+            $("#toggle_autoplay").click(function () {
+                toggle_auto_play_audio();
+                $(this).toggleClass("hilite");
+            });
+            $("#outall").click(function () {
+                outputAll2texta("VocabChapsBuf");
+            });
+
+            $("#iEdit").click(function () {
+                $(this).toggleClass("hilite");
+                if ($(this).hasClass("hilite")) {
+                    outputAll2texta("VocabChapsBuf");
+                    $(".SCH, .frq").attr("contenteditable", "true");
+                } else {
+                    outputAll2texta("VocabChapsDat");
+                    $(".SCH, .frq").attr("contenteditable", null);
+                }
+
+            });
+            $("#search").click(function () {
+                var val = $("#texta").val();
+                var tdar = [];
+                $("td").each(function () {
+                    var tx = $(this).text();
+                    if (tx.indexOf(val) > 0) {
+                        tdar.push($(this));
+                    }
+                });
+                if (!this.m_idx) {
+                    this.m_idx = -1;
+                }
+                this.m_idx++;
+                if (this.m_idx >= tdar.length) {
+                    this.m_idx = 0;
+                }
+                $(tdar[this.m_idx]).toggleClass("found");
+                $(tdar[this.m_idx])[0].scrollIntoView();
+            });
+            $("#clear").click(function () {
+                $("#texta").val("");
+                $("table").trigger("updateAll");
+
+                //swap_arr_6and7();
+            });
+            $("#iExport").click(function () {
+                export_arr_no_marker(VocabChapsBuf);
+            });
+
+
+            $("#save").click(function () {
+                var s = $("#texta").val();
+                var fname = "../out/tmp/ttt.js";
+                var bufObj={};
+                $(".modified").each(function(){
+                   var tbdy=$(this).parentsUntil("tbody");
+                   var chp=$(tbdy).find("td:eq(1)").text();
+                   var shb=$(tbdy).find("td:eq(2)").text();
+                   var eng=$(tbdy).find("td:eq(3)").text();
+                   var sch=$(tbdy).find("td:eq(4)").text();
+                   var frq=$(tbdy).find("td:eq(5)").text();
+                   var dfy=$(tbdy).find("td:eq(6)").text();
+                   var typ=$(tbdy).find("td:eq(7)").text();
+                   var mem=$(tbdy).find("td:eq(8)").text();
+
+                   var aud=$(tbdy).find("td:eq(2)").attr("aud");
+                   var ilast=aud.lastIndexOf("/");
+                   var src="";
+                   if(ilast>0){
+                       src=aud.substring(1+ilast);
+                   };
+
+                   bufObj[chp]={shb:[eng,src,sch,frq,dfy,typ,mem]};
+                });
+                var s=JSON.stringify(bufObj,null,4);
+                $("#texta").val(s);
+                restapi_upHebewVocab(fname, s);
+            })
+        });//
+
+
+
+
+    </script>
+</head>
+
+<body id="top">
+
+    <div id="audio"></div>
+
+
+    <h1>שְׁמַע | יִשְׂרָאֵל, יְיָ | אֱלֹהֵינוּ, יְיָ | אֶחָֽד: | רֵאשִׁית</h1>
+
+    <a href="wordsgroups.htm"> grp </a> |
+    <a href="../../tool/Hebrew2/nodjs/myapp/oStrongCodeTable_Merged.htm"> Merged </a> |
+    <a href="../../tool/Hebrew2/nodjs/myapp/d3/treeIndented.htm" target="_blank"> tree </a> |
+    <a href="hebrewTest.htm" target="_blank"> test </a> |
+    <a href="hebrew_word_verb_strong.htm">verb</a>
+
+    <div id="ctr_menu">
+        <button id="iExport" title='export arr  without markers'>export</button>
+        <button id="iEdit">iEdit</button>
+        <button id="outall">outall</button>
+        <button id="indxer">indxer</button>
+
+        <br>
+        <button id="toggle_autoplay">autoplay</button>
+
+        <button id='search'>search</button>
+        <button id='clear'>clear</button>
+        <button id='save'>up</button>
+        <br>
+
+        <textarea id="texta"></textarea><br>
+    </div>
+
+
+
+
+
+    <div id="show"></div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he">
+    <head>
+        <title></title>
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+        <base target="_blank" />
+        <script type="text/javascript" src="./../../../../jquery.js"></script>
+        <script src="../../../../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="../../../../noduti/css/table_Strong.css"></link>
+        <script src="../../../../noduti/js/table_Indexer.js"></script>
+
+       
+
+        <style type="text/css">
+body{
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+
+
+.w{
+    background-color: yellow;
+    text-decoration: none;
+}
+
+</style>
+        <script type="text/javascript">
+
+$(document).ready(function(){ 
+
+    $("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+
+    });
+});//
+
+</script>
+    </head>
+    <body>
+    

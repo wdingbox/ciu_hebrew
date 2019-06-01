@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<title>pgn</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="./jquery.js"></script>
+		<link href="../tablesorter_master/docs/css/jq.css" rel="stylesheet" />
+		<link href="../tablesorter_master/dist/css/theme.default.min.css" rel="stylesheet" />
+		<script src="../tablesorter_master/js/jquery.tablesorter.js"></script><script type="text/javascript" src="./chap1.js"></script><script type="text/javascript" src="./chap2.js"></script><script type="text/javascript" src="./chap3.js"></script><script type="text/javascript" src="./chap4.js"></script>
+		<style type="text/css">
+body{
+			font-family: 'Times New Roman';
+		}
+.hebrew, .script-hebrew{
+    font-size: 200%;
+    font-family: 'Times New Roman';
+    text-align: right;
+}  
+
+.heb_left{
+    text-align: left;
+}
+.redpart, .SpecialHriq{
+    color: red;
+}
+.eng_pgn, .eng_pgn_neg{
+	font-size: 6px;
+}
+.idx{
+	font-size: 8px;
+}
+.eng_title1{
+	font-size: 10px;
+}
+.c, .cs1{
+    background-color: #ffeeee;
+}	
+.ms2{
+    background-color: #eeeeee;
+}	
+.fs2{
+    background-color: #ffeeff;
+}	
+.ms3{
+    background-color: #e1e1e1;
+}	
+.fs3{
+    background-color: #f1e1f1;
+}	
+	
+
+
+.cp1{
+    background-color: #ffeee1;
+}		
+.mp2{
+    background-color: #eeeee1;
+}	
+.fp2{
+    background-color: #ffeef1;
+}	
+.mp3{
+    background-color: #eeeee1;
+}	
+.fp3{
+    background-color: #f1e1f1;
+}	
+
+
+
+table,  td {
+    border-collapse: collapse;
+}
+
+th{
+    background-color: #cccccc;
+    
+}		
+td:nth-child(10)
+{
+	border-left-width: 3px; 
+}
+
+.impevStyle1{
+	border-color: rgb(255, 0, 51);  
+	border-top-color: rgb(255, 0, 0); 
+	border-width: 2px; 
+}
+.impevBkClor{
+	background-color: rgb(255, 255, 1);
+}
+.impevBorderNoneTop{
+	border-top: none;
+}
+.impevBorderNoneBottom{
+	border-bottom-color: rgb(0, 0, 0);
+	border-bottom-width: 1px; 
+}
+.tdBorderTop2{
+	border-top-width: 2px; 
+}
+.tdBorderTop3{
+	border-top-width: 5px; 
+}
+.tdBorderBottom2{
+	border-bottom-width: 2px; 
+}		
+
+
+
+
+.clr_larm{
+	background-color:#dda0dd;
+	border-style: solid;
+	border-width: 1px; 
+}
+.clr_upon{
+	background-color:#b22222;
+	border-style: solid;
+	border-width: 1px; 
+	
+}
+.clr_like{
+	background-color:#ffa07a;
+	border-style: solid;
+	border-width: 1px; 	
+}
+.clr_from{
+	background-color:#add8e6;
+	border-style: solid;
+	border-width: 1px; 	
+}
+.clr_with{
+	background-color:#40e0d0;
+	border-style: solid;
+	border-width: 1px; 
+	
+}
+.clr_ddo{
+	background-color:#00ffff;
+	border-style: solid;
+	border-width: 1px; 
+}
+.clr_memo{
+	color:#ff0000;
+	border-style: solid;
+	border-width: 1px; 
+}		
+.clr_inby{
+	background-color:#aaccaa;
+	border-style: solid;
+	border-width: 1px; 
+}		
+.clr_after{
+	background-color:#ffa500;
+	border-style: solid;
+	border-width: 1px; 
+}		
+
+.clr_NarrPrr_2ms_3fs{
+	background-color:#808080;	
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #0000ff;
+}
+.clr_NarrPrr_2ms_3fs_toggle{
+	background-color:#ff0000;	
+}
+.clr_NarrPrr_2fp_3fp{
+	background-color:#cefeee;	
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #0000ff;
+}
+.clr_NarrPrr_2fp_3fp_toggle{
+	background-color:#00ff00;	
+}
+.verb_consonant_3ms, .verb_consonant_2ms, .verb_pronoun_suffix_1cs{
+	font-family: 'Times New Roman';
+	font-size: 150%;
+}
+.impv_soften{
+	font-family: 'Times New Roman';
+	font-size: 0px;	
+}
+
+.SoftenImpvSuffix{
+	font-family: 'Times New Roman';
+	font-size: 15px;	
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #ff0000;
+	float:left;
+}
+.cohortative{
+	font-family: 'Times New Roman';
+	font-size: 9px;	
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #0000ff;
+	float:left;	
+}
+
+.NegImpv{
+	font-family: 'Times New Roman';
+	background-color: yellow;
+	font-size: 70%;	
+	border-style: solid;
+	border-width: 1px; 
+	border-color: #ff000f;
+	position: relative;
+	top: 0px;
+}
+.hebrew_neg{
+	font-size: 200%;
+    font-family: 'Times New Roman';
+}
+
+.impvSuffix{
+	
+}
+.participle_active_ho{
+	background-color: #ff5555;
+}
+
+.redvow{
+	color:red;
+}		</style>
+		<script type="text/javascript">
+$(document).ready(function(){ 
+	$(".eng_pgn").slideToggle();
+	$("#num").click(function(){
+		$(".eng_pgn").slideToggle();
+	});
+	$(".clr_NarrPrr_2ms_3fs").bind("mouseover click",function(){
+		$(".clr_NarrPrr_2ms_3fs").toggleClass("clr_NarrPrr_2ms_3fs_toggle");
+	}).attr("title","same btw 2ms and 3fs for Narrative");
+	$(".clr_NarrPrr_2fp_3fp").bind("mouseover click",function(){
+		$(".clr_NarrPrr_2fp_3fp").toggleClass("clr_NarrPrr_2fp_3fp_toggle");
+	}).attr("title","same btw 2fp and 3fp for Narrative");
+
+	var clsnameArr=["clr_upon","clr_larm","clr_like","clr_from","clr_with","clr_ddo","clr_memo","clr_inby","clr_after"];
+	$.each(clsnameArr,function(i,clnam){
+		$("."+clnam).bind("mouseover click",function(){
+			$("."+clnam).toggleClass("clr_NarrPrr_2fp_3fp_toggle");
+		});
+	});
+
+
+});//
+
+</script>
+	</head>
+	<body>
+		<table border="1">
+			<tbody>
+				<tr>
+					<td id="num" rowspan="5">
+						<a>#</a></td>
+					<td rowspan="5">
+						P<br />
+						G<br />
+						N</td>
+					<td colspan="7" rowspan="2" style="text-align: center;">
+						Person-Gender-Number&nbsp;&nbsp;&nbsp;<a href="http://localhost/~weiding/weidroot/weidroot_2017-01-06/app/btool/tool/_edit/explore/Work_htm.htm?fname=/Users/weiding/Sites/weidroot/weidroot_2017-01-06/app/btool/tool/HebrewQ/hebrew_form_pgn.htm">(11/06/17)</a></td>
+					<td colspan="6" rowspan="1" style="text-align: center;">
+						Qal</td>
+					<td rowspan="5">
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="1" rowspan="4" style="text-align: center;">
+						Perfect<br />
+						Suffix</td>
+					<td colspan="4" fix1="" style="text-align: center;" title="Narrative Preterite">
+						<span style="font-size:12px;">Narrative Preterite</span></td>
+					<td colspan="1" rowspan="4" title="Imperative Negative">
+						<br />
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td rowspan="3">
+						<span style="font-size:8px;">Hebrew<br />
+						Independent<br />
+						Pronouns</span></td>
+					<td colspan="6" rowspan="1" style="text-align: center;">
+						Pronominal Suffix for Preposition, Noun and Verb</td>
+					<td colspan="3" fix2="" rowspan="1" style="text-align: center;">
+						Imperfect</td>
+					<td colspan="1" fix1="" rowspan="3" title="Narrative Preterite Prefix">
+						<a href="#conjunction_wav"><span style="font-size:11px;">conj</span></a></td>
+				</tr>
+				<tr>
+					<td rowspan="2" style="text-align: center;" title="preposition and singular noun suffix">
+						I<br />
+						<span style="font-size:10px;">singular</span></td>
+					<td rowspan="2" style="text-align: center;" title="preposition and plural noun Suffix">
+						II<br />
+						plural</td>
+					<td rowspan="2" style="text-align: center;">
+						like<br />
+						from</td>
+					<td rowspan="2" style="text-align: center;">
+						with<br />
+						DDO</td>
+					<td colspan="2" rowspan="1" style="text-align: center;">
+						Verb</td>
+					<td colspan="2" rowspan="1" style="text-align: center;">
+						<span style="font-size:9px;"><span class="impvSuffix"><span style="color: rgb(255, 0, 0);" title="Imperative">Imperative</span></span></span></td>
+					<td rowspan="2" style="text-align: center;">
+						<span style="font-size:10px;">Prefix</span></td>
+				</tr>
+				<tr>
+					<td style="text-align: center;">
+						-Cons</td>
+					<td title="Consonants Suffix">
+						-Vow</td>
+					<td style="text-align: center;" title="Softened (long) Imperative">
+						<span style="font-size:0px;">Soft</span></td>
+					<td title="Imperative/Imperfect/Narrative Suffix">
+						<div class="impvSuffix" title="Imperative/Imperfect/Narrative Suffix">
+							<span style="font-size:12px;">Suffix</span></div>
+					</td>
+				</tr>
+				<tr class="cs1">
+					<td>
+						<a class="idx">1.</a><br />
+						<div class="eng_pgn">
+							I<br />
+							me<br />
+							my<br />
+							mine</div>
+					</td>
+					<td>
+						1<br />
+						c<br />
+						s</td>
+					<td class="hebrew">
+						אָנֹכִי<br />
+						אֲנִי</td>
+					<td class="hebrew">
+						<span class="clr_larm">לִ</span>י<br />
+						<span class="clr_inby">בִּ</span>י</td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_upon">עָלַ</span>י<br />
+						<span class="clr_after">אַחֲרַ</span>י</td>
+					<td class="hebrew">
+						<span class="clr_like">כָּ</span><span class="clr_memo">מֹ</span>נִי<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מֶּ</span>נִּי</td>
+					<td class="hebrew">
+						<span class="clr_with">אִתִּ</span>י<br />
+						<span class="clr_ddo">אֹתִ</span>י</td>
+					<td class="hebrew verb_pronoun_suffix_1cs" style="text-align: left;">
+						נִי<br />
+						נִי&nbsp;ִ<br />
+						נֵי</td>
+					<td class="hebrew" style="text-align: left;">
+						נִי-</td>
+					<td class="hebrew" style="text-align: left;">
+						תִּי-</td>
+					<td colspan="2" style="vertical-align: top;">
+						<div class="cohortative" title="Softened Imperative Suffix">
+							<span style="color:#0000ff;">cohortative</span><br />
+							<span style="font-size:22px;"><span style="color:#000000;">ה&nbsp;ָ-</span></span></div>
+					</td>
+					<td class="hebrew">
+						-אֶ</td>
+					<td class="hebrew" style="text-align: left;">
+						וָ</td>
+					<td colspan="1" rowspan="1" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+					<td rowspan="1" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+				</tr>
+				<tr class="ms2">
+					<td class="tdBorderTop2" rowspan="1">
+						<a class="idx">2.</a><br />
+						<div class="eng_pgn">
+							you<br />
+							you<br />
+							your<br />
+							yours</div>
+					</td>
+					<td class="tdBorderTop2" rowspan="1">
+						2<br />
+						m<br />
+						s</td>
+					<td class="hebrew tdBorderTop2" rowspan="1">
+						אַתָּה</td>
+					<td class="hebrew tdBorderTop2" rowspan="1">
+						<span class="clr_larm">לְ</span>ךָ<br />
+						<span class="clr_inby">בְּ</span>ךָ</td>
+					<td class="hebrew tdBorderTop2" rowspan="1" style="text-align: left;">
+						<span class="clr_upon">עָלֶ</span>יךָ<br />
+						<span class="clr_after">אַחֲרֶ</span>יךָ</td>
+					<td class="hebrew tdBorderTop2" rowspan="1">
+						<span class="clr_like">כָּ</span><span class="clr_memo">מוֹ</span>ךָ<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מְּ</span>ךָ</td>
+					<td class="hebrew tdBorderTop2" rowspan="1">
+						<span class="clr_with">אִתְּ</span>ךָ<br />
+						<span class="clr_ddo">אֹתְ</span>ךָ</td>
+					<td class="tdBorderTop2" rowspan="1" style="text-align: left;">
+						<a class="hebrew"> ךָ&nbsp;ְ<br />
+						ךָ&nbsp;ֲ<br />
+						ךָ&nbsp;ֵ</a></td>
+					<td class="hebrew tdBorderTop2" rowspan="1" style="text-align: left;">
+						ךָ-</td>
+					<td class="hebrew tdBorderTop2" rowspan="1" style="text-align: left;">
+						תָּ-</td>
+					<td class="impevStyle1 impevBkClor impevBorderNoneBottom" colspan="1" rowspan="2" style="text-align: left;">
+						<a class="impv_soften"> ה&nbsp;ָ-<br />
+						־נָא</a></td>
+					<td class="hebrew impevStyle1 impevBkClor impevBorderNoneBottom" style="vertical-align: top;">
+						<div class="SoftenImpvSuffix" style="text-align: left;" title="Softened Imperative Suffix">
+							<span style="color:#ff0000;">soft</span><br />
+							ה&nbsp;ָ-<br />
+							־נָא</div>
+					</td>
+					<td class="hebrew tdBorderTop2 impevBkClor " style="vertical-align: bottom;">
+						<span class="clr_NarrPrr_2ms_3fs">-תִּ</span></td>
+					<td class="tdBorderTop2" style="text-align: left; vertical-align: bottom;">
+						<div class="NegImpv" style="text-align: right;" title="Duration(Never) and Temporal Negative Imperative">
+							<span style="color:#ff0000;"><span style="font-size:12px;">never</span></span><br />
+							<a class="hebrew_neg" title="Never ever">לוֹא</a><br />
+							<span style="color:#ff0000;"><span style="font-size:12px;">no</span></span><br />
+							<a class="hebrew_neg" title="temporal no">אַל</a></div>
+						<span class="hebrew clr_NarrPrr_2ms_3fs">וַ</span></td>
+					<td class="tdBorderTop2  " rowspan="2" style="text-align: center; ">
+						&nbsp;</td>
+					<td class="tdBorderTop2" rowspan="1" style="text-align: center;">
+						&nbsp;</td>
+				</tr>
+				<tr class="fs2">
+					<td rowspan="1">
+						<a class="idx">3.</a><br />
+						<div class="eng_pgn">
+							you<br />
+							you<br />
+							your<br />
+							yours</div>
+					</td>
+					<td rowspan="1">
+						2<br />
+						f<br />
+						s</td>
+					<td class="hebrew" rowspan="1">
+						אַתְּ</td>
+					<td class="hebrew" rowspan="1">
+						<span class="clr_larm">לָ</span>ךְ<br />
+						<span class="clr_inby">בָּ</span>ךָ</td>
+					<td class="hebrew" rowspan="1" style="text-align: left;">
+						<span class="clr_upon">עָלָ</span>י<a class="SpecialHriq" title="hiriq only in 2fs">ִִ</a>ךְ<br />
+						<span class="clr_after">אַחֲרַ</span>י<a class="SpecialHriq" title="hiriq only in 2fs">ִ</a>ךְ</td>
+					<td class="hebrew" rowspan="1">
+						&ndash;<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מְּ</span>ךְ</td>
+					<td class="hebrew" rowspan="1">
+						<span class="clr_with">אִתָּ</span>ךְ<br />
+						<span class="clr_ddo">אֹתָ</span>ךְ</td>
+					<td rowspan="1" style="text-align: left;">
+						<a class="hebrew"> ךְ&nbsp;ָ<br />
+						ךְ&nbsp;ֵ</a></td>
+					<td class="hebrew" rowspan="1" style="text-align: left;">
+						ךְ-</td>
+					<td class="hebrew" rowspan="1" style="text-align: left;">
+						תְּ-</td>
+					<td class="hebrew impevStyle1 impevBkClor  impevBorderNoneTop" rowspan="1" style="text-align: left;">
+						י-ִ</td>
+					<td class="hebrew impevBkClor " rowspan="1">
+						-תִּ</td>
+					<td class="hebrew" rowspan="1" style="text-align: left;">
+						וַ</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr class="ms3">
+					<td class="tdBorderTop2">
+						<a class="idx">4.</a><br />
+						<div class="eng_pgn">
+							he<br />
+							him<br />
+							his<br />
+							his</div>
+					</td>
+					<td class="tdBorderTop2">
+						3<br />
+						m<br />
+						s</td>
+					<td class="hebrew tdBorderTop2">
+						הוּא</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_larm">ל</span>וֹ<br />
+						<span class="clr_inby">בּ</span>וֹ</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						<span class="clr_upon">עָלָ</span>יו<br />
+						<span class="clr_after">אַחֲרָ</span>יו</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_like">כָּ</span><span class="clr_memo">מֹ</span>הוּ<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מֶּ</span>נּוּ</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_with">אתּ</span>וֹ<br />
+						<span class="clr_ddo">אֹת</span>וֹ</td>
+					<td class="tdBorderTop2" style="text-align: left;">
+						<a class="verb_consonant_3ms"> וֹ,ו,&nbsp;ֶנּוּ<br />
+						הוּ,הֹ&nbsp;ֵ<br />
+						יו , ִיו&nbsp;ָ</a></td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						הוּ-</td>
+					<td class="hebrew tdBorderTop2">
+						&nbsp;</td>
+					<td class="hebrew" colspan="2">
+						&nbsp;</td>
+					<td class="hebrew tdBorderTop2">
+						&nbsp;-יִ</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						&nbsp;ּוַ</td>
+					<td class="tdBorderTop2" colspan="1" rowspan="2" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+					<td class="tdBorderTop2" rowspan="2" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+				</tr>
+				<tr class="fs3">
+					<td>
+						<a class="idx">5.</a><br />
+						<div class="eng_pgn">
+							she<br />
+							her<br />
+							her<br />
+							hers</div>
+					</td>
+					<td>
+						3<br />
+						f<br />
+						s</td>
+					<td class="hebrew ">
+						הִיא</td>
+					<td class="hebrew ">
+						<span class="clr_larm">לָ</span>הּ<br />
+						<span class="clr_inby">בָּ</span>הּ</td>
+					<td class="hebrew " style="text-align: left;">
+						<span class="clr_upon">עָלֶ</span>יהָ<br />
+						<span class="clr_after">אַחֲרֶ</span>יהָ</td>
+					<td class="hebrew ">
+						&ndash;<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מֶּ</span>נָּה</td>
+					<td class="hebrew ">
+						<span class="clr_with">אִתָּ</span>הּ<br />
+						<span class="clr_ddo">אֹתָ</span>הּ</td>
+					<td class="hebrew " style="text-align: left;">
+						ה&nbsp;ָ<br />
+						הּ&nbsp;ָ</td>
+					<td class="hebrew " style="text-align: left;">
+						הָ-</td>
+					<td class="hebrew " style="text-align: left;">
+						ה-ָ</td>
+					<td class="hebrew" colspan="2">
+						&nbsp;</td>
+					<td class="hebrew">
+						<span class="clr_NarrPrr_2ms_3fs">-תִּ</span></td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_NarrPrr_2ms_3fs">וַ</span></td>
+				</tr>
+				<tr class="cp1">
+					<td class="tdBorderTop3">
+						<a class="idx">6.</a><br />
+						<div class="eng_pgn">
+							we<br />
+							us<br />
+							our<br />
+							ours</div>
+					</td>
+					<td class="tdBorderTop3">
+						1<br />
+						c<br />
+						p</td>
+					<td class="hebrew tdBorderTop3">
+						אֲנַ֫חְנוּ</td>
+					<td class="hebrew tdBorderTop3">
+						<span class="clr_larm">לָ֫</span>נוּ<br />
+						<span class="clr_inby">בָּ</span>נוּ</td>
+					<td class="hebrew tdBorderTop3" style="text-align: left;">
+						<span class="clr_upon">עָלֵ</span>ינוּ<br />
+						<span class="clr_after">אַחֲרֵ</span>ינוּ</td>
+					<td class="hebrew tdBorderTop3">
+						<span class="clr_like">כָּ</span><span class="clr_memo">מֹ</span>נוּ<br />
+						<span class="clr_from">מִ</span><span class="clr_memo">מֶּ</span>נּוּ</td>
+					<td class="hebrew tdBorderTop3">
+						<span class="clr_with">אִתָּ</span>נוּ<br />
+						<span class="clr_ddo">אֹתָ</span>נוּ</td>
+					<td class="hebrew tdBorderTop3" style="text-align: left;">
+						נוּ&nbsp;ֵ<br />
+						נוּ&nbsp;ָ</td>
+					<td class="hebrew tdBorderTop3" style="text-align: left;">
+						נוּ-</td>
+					<td class="hebrew tdBorderTop3" style="text-align: left;">
+						נוּ-</td>
+					<td class="hebrew tdBorderTop3" colspan="2" style="vertical-align: top;">
+						<div class="cohortative" style="text-align: left;" title="Softened Imperative Suffix">
+							<span style="color:#0000ff;">cohortative</span><br />
+							<span style="font-size:22px;">ה&nbsp;ָ-</span></div>
+					</td>
+					<td class="hebrew tdBorderTop3">
+						-נִ</td>
+					<td class="hebrew tdBorderTop3" style="text-align: left;">
+						&nbsp;ּוַ</td>
+					<td class="tdBorderTop3" colspan="1" rowspan="1" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+					<td class="tdBorderTop3" rowspan="1" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+				</tr>
+				<tr class="mp2">
+					<td class="tdBorderTop2">
+						<a class="idx">7.</a><br />
+						<div class="eng_pgn">
+							you<br />
+							you<br />
+							your<br />
+							yours</div>
+					</td>
+					<td class="tdBorderTop2">
+						2<br />
+						m<br />
+						p</td>
+					<td class="hebrew tdBorderTop2">
+						אַתֶּם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_larm">לָ</span>כֶם<br />
+						<span class="clr_inby">בָּ</span>כֶם</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						<span class="clr_upon">עֲלֵ</span>יכֶם<br />
+						<span class="clr_after">אַחֲרֵ</span>יכֶם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_like">כָּ</span>כֶם<br />
+						<span class="clr_from">מִ</span>כֶּם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_with">אִתְּ</span>כֶם<br />
+						<span class="clr_ddo">אֶתְ</span>כֶם</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						כֶּם-</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						כֶּם-</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						תֶּם-</td>
+					<td class="impevStyle1 impevBkClor  impevBorderNoneBottom" colspan="1" rowspan="2" style="text-align: left;">
+						<a class="impv_soften"> ה&nbsp;ָ-<br />
+						־נָא</a></td>
+					<td class="hebrew impevStyle1 impevBkClor  impevBorderNoneBottom" style="text-align: left;">
+						וּ-</td>
+					<td class="hebrew tdBorderTop2" style="background-color: rgb(255, 255, 0);">
+						-תִּ</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						וַ</td>
+					<td class="tdBorderTop2 " rowspan="2" style="text-align: center;">
+						&nbsp;</td>
+					<td class="tdBorderTop2">
+						&nbsp;</td>
+				</tr>
+				<tr class="fp2">
+					<td>
+						<a class="idx">8.</a><br />
+						<div class="eng_pgn">
+							you<br />
+							you<br />
+							your<br />
+							yours</div>
+					</td>
+					<td>
+						2<br />
+						f<br />
+						p</td>
+					<td class="hebrew">
+						אַתֵּ֫נָה<br />
+						אַתֵּן</td>
+					<td class="hebrew">
+						<span class="clr_larm">לָ</span>כֶן<br />
+						<span class="clr_inby">בָּ</span>כֶן</td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_upon">עֲלֵ</span>יכֶן<br />
+						<span class="clr_after">אַחֲרֵ</span>יכֵן</td>
+					<td class="hebrew">
+						&ndash;</td>
+					<td class="hebrew">
+						&ndash;</td>
+					<td class="hebrew" style="text-align: left;">
+						&ndash;</td>
+					<td class="hebrew" style="text-align: left;">
+						&ndash;</td>
+					<td class="hebrew" style="text-align: left;">
+						תֶּן-</td>
+					<td class="hebrew impevStyle1 impevBkClor  impevBorderNoneTop" style="text-align: left;">
+						<a class="clr_NarrPrr_2fp_3fp"> נָה-</a></td>
+					<td class="hebrew impevBkClor ">
+						<span class="clr_NarrPrr_2fp_3fp">-תִּ</span></td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_NarrPrr_2fp_3fp">וַ</span></td>
+					<td class="hebrew">
+						&nbsp;</td>
+				</tr>
+				<tr class="mp3">
+					<td class="tdBorderTop2">
+						<a class="idx">9.</a><br />
+						<div class="eng_pgn">
+							they<br />
+							them<br />
+							their<br />
+							theirs</div>
+					</td>
+					<td class="tdBorderTop2">
+						3<br />
+						m<br />
+						p</td>
+					<td class="hebrew tdBorderTop2">
+						הֵ֫מָּה<br />
+						הֵם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_larm">לָ</span>הֶם<br />
+						<span class="clr_inby">בָּ</span>הֶם<br />
+						<span class="clr_inby">בָּ</span>ם</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						<span class="clr_upon">עֲלֵ</span>יהֶם<br />
+						<span class="clr_after">אַחֲרֵ</span>יהֶם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_like">כָּ</span>הֵם<br />
+						<span class="clr_from">מֵ</span>הֶם</td>
+					<td class="hebrew tdBorderTop2">
+						<span class="clr_with">אִתָּ</span>ם<br />
+						<span class="clr_ddo">אֹתָ</span>ם<br />
+						<span class="clr_ddo">אֶתְ</span>הֶם</td>
+					<td class="tdBorderTop2" style="text-align: left;">
+						<a class="verb_consonant_3ms"> ם&nbsp;ַ<br />
+						ם&nbsp;ָ<br />
+						ם&nbsp;ֵ<br />
+						מוֹ,הֶם</a></td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						ם-</td>
+					<td class="hebrew tdBorderTop2" colspan="1" rowspan="2" style="text-align: left;">
+						וּ-</td>
+					<td class="hebrew tdBorderTop2" colspan="2" style="text-align: left;">
+						וּ-</td>
+					<td class="hebrew tdBorderTop2">
+						-יִ</td>
+					<td class="hebrew tdBorderTop2" style="text-align: left;">
+						ּ וַ</td>
+					<td class="tdBorderTop2" colspan="1" rowspan="2" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+					<td class="tdBorderTop2" rowspan="2" style="background-color: rgb(255, 255, 255);">
+						&nbsp;</td>
+				</tr>
+				<tr class="fp3">
+					<td>
+						<a class="idx">10</a><br />
+						<div class="eng_pgn">
+							they<br />
+							them<br />
+							their<br />
+							theirs</div>
+					</td>
+					<td>
+						3<br />
+						f<br />
+						p</td>
+					<td class="hebrew">
+						הֵ֫נָּה</td>
+					<td class="hebrew">
+						<span class="clr_larm">לָ</span>הֶן<br />
+						<span class="clr_inby">בָּ</span>הֶן<br />
+						<span class="clr_inby">בָּ</span>ן</td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_upon">עֲלֵ</span>יהֶן<br />
+						<span class="clr_after">אַחֲרֵ</span>יהֶן</td>
+					<td class="hebrew">
+						<span class="clr_like">כָּ</span>הֵן<br />
+						<span class="clr_from">מֵ</span>הֵן</td>
+					<td class="hebrew">
+						&ndash;<br />
+						<span class="clr_ddo">אֹתָ</span>ן<br />
+						<span class="clr_ddo">אֶתְ</span>הֶן</td>
+					<td class="hebrew" style="text-align: left;">
+						ן&nbsp;ָ-</td>
+					<td class="hebrew" style="text-align: left;">
+						ן-</td>
+					<td class="hebrew" colspan="2" style="text-align: left;">
+						<span class="clr_NarrPrr_2fp_3fp">נָה-</span></td>
+					<td class="hebrew">
+						<span class="clr_NarrPrr_2fp_3fp">-תִּ</span></td>
+					<td class="hebrew" style="text-align: left;">
+						<span class="clr_NarrPrr_2fp_3fp">וַ</span></td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			<a name="conjunction_wav">Conjunction wav</a>:<br />
+			<span style="font-size:12px;">imperfect + wav = perfect (narrative)<br />
+			perfect&nbsp; &nbsp; &nbsp;+ wav = imperfect (perfect consective or imperative)</span></p>
+		<div style="page-break-after: always;">
+			<span style="display: none;">&nbsp;</span></div>
+		<div style="page-break-after: always;">
+			<span style="display: none;">&nbsp;</span></div>
+		<p>
+			Qal Participle</p>
+		<table border="1" role="grid">
+			<tbody aria-live="polite" aria-relevant="all">
+				<tr>
+					<td style="text-align: right;">
+						&nbsp;</td>
+					<td style="text-align: right;">
+						&nbsp;</td>
+					<td style="text-align: right;">
+						&nbsp;</td>
+					<td style="text-align: center;">
+						3s</td>
+					<td style="text-align: center;">
+						3p</td>
+				</tr>
+				<tr class="idx0" role="row">
+					<td style="text-align: right;">
+						0</td>
+					<td style="text-align: right;">
+						Active</td>
+					<td style="text-align: right;">
+						m</td>
+					<td style="text-align: right;">
+						<a class="hebrew">נ<span class="participle_active_ho">וֹ</span>תֵן</a></td>
+					<td style="text-align: right;">
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נ<span class="participle_active_ho">וֹ</span>תְנִ<span style="background-color: rgb(64, 224, 208);">ים</span></a></td>
+				</tr>
+				<tr class="idx0" role="row" style="border-bottom-width: 5px; border-bottom-color: rgb(255, 0, 0);">
+					<td style="text-align: right;">
+						0</td>
+					<td style="text-align: right;">
+						Active</td>
+					<td style="text-align: right;">
+						f</td>
+					<td style="text-align: right;">
+						<a class="hebrew">נ<span class="participle_active_ho">וֹ</span>תְנָ<span style="background-color: rgb(221, 160, 221);">ה</span></a><br />
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נ<span class="participle_active_ho">וֹ</span>תְנֶ<span style="background-color: rgb(255, 240, 245);">ת</span></a></td>
+					<td style="text-align: right;">
+						<a class="hebrew">נ<span class="participle_active_ho">וֹ</span>תְנ<span style="background-color: rgb(238, 130, 238);">וֹת</span></a></td>
+				</tr>
+				<tr class="idx0" role="row">
+					<td style="text-align: right;">
+						0</td>
+					<td style="text-align: right;">
+						Passive</td>
+					<td style="text-align: right;">
+						m</td>
+					<td style="text-align: right;">
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נָת<span style="background-color: rgb(178, 34, 34);">וּ</span>ן</a></td>
+					<td style="text-align: right;">
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נְת<span style="background-color: rgb(178, 34, 34);">וּ</span>נִ<span style="background-color: rgb(64, 224, 208);">ים</span></a></td>
+				</tr>
+				<tr class="idx0" role="row" style="border-bottom-width: 5px; border-bottom-color: rgb(255, 0, 0);">
+					<td style="text-align: right;">
+						0</td>
+					<td style="text-align: right;">
+						Passive</td>
+					<td style="text-align: right;">
+						f</td>
+					<td style="text-align: right;">
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נְת<span style="background-color: rgb(178, 34, 34);">וּ</span>נָ<span style="background-color: rgb(221, 160, 221);">ה</span></a><br />
+						<a class="hebrew">נְת<span style="background-color: rgb(178, 34, 34);">וּ</span>נֶ<span style="background-color: rgb(255, 240, 245);">ת</span></a></td>
+					<td style="text-align: right;">
+						<a class="hebrew" style="font-size: 32px; font-family: &quot;Times New Roman&quot;;">נְת<span style="background-color: rgb(178, 34, 34);">וּ</span>נ<span style="background-color: rgb(238, 130, 238);">וֹת</span></a><br />
+						&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			&nbsp;</p>
+		<table border="1" cellpadding="1" cellspacing="1">
+			<caption>
+				Possible Letters Ending/Heading&nbsp;in&nbsp;PGN</caption>
+			<tbody>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td colspan="16" rowspan="1" style="text-align: center;">
+						Engings</td>
+					<td style="text-align: center;">
+						-</td>
+					<td colspan="4" rowspan="1">
+						Headings</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						1</td>
+					<td>
+						2</td>
+					<td>
+						3</td>
+					<td>
+						4</td>
+					<td>
+						5</td>
+					<td>
+						6</td>
+					<td>
+						7</td>
+					<td>
+						8</td>
+					<td>
+						9</td>
+					<td>
+						10</td>
+					<td>
+						11</td>
+					<td>
+						12</td>
+					<td>
+						13</td>
+					<td>
+						14</td>
+					<td>
+						15</td>
+					<td>
+						16</td>
+					<td style="text-align: center;">
+						-</td>
+					<td>
+						1</td>
+					<td>
+						2</td>
+					<td>
+						3</td>
+					<td>
+						4</td>
+				</tr>
+				<tr class="hebrew tdBorderTop3">
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						י</td>
+					<td>
+						ני</td>
+					<td>
+						ךָ</td>
+					<td>
+						ךְ</td>
+					<td>
+						תָּ</td>
+					<td>
+						תְּ</td>
+					<td>
+						וֹ</td>
+					<td>
+						וּ</td>
+					<td>
+						נּוּ</td>
+					<td>
+						נוּ</td>
+					<td>
+						הוּ</td>
+					<td>
+						יו</td>
+					<td>
+						ה</td>
+					<td>
+						הּ</td>
+					<td>
+						ם</td>
+					<td>
+						ן</td>
+					<td>
+						--</td>
+					<td>
+						אֶ</td>
+					<td>
+						תִּ</td>
+					<td>
+						יִ</td>
+					<td>
+						נִ</td>
+				</tr>
+				<tr>
+					<td>
+						1</td>
+					<td>
+						1cs</td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						2</td>
+					<td>
+						2ms</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						2fs</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						4</td>
+					<td>
+						3ms</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						5</td>
+					<td>
+						3fs</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="23" rowspan="1">
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						6</td>
+					<td>
+						1cp</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+				</tr>
+				<tr>
+					<td>
+						7</td>
+					<td>
+						2mp</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						8</td>
+					<td>
+						2fp</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						9</td>
+					<td>
+						3mp</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						10</td>
+					<td>
+						3fp</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="23" rowspan="1">
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						11</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<table border="1" cellpadding="1" cellspacing="1">
+			<caption>
+				ending letters</caption>
+			<tbody>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						1cs</td>
+					<td>
+						2ms</td>
+					<td>
+						2fs</td>
+					<td>
+						3ms</td>
+					<td>
+						3fs</td>
+					<td>
+						1cp</td>
+					<td>
+						2mp</td>
+					<td>
+						2fp</td>
+					<td>
+						3mp</td>
+					<td>
+						3fp</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						י</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						ני</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						ךָ</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						ךְ</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						ו</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						x</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+				<tr>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			&nbsp;</p>
+		<table border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+			<caption>
+				Verbal Stems</caption>
+			<tbody>
+				<tr>
+					<td>
+						#</td>
+					<td>
+						type</td>
+					<td>
+						Active Stems</td>
+					<td>
+						Form</td>
+					<td>
+						Meaning</td>
+					<td>
+						Passive Stems</td>
+					<td>
+						Form</td>
+					<td>
+						Meaning</td>
+				</tr>
+				<tr>
+					<td>
+						1</td>
+					<td>
+						norm</td>
+					<td>
+						Q<span style="color:#ff0000;">a</span>l</td>
+					<td>
+						שׁ<a class="redvow">ָ</a>מ<a class="redvow">ַ</a>ר</td>
+					<td>
+						he kept</td>
+					<td>
+						<span style="color:#ff0000;">Ni</span>ph<span style="color:#ff0000;">a</span>l</td>
+					<td>
+						<a class="redvow">נִ</a>שׁ<a class="redvow">ְ</a>מ<a class="redvow">ַ</a>ר</td>
+					<td>
+						he was kept</td>
+				</tr>
+				<tr>
+					<td>
+						2</td>
+					<td>
+						strong</td>
+					<td>
+						P<span style="color:#ff0000;">ie</span>l&nbsp;</td>
+					<td>
+						שׁ<a class="redvow">ִ</a>מ<a class="redvow">ֵּ</a>ר</td>
+					<td>
+						he really kept</td>
+					<td>
+						P<span style="color:#ff0000;">ua</span>l</td>
+					<td>
+						שׁ<a class="redvow">ֻ</a>מ<a class="redvow">ַּ</a>ר</td>
+					<td>
+						he was really kept</td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						causive</td>
+					<td>
+						<span style="color:#ff0000;">Hi</span>ph<span style="color:#ff0000;">i</span>l</td>
+					<td>
+						<a class="redvow">הִ</a>שׁ<a class="redvow">ְ</a>מ<a class="redvow">ִי</a>ר</td>
+					<td>
+						he caused to keep</td>
+					<td>
+						<span style="color:#ff0000;">Ho</span>ph<span style="color:#ff0000;">a</span>l</td>
+					<td>
+						<a class="redvow">הָ</a>שׁ<a class="redvow">ְ</a>מ<a class="redvow">ַ</a>ר</td>
+					<td>
+						he was caused to keep</td>
+				</tr>
+				<tr>
+					<td>
+						4</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						<span style="color:#ff0000;">Hith</span>p<span style="color:#ff0000;">ae</span>l</td>
+					<td>
+						הִתְחַזֵּק</td>
+					<td>
+						he keep himself</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			&nbsp;</p>
+	</body>
+</html>

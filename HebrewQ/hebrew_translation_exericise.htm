@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<title></title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="./jquery.js"></script>
+		<link rel="shortcut icon" href="">
+		<link href="../tablesorter_master/docs/css/jq.css" rel="stylesheet" />
+		<link href="../tablesorter_master/dist/css/theme.default.min.css" rel="stylesheet" />
+		<script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+
+
+		<style type="text/css">
+thead th{
+	font-size: 150%;
+	text-align: center;
+}
+tbody th{
+	font-size: 150%;
+	text-align: right;
+}
+th{
+    background-color: #cccccc;
+}	
+tr:nth-child(10){
+	background-color: #ffeeee;
+}
+tr:nth-child(11){
+	background-color: #ffeeee;
+}
+tr:nth-child(12){
+	background-color: #ffeeee;
+}
+tr:nth-child(13){
+	background-color: #ffeeee;
+}
+tr:nth-child(14){
+	background-color: #ffeeee;
+}
+tr:nth-child(15){
+	background-color: #ffeeee;
+}
+tr:nth-child(16){
+	background-color: #ffeeee;
+}
+tr:nth-child(17){
+	background-color: #ffeeee;
+}
+tr:nth-child(18){
+	background-color: #ffeeee;
+}
+tr:nth-child(19){
+	background-color: #ffeeee;
+}
+
+tr:nth-child(21){
+	background-color: #ffeeee;
+}
+tr:nth-child(22){
+	background-color: #ffeeee;
+}
+
+tr:nth-child(27){
+	background-color: #ffeeee;
+}
+
+tr:nth-child(31){
+	background-color: #ffeeee;
+}
+tr:nth-child(32){
+	background-color: #ffeeee;
+}
+tr:nth-child(33){
+	background-color: #ffeeee;
+}
+tr:nth-child(34){
+	background-color: #ffeeee;
+}
+tr:nth-child(35){
+	background-color: #ffeeee;
+}
+
+#out, .heb, body, .hebrew, .script-hebrew{
+    font-size: 350%;
+    font-family: 'Times New Roman';
+    text-align: right;
+}  
+.eng{
+	font-size: 150%;
+    text-align: left;
+}
+.redpart{
+    background-color: cyan;
+}
+
+
+
+.c, .cs1{
+    background-color: #ffeeee;
+}	
+.ms2{
+    background-color: #eeeeee;
+}	
+.fs2{
+    background-color: #ffeeff;
+}	
+.ms3{
+    background-color: #e1e1e1;
+}	
+.fs3{
+    background-color: #f1e1f1;
+}	
+	
+
+
+.cp1{
+    background-color: #ffeee1;
+}		
+.mp2{
+    background-color: #eeeee1;
+}	
+.fp2{
+    background-color: #ffeef1;
+}	
+.mp3{
+    background-color: #eeeee1;
+}	
+.fp3{
+    background-color: #ffeef1;
+}	
+
+
+
+
+
+	</style>
+		<script type="text/javascript">
+$(document).ready(function(){/////////////// 
+gen_tab(t);
+$("td").click(function(){
+	$(this).toggleClass("redpart");
+});
+});//////////////////////////////////////////
+
+var t=[
+["וַיְהִי אַחֲרֵי שׁוּב מֶלֶךְ דָּוִיד אֶל יְרוּשָׁלַיִם וַיּאֹמֶר",
+"After king David return to Jerusalem, he said:"],
+
+["שִׁירוּ לַיהוָה כָּל־הָאָרֶץ זִכְרוּ לְעוֹלָם בְּרִתוֹ אֱשֶׁר כָּרַת אֶת־אַבְרָהָם כִּי גָדוֹל יְהוָה וּמְהֻלָּל מְאֹד וְנוֹרָא הוּא עַל־כָּל־אֱלֹחִים",
+"(You shall) sing to the LORD all the land, remember HIS covenant forever, the one he made with Abraham. Becase the LORD is great. He is the one who is praised highly, and he is feared above all gods."],
+
+["",
+""],
+
+];
+
+function gen_tab(tar){
+	var s="<table border='1'> ";
+	$.each(tar,function(i,ar){
+		s+="<tr><td>"+i+"</td><td class='heb'>"+ar[0]+"</td><td class='eng'>"+ar[1]+"</td></tr>";
+	});
+	s+="</table>";
+	$("#out").html(s);
+}
+</script>
+	</head>
+	<body>
+		
+
+
+		<div id="out">
+			&nbsp;</div>
+	</body>
+</html>

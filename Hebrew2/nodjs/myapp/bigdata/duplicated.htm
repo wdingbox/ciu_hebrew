@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="he">
+  <head>
+    <title></title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <base target="_blank" />
+    <script type="text/javascript" src=".././../../jquery.js"></script>
+    <script src="../../../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../noduti/css/table_Strong.css"></link>
+    <script src="../../noduti/js/table_Indexer.js"></script>
+
+
+
+       <script src="./duplicated.js"> </script>
+
+    <style type="text/css">
+body{
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+td:nth-child(2){
+    font-size: 100%;
+    font-family: 'Times New Roman';
+    text-align: right;
+    word-wrap:break-word;
+}  
+td:nth-child(6){
+    font-size: 200%;
+    font-family: 'Times New Roman';
+    text-align: right;
+} 
+.heb{
+  text-decoration: none;
+}
+.todel{
+  background-color: red;
+}
+</style>
+    <script type="text/javascript">
+
+$(document).ready(function(){ 
+  genTable();
+  $("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+
+    });
+
+
+  $("td").click(function(){
+    $(this).find(".file").toggleClass("todel");
+  });
+
+  $("#tout").click(function(){
+    var s="#!/bin/sh\n";
+    $(".todel").each(function(){
+      var pathfile=$(this).attr("xhref");
+      s+="rm -v '"+pathfile+"'\n";
+    });
+    $(this).val(s);
+  });
+
+  $("#disabledel").click(function(){
+    $(".todel").removeClass("todel");
+  })
+});//
+
+
+function genTable(){
+  var s="<table border='1'><thead><th>#</th><th>x</th><th>heb</th><th>--</th><th>frq</th></thead><tbody>";
+  var iTot=0;
+  $.each(duplicated, function(m,obj){
+    $.each(obj,function(isize,arr){
+      iTot++;
+      var bSame=samefilename(arr);
+      s+="<tr><td>"+iTot+"</td><td>"+isize+" Btyes</td><td></td></tr>";
+      $.each(arr,function(i,pathfile){
+        var lidx=pathfile.lastIndexOf("/");
+        var fname=pathfile.substr(lidx);
+
+        s+="<tr><td>"+i+"</td>";
+        s+="<td><a href='"+pathfile+"'>"+pathfile+"</a></td>";
+        s+=todelete_tda(i, bSame, pathfile, fname);
+        s+="</tr>";
+      });
+    });
+  });
+  s+="</tbody></table>";
+  $("#out").html(s);
+};
+function getfilename(pathfile){
+  var lidx=pathfile.lastIndexOf("/");
+  var fname=pathfile.substr(lidx);
+  return fname;
+}
+function samefilename(arr){
+
+  var fname=getfilename(arr[0]);
+  var bSame=true;
+  for(var i=1;i<arr.length;i++){
+    if(fname != getfilename(arr[i])){
+      bSame=false;
+    };
+  }
+  return bSame;
+}
+function todelete_tda(idx, bSame, pathfile, fname){
+  var s="";
+  if(bSame && idx>0){
+    s+="<td><a class='file todel' xhref='"+pathfile+"'>"+fname+" (todel)</a></td>";
+  }
+  else{
+    s+="<td><a class='file' xhref='"+pathfile+"'>"+fname+"</a></td>";
+  }
+  return s;
+}
+
+</script>
+  </head>
+  <body>
+    <textarea id="tout"></textarea>
+<button id='indxer'>indxer</button>
+
+<button id='disabledel'>disable del</button>
+<hr/>
+<div id='out'></div>
+
+</body>
+</html>

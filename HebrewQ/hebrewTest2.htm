@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>tst</title>
+<script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+<script type="text/javascript" src="./audjs/VocabChapsBuf.js"></script>
+
+<script type="text/javascript" src="./hebrewTest.js"></script>
+
+<style type="text/css">
+.chkclr{
+	background: #ff0000;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.eng{
+}
+.txtcolr_white{
+	color: white;
+}
+#ctr_menu{
+	position: fixed;
+	right:20px;
+	top:20px;
+	font-family: 'Times New Roman';
+}
+
+.quizTarget{
+	background-color: #cccccc;
+    text-align: center;
+}
+table{
+    width:700px;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){ 
+	//gen_table();
+    for(var i=0;i<5;i++){
+        showQuize(2);
+    }
+    
+	//gen_table_ahard();
+
+	
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+
+    });
+
+    $("#txtshowtoggle").click(function(){
+    	$(".eng")//.slideToggle();
+    	.toggleClass("txtcolr_white")
+    });
+
+    $("#toggle_autoplay").click(function(){
+    	toggle_auto_play_audio();
+        $(this).toggleClass("hilite");
+    });
+});//
+
+
+</script>
+</head>
+<body id="top">
+
+
+<h1 id="hd1" onclick="window.open('wordsgroups.htm');">שְׁמַע | יִשְׂרָאֵל, יְיָ | אֱלֹהֵינוּ, יְיָ | אֶחָֽד: | רֵאשִׁית</h1>
+<div id="audio"></div>
+
+<div id="ctr_menu">
+<button id="txtshowtoggle">toggle_text</button><br>
+<button id="toggle_autoplay">toggle_autoplay</button><br>
+    
+<textarea id="texta"></textarea><br>
+</div>
+
+
+
+<div id="quiz"></div>
+
+<div id="show"></div>
+
+
+
+</body></html>

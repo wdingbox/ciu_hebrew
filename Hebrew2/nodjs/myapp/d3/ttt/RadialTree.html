@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+
+    <script src="./RadialTree_files/vega.js"></script>
+
+
+	</head>
+	<body style="cursor: default;">
+		<div class="example">
+			<div class="embed">
+				<div class="view" id="radial-tree-layout">
+					<canvas class="marks" height="730" width="730"></canvas>
+					<div class="vega-bindings">
+						<div class="vega-bind">
+							<span class="vega-bind-name">labels</span> <input checked="true" name="labels" type="checkbox" /></div>
+						<div class="vega-bind">
+							<span class="vega-bind-name">radius</span> <input max="600" min="20" name="radius" step="5" type="range" /> <label>280</label></div>
+						<div class="vega-bind">
+							<span class="vega-bind-name">extent</span> <input max="360" min="0" name="extent" step="1" type="range" /> <label>360</label></div>
+						<div class="vega-bind">
+							<span class="vega-bind-name">rotate</span> <input max="360" min="0" name="rotate" step="1" type="range" /> <label>0</label></div>
+						<div class="vega-bind">
+							<span class="vega-bind-name">layout</span> <span class="vega-bind-radio"> <input checked="true" id="vega-option-layout-tidy" name="layout" type="radio" value="tidy" /> <label for="vega-option-layout-tidy">tidy</label> <input id="vega-option-layout-cluster" name="layout" type="radio" value="cluster" /> <label for="vega-option-layout-cluster">cluster</label></span></div>
+						<div class="vega-bind">
+							<span class="vega-bind-name">links</span> <select name="links"><option selected="true" value="line">line</option><option value="curve">curve</option><option value="diagonal">diagonal</option><option value="orthogonal">orthogonal</option></select></div>
+					</div>
+				</div>
+			</div>
+			<script>
+var spec = {
+  "$schema": "https://vega.github.io/schema/vega/v3.0.jsonx",
+  "width": 720,
+  "height": 720,
+  "padding": 5,
+  "autosize": "none",
+
+  "signals": [
+    {
+      "name": "labels", "value": true,
+      "bind": {"input": "checkbox"}
+    },
+    {
+      "name": "radius", "value": 280,
+      "bind": {"input": "range", "min": 20, "max": 600}
+    },
+    {
+      "name": "extent", "value": 360,
+      "bind": {"input": "range", "min": 0, "max": 360, "step": 1}
+    },
+    {
+      "name": "rotate", "value": 0,
+      "bind": {"input": "range", "min": 0, "max": 360, "step": 1}
+    },
+    {
+      "name": "layout", "value": "tidy",
+      "bind": {"input": "radio", "options": ["tidy", "cluster"]}
+    },
+    {
+      "name": "links", "value": "line",
+      "bind": {
+        "input": "select",
+        "options": ["line", "curve", "diagonal", "orthogonal"]
+      }
+    },
+    { "name": "originX", "update": "width / 2" },
+    { "name": "originY", "update": "height / 2" }
+  ],
+
+  "data": [
+    {
+      "name": "tree",
+      "url": "http://localhost/~weiding/weidroot/weidroot_2017-01-06/app/btool/tool/Hebrew2/nodjs/myapp/d3/ttt/flare.json",
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "tree",
+          "method": {"signal": "layout"},
+          "size": [1, {"signal": "radius"}],
+          "as": ["alpha", "radius", "depth", "children"]
+        },
+        {
+          "type": "formula",
+          "expr": "(rotate + extent * datum.alpha + 270) % 360",
+          "as":   "angle"
+        },
+        {
+          "type": "formula",
+          "expr": "PI * datum.angle / 180",
+          "as":   "radians"
+        },
+        {
+          "type": "formula",
+          "expr": "inrange(datum.angle, [90, 270])",
+          "as":   "leftside"
+        },
+        {
+          "type": "formula",
+          "expr": "originX + datum.radius * cos(datum.radians)",
+          "as":   "x"
+        },
+        {
+          "type": "formula",
+          "expr": "originY + datum.radius * sin(datum.radians)",
+          "as":   "y"
+        }
+      ]
+    },
+    {
+      "name": "links",
+      "source": "tree",
+      "transform": [
+        { "type": "treelinks", "key": "id" },
+        {
+          "type": "linkpath",
+          "shape": {"signal": "links"}, "orient": "radial",
+          "sourceX": "source.radians", "sourceY": "source.radius",
+          "targetX": "target.radians", "targetY": "target.radius"
+        }
+      ]
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "color",
+      "type": "sequential",
+      "range": {"scheme": "magma"},
+      "domain": {"data": "tree", "field": "depth"},
+      "zero": true
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "path",
+      "from": {"data": "links"},
+      "encode": {
+        "update": {
+          "x": {"signal": "originX"},
+          "y": {"signal": "originY"},
+          "path": {"field": "path"},
+          "stroke": {"value": "#ccc"}
+        }
+      }
+    },
+    {
+      "type": "symbol",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "size": {"value": 100},
+          "stroke": {"value": "#fff"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "fill": {"scale": "color", "field": "depth"}
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {"data": "tree"},
+      "encode": {
+        "enter": {
+          "text": {"field": "name"},
+          "fontSize": {"value": 9},
+          "baseline": {"value": "middle"}
+        },
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "dx": {"signal": "(datum.leftside ? -1 : 1) * 6"},
+          "angle": {"signal": "datum.leftside ? datum.angle - 180 : datum.angle"},
+          "align": {"signal": "datum.leftside ? 'right' : 'left'"},
+          "opacity": {"signal": "labels ? 1 : 0"}
+        }
+      }
+    }
+  ]
+};
+var view = new vega.View(vega.parse(spec), {
+  loader: vega.loader({baseURL: '/vega/'}),
+  logLevel: vega.Warn,
+  renderer: 'canvas'
+}).initialize('#radial-tree-layout').hover().run();
+
+</script></div>
+		<p>
+			&nbsp;</p>
+	</body>
+</html>

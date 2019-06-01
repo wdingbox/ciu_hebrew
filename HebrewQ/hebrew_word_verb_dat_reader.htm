@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he">
+<head>
+	<title>vRead</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+
+<script type="text/javascript" src="hebrew_word_verb_edi.js"></script>
+<script type="text/javascript" src="hebrew_word_verb_dat.js"></script>
+<style type="text/css">
+.chkclr{
+	background: #00ee0e;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.txtcolr_white{
+	color: white;
+}
+table{
+	border-collapse: collapse;
+}
+th, caption{
+	background-color: #cccccc;
+}
+td{
+	text-align: right;
+}
+caption{
+	text-align: left;
+}
+
+
+
+
+tr:nth-child(4n+1),
+tr:nth-child(4n+2)
+{
+	background: #eeeeee;
+}
+tr:nth-child(2n+2)
+{
+	border-bottom-width: 1px;
+
+	border-bottom-color: #ff0000;
+}
+
+
+
+.c, .cs1{
+    background-color: #ffeeee;
+}	
+.ms2{
+    background-color: #eeeeee;
+}	
+.fs2{
+    background-color: #ffeeff;
+}	
+.ms3{
+    background-color: #e1e1e1;
+}	
+.fs3{
+    background-color: #f1e1f1;
+}	
+	
+
+
+.cp1{
+    background-color: #ffeee1;
+}		
+.mp2{
+    background-color: #eeeee1;
+}	
+.fp2{
+    background-color: #ffeef1;
+}	
+.mp3{
+    background-color: #eeeee1;
+}	
+.fp3{
+    background-color: #f1e1f1;
+    border-right-width: 3px; 
+}	
+
+.basicChange{
+	color: blue;
+}
+.heblexical{
+	background-color: #ff6666;
+}
+
+.perfect_p3_p4,.narrative_s1_s4,.narrative_p2_p4{
+
+	background-color: #dffddd;
+}
+
+
+.perfect_3fs, .imperative_3fs,.narrative_3fs{
+	border-right-width: 3px; 
+}
+#fixedmenu{
+	position: fixed;
+	right:2px;
+	top:1px;
+}
+#tojs{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+#txarea{
+	font-size: 100%;
+	font-family: 'Times New Roman';
+	width: 350px;
+	height: 300px;
+}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+	//$("#tojs").slideToggle();
+	$("#toggleSel").click(function(){
+		$("#hiddenpanel").slideToggle();
+	});
+	gen_table_ahat();
+	$("#tojs").change(function(){
+		var val=$(this).val().trim();
+		if(g_all_weak_types_sorted_arr.indexOf(val)>=0){
+			var dat=Get_DatArr_By_WeakType(val);
+			gen_table(dat, val);
+		}
+		console.log(val);
+		switch(val){
+			case "test":
+			show_hebrew_word_verb2_find_weak_root();	
+			break;	
+			case "all":
+			gen_table_ahat();
+			break;	
+			case "show_all_weak_type_statis":
+			$("#show").html("");
+			show_all_weak_type_statis();
+			break;
+		}
+		enable_table_sorter();
+
+	//	var ss=gen_js_fr_table();
+	//	$("#txtout").val(ss).slideToggle();
+	});
+	//var ss=hebrew_word_verb_converter2();
+	//$("#txtout").val(ss);
+	//enable_table_sorter();
+});//
+
+
+</script>
+</head>
+<body id="top">
+<div id="fixedmenu">
+<a href="hebrew_word_verb_editor.htm" target="_blank">edit</a>
+<a id="toggleSel">toggleSel</a><br>
+<div id="hiddenpanel">
+<select id="tojs" size="5">
+	<option value="all">all</option>
+	<option value="test">test</option>
+	<option value="show_all_weak_type_statis">show_all_weak_type_statis</option>
+	
+</select><br>
+<textarea id="txarea"></textarea>
+</div>
+</div>
+
+<div id="audio"></div>
+
+<div id="show"></div>
+
+
+
+</body></html>

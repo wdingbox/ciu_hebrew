@@ -1,0 +1,6548 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<title>vEdit</title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="./jquery.js"></script><script src="../tablesorter_master/js/jquery.tablesorter.js"></script><script type="text/javascript" src="hebrew_word_verb_edi.js"></script>
+		<style type="text/css">
+@media print
+{
+  table { page-break-after:auto }
+  tr    { page-break-inside:avoid; page-break-after:auto }
+  td    { page-break-inside:avoid; page-break-after:auto }
+  thead { display:table-header-group }
+  tfoot { display:table-footer-group }
+}
+
+table{
+	border-collapse: collapse;
+}
+th, caption{
+	background-color: #cccccc;
+}
+caption{
+	text-align: left;
+}
+td{
+	text-align: right;
+}
+
+tr:nth-child(12n+1),
+tr:nth-child(12n+2),
+tr:nth-child(12n+3), 
+tr:nth-child(12n+4),
+tr:nth-child(12n+5),
+tr:nth-child(12n+6) 
+{
+  background: #eeeeee;
+}
+tr:nth-child(2n+2)
+{
+	border-bottom-width: 5px; 
+	border-bottom-color: #ff0000;
+}
+
+
+
+.chkclr{
+	background: #ff0000;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.txtcolr_white{
+	color: white;
+}
+
+#fixedmenu{
+	position: fixed;
+	right:2px;
+	top:1px;
+}
+.c, .cs1{
+    background-color: #ffeeee;
+}	
+.ms2{
+    background-color: #eeeeee;
+}	
+.fs2{
+    background-color: #ffeeff;
+}	
+.ms3{
+    background-color: #e1e1e1;
+}	
+.fs3{
+    background-color: #f1e1f1;
+}	
+	
+
+
+.cp1{
+    background-color: #ffeee1;
+}		
+.mp2{
+    background-color: #eeeee1;
+}	
+.fp2{
+    background-color: #ffeef1;
+}	
+.mp3{
+    background-color: #eeeee1;
+}	
+.fp3{
+    background-color: #f1e1f1;
+    border-right-width: 3px; 
+}	
+
+.perfect_ms3, .imperfect_ms3, .heblexical{
+	border-width: 2px; 
+	border-color: red;
+}
+
+.perfect_p3_p4{
+	background-color: #cce1fe;
+}
+.narrative_s1_s4{
+	background-color: #dd55dd;
+}
+.narrative_p2_p4{
+	background-color: #77ff77;
+}		</style>
+		<script type="text/javascript">
+
+$(document).ready(function(){ 
+
+	$("#txtout").slideToggle();
+	$("#tojs").click(function(){
+		var ss=gen_js_fr_table();
+		$("#txtout").val(ss).slideToggle();
+	});
+
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });
+
+
+
+
+
+});//
+
+</script>
+	</head>
+	<body id="top">
+		<div id="fixedmenu">
+			<div>
+				<button id="tojs">tojs</button><a href="http://localhost/~weiding/weidroot/weidroot_2017-01-06/app/btool/tool/_edit/explore/Work_htm.htm?fname=/Users/weiding/Sites/weidroot/weidroot_2017-01-06/app/btool/tool/HebrewQ/hebrew_word_verb_editor.htm" ntarget="blank">edit</a> <a href="hebrew_word_verb_dat_reader.htm">conj</a></div>
+			<textarea class="heb" id="txtout" style="margin: 0px; height: 91px; width: 71px;"></textarea></div>
+		<p>
+			&nbsp;</p>
+		<table border="1" class="tablesorter">
+			<caption>
+				all verbs</caption>
+			<thead>
+				<tr>
+					<th>
+						#</th>
+					<th>
+						form</th>
+					<th>
+						n</th>
+					<th>
+						1c</th>
+					<th>
+						2m</th>
+					<th>
+						2f</th>
+					<th>
+						3m</th>
+					<th>
+						3f</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">הָלַכְתִּי</a></td>
+					<td>
+						<a class="heb">הָלַכְתָּ</a></td>
+					<td>
+						<a class="heb">הָלַכְתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">הָלַךְ</a></td>
+					<td>
+						<a class="heb">הָלַכָה</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">הָלַכְנוּ</a></td>
+					<td>
+						<a class="heb">הָלַכְתֶּם</a></td>
+					<td>
+						<a class="heb">הָלַכְתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">הָלַכְוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶלֶכ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּלֶכְ</a></td>
+					<td>
+						<a class="heb">וָתִּלֶכִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיֵּלֶךְ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וָנִּלֶךְ</a></td>
+					<td>
+						<a class="heb">וַתִּלֶכִוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וָתִּלֶכִנָה</a></td>
+					<td>
+						<a class="heb">וַיֵּלֶכְוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">לַךְ</a></td>
+					<td>
+						<a class="heb">לַכִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">לַכְוּ</a></td>
+					<td>
+						<a class="heb">לַכִנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						Active</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הוֹלֵךְ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הוֹלְכָה</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						Active</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הוֹלְכִים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הוֹלְכוֹת</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						Passive</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הָלוֹךְ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הְלוֹכָה</a></td>
+				</tr>
+				<tr class="idx0">
+					<td>
+						0</td>
+					<td>
+						Passive</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הְלוֹכִים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;הְלוֹכוֹת</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">נָתַתּי</a></td>
+					<td>
+						<a class="heb">נָתַתָּ</a></td>
+					<td>
+						<a class="heb">נָתַתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">נָתַן</a></td>
+					<td>
+						<a class="heb">נָתַנָה</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">נָתַנּוּ</a></td>
+					<td>
+						<a class="heb">נָתַתֶּם</a></td>
+					<td>
+						<a class="heb">נָתַתֵּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">נָתְנוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶתּן</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּתֵּן</a></td>
+					<td>
+						<a class="heb">וַתִּתֵּנִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּתֵּן</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּתּן</a></td>
+					<td>
+						<a class="heb">וַתִּתְּנוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּתְּנָּה</a></td>
+					<td>
+						<a class="heb">וַיִּתִּנוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">תֵּן</a></td>
+					<td>
+						<a class="heb">תֵּנִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">תּנוּ</a></td>
+					<td>
+						<a class="heb">תְּנָּה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						Active</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">נוֹתֵן</a></td>
+					<td>
+						<a class="heb">נוֹתְנָה</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						Active</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">נוֹתְנִים</a></td>
+					<td>
+						<a class="heb">נוֹתְנוֹת</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						Passive</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">נָתוּן</a></td>
+					<td>
+						<a class="heb">נְתוּנָה</a></td>
+				</tr>
+				<tr class="idx1">
+					<td>
+						1</td>
+					<td>
+						Passive</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">נְתוּנִים</a></td>
+					<td>
+						<a class="heb">נְתוּנוֹח</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">אָמַרתּי</a></td>
+					<td>
+						<a class="heb">אָמַרתָּ</a></td>
+					<td>
+						<a class="heb">אָמַרתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">אָמַר</a></td>
+					<td>
+						<a class="heb">אְמַרָה</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">אָמַרנוּ</a></td>
+					<td>
+						<a class="heb">אָמַרתֶּם</a></td>
+					<td>
+						<a class="heb">אָמַרתֵּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">אָמַרוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאָאמֶר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּאמֶר</a></td>
+					<td>
+						<a class="heb">וַתִּאמֶרִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיֹּאמֶר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּאמֶר</a></td>
+					<td>
+						<a class="heb">וַתִּאמֶרוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּאמֶרנָה</a></td>
+					<td>
+						<a class="heb">וַיִּאמֶרוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">אֱמֹב</a></td>
+					<td>
+						<a class="heb">אֱמֹבִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">אֱמֹבוּ</a></td>
+					<td>
+						<a class="heb">אֱמֹבנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						Active</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אוֹמֵר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אוֹמְרָה</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						Active</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אוֹמֵרִים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אוֹמֵרוֹת</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						Passive</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אָמוּר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אְמוּרָה</a></td>
+				</tr>
+				<tr class="idx2">
+					<td>
+						2</td>
+					<td>
+						Passive</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אְמוּרִים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;אְמוּרוֹת</a></td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">כָּתַבתִּי</a></td>
+					<td>
+						<a class="heb">כָּתַבתָּ</a></td>
+					<td>
+						<a class="heb">כָּתַבתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">כָּתַב</a></td>
+					<td>
+						<a class="heb">כָּתַבָה</a></td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">כָּתַבנוּ</a></td>
+					<td>
+						<a class="heb">כָּתַבתֶּם</a></td>
+					<td>
+						<a class="heb">כָּתַבתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">כָּתַבוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶכְתֹב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וְתִּכְתֹב</a></td>
+					<td>
+						<a class="heb">וְתִּכְתְבִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וְיִּכְתֹּב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּכְתֹב</a></td>
+					<td>
+						<a class="heb">וְתִּכְתְבוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּכְתֹבְנָה</a></td>
+					<td>
+						<a class="heb">וְיִּכְתֹבוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">כְּתֹב</a></td>
+					<td>
+						<a class="heb">כְּתֹבִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx3">
+					<td>
+						3</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">כְּתֹבוּ</a></td>
+					<td>
+						<a class="heb">כְּתֹבְנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						<a class="heb">&nbsp;כּוֹתֵב</a></td>
+					<td>
+						<a class="heb">כּוֹתְבָה</a></td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						<a class="heb">כּוֹתְבִים</a></td>
+					<td>
+						<a class="heb">כּוֹתְבוֹת</a></td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						<a class="heb">כָּתוּב</a></td>
+					<td>
+						<a class="heb" style="font-size: 32px;">כְּתוּבָה</a></td>
+				</tr>
+				<tr>
+					<td>
+						3</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						&nbsp;</td>
+					<td>
+						<a class="heb" style="font-size: 32px;">כְּתוּבִים</a></td>
+					<td>
+						<a class="heb" style="font-size: 32px;">כְּתוּבוֹת</a></td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">שָׁמַרתִּי</a></td>
+					<td>
+						<a class="heb">שָׁמַרתָּ</a></td>
+					<td>
+						<a class="heb">שָׁמַרתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁמַר</a></td>
+					<td>
+						<a class="heb">שָׁמַרָה</a></td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">שָׁמַרנוּ</a></td>
+					<td>
+						<a class="heb">שָׁמַרתֶּם</a></td>
+					<td>
+						<a class="heb">שָׁמַרתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">שָׁמַרוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶשָׁמַר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּשָׁמַר</a></td>
+					<td>
+						<a class="heb">וַתִּשָׁמַרִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁמֹר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּשָׁמַר</a></td>
+					<td>
+						<a class="heb">וַתִּשָׁמַרוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּשָׁמַרנָה</a></td>
+					<td>
+						<a class="heb">וַיִּשָׁמַרוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שְׁמֹר</a></td>
+					<td>
+						<a class="heb">שְׁמֹרִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx4">
+					<td>
+						4</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">שְׁמֹרוּ</a></td>
+					<td>
+						<a class="heb">שְׁמֹרנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">בָּרָאִיתִּי</a></td>
+					<td>
+						<a class="heb">בָּרָאִיתִּ</a></td>
+					<td>
+						<a class="heb">בָּרָאִיתִּ</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּרָא</a></td>
+					<td>
+						<a class="heb">בָּרָאָה</a></td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">בָּרָאִינוּ</a></td>
+					<td>
+						<a class="heb">בָּרָאִיתֶּם</a></td>
+					<td>
+						<a class="heb">בָּרָאֶיתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">בָּרָאוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶבָּרָאִי</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּבָּרָאִי</a></td>
+					<td>
+						<a class="heb">וַתִּבָּרָאִיי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּבְרָא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּבָּרָא</a></td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּבָּרָאִי</a></td>
+					<td>
+						<a class="heb">וַתִּבָּרָיאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּבָּרָאִינָה</a></td>
+					<td>
+						<a class="heb">וַיִּבָּרָאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּבָּרָאנָה</a></td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">בְּרָא</a></td>
+					<td>
+						<a class="heb">בְּרָאִיי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx5">
+					<td>
+						5</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">בְּרָאִיוּ</a></td>
+					<td>
+						<a class="heb">בְּרָאִינָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">הָיִיתִי</a></td>
+					<td>
+						<a class="heb">הָיִיתָ</a></td>
+					<td>
+						<a class="heb">הָיִית</a></td>
+					<td class="heblexical">
+						<a class="heb">הָיָה</a></td>
+					<td>
+						<a class="heb">הָיְתָה</a></td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">הָיִינוּ</a></td>
+					<td>
+						<a class="heb">הֱיִיתֶם</a></td>
+					<td>
+						<a class="heb">הֱיִיתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">הָיוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">הֱיֵה</a></td>
+					<td>
+						<a class="heb">הֲיִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx6">
+					<td>
+						6</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">הְיוּ</a></td>
+					<td>
+						<a class="heb">&ndash;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">יָדַעתִי</a></td>
+					<td>
+						<a class="heb">יָדַעתָּ</a></td>
+					<td>
+						<a class="heb">יָדַעתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">יָדַע</a></td>
+					<td>
+						<a class="heb">יָדַעָה</a></td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">יָדַענוּ</a></td>
+					<td>
+						<a class="heb">יָדַעתֶם</a></td>
+					<td>
+						<a class="heb">יָדַעתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">יָדַעוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶדע</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּדע</a></td>
+					<td>
+						<a class="heb">וַתִּדעִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּדַע</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּדע</a></td>
+					<td>
+						<a class="heb">וַתִּדעוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּדענָה</a></td>
+					<td>
+						<a class="heb">וַיִּדַענָה</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">דַּע</a></td>
+					<td>
+						<a class="heb">דַּעִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx7">
+					<td>
+						7</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">דַּעוּ</a></td>
+					<td>
+						<a class="heb">דַּענָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">מָצָאתִּי</a></td>
+					<td>
+						<a class="heb">מָצָאתָּ</a></td>
+					<td>
+						<a class="heb">מָצָאתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">מָצָא</a></td>
+					<td>
+						<a class="heb">מָצָאָה</a></td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">מָצָאנוּ</a></td>
+					<td>
+						<a class="heb">מָצָאתֶּם</a></td>
+					<td>
+						<a class="heb">מָצָאתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">מָצָאוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶמְעָא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּמְעָא</a></td>
+					<td>
+						<a class="heb">וַתִּמְעָאִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּמְעָא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּמְעָא</a></td>
+					<td>
+						<a class="heb">וַתִּמְעָאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּמְעָזנָה</a></td>
+					<td>
+						<a class="heb">וַיִּמְעָאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">מְעָא</a></td>
+					<td>
+						<a class="heb">מְעָאִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx8">
+					<td>
+						8</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">מְעָאוּ</a></td>
+					<td>
+						<a class="heb">מְעָאנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">רָאִיתִּי</a></td>
+					<td>
+						<a class="heb">רָאִיתָּ</a></td>
+					<td>
+						<a class="heb">רָאִיתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">רָאָה</a></td>
+					<td>
+						<a class="heb">רָאְתָה</a></td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">רָאִינוּ</a></td>
+					<td>
+						<a class="heb">רָאִיתֶּם</a></td>
+					<td>
+						<a class="heb">רָאִיתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">רָאִיוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶרָאה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּרְאה</a></td>
+					<td>
+						<a class="heb">וָתִּרְאִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיַּרְא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּרְאה</a></td>
+					<td>
+						<a class="heb">וַתִּרְאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּרְאנָה</a></td>
+					<td>
+						<a class="heb">וַיִּרְאוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">רְאֶה</a></td>
+					<td>
+						<a class="heb">רְאִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx9">
+					<td>
+						9</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">רְאֶוּ</a></td>
+					<td>
+						<a class="heb">רְאִינָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁלַח</a></td>
+					<td>
+						<a class="heb">שָׁל</a></td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶשׁלח</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּשׁלח</a></td>
+					<td>
+						<a class="heb">וַתִּשׁלחִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁלַח</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּשְׁלח</a></td>
+					<td>
+						<a class="heb">וַתִּשְׁלַחוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּשׁלחנָה</a></td>
+					<td>
+						<a class="heb">וַיִּשְׁלַחנָה</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שְׁלַח</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx10">
+					<td>
+						10</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">שָׁמַעתִּי</a></td>
+					<td>
+						<a class="heb">שָׁמַעתָּ</a></td>
+					<td>
+						<a class="heb">שָׁמַעתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁמַע</a></td>
+					<td>
+						<a class="heb">שָׁמַעָה</a></td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">שָׁמַענוּ</a></td>
+					<td>
+						<a class="heb">שָׁמַעתֶּם</a></td>
+					<td>
+						<a class="heb">שָׁמַעתִּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">שָׁמַעוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶשְׁמַע</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּשְׁמַע</a></td>
+					<td>
+						<a class="heb">וַתִּשְׁמַעִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁמַע</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּשְׁמַע</a></td>
+					<td>
+						<a class="heb">וַתִּשְׁמַעוּוַ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּשְׁמַענָה</a></td>
+					<td>
+						<a class="heb">וַיִּשְׁמַעוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שְׁמַע</a></td>
+					<td>
+						<a class="heb">שְׁמַעִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx11">
+					<td>
+						11</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">שְׁמַעוּ</a></td>
+					<td>
+						<a class="heb">שְׁמַענָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">דִּבֵּרתִּי</a></td>
+					<td>
+						<a class="heb">דִּבֵּרתָּ</a></td>
+					<td>
+						<a class="heb">דִּבֵּרתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">דִּבֵּר</a></td>
+					<td>
+						<a class="heb">דִּבֵּרָה</a></td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">דִּבֵּרנוּ</a></td>
+					<td>
+						<a class="heb">דִּבֵּרתֶּם</a></td>
+					<td>
+						<a class="heb">דִּבֵּרתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">דִּבֵּרוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאָדבּר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּדּבּר</a></td>
+					<td>
+						<a class="heb">וַתִּדּבֵּרִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיְדַבֵּר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">דַּבֵּר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx12">
+					<td>
+						12</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">קָמֵתִי</a></td>
+					<td>
+						<a class="heb">קָמֵתָּ</a></td>
+					<td>
+						<a class="heb">קָמֵתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">קָם</a></td>
+					<td>
+						<a class="heb">קָמָה</a></td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיָּקָם</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">קוּם</a></td>
+					<td>
+						<a class="heb">קוּמִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx13">
+					<td>
+						13</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">ויָּבֹא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">בּוֹא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx14">
+					<td>
+						14</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">אָכַל</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">ויֹּאכַל</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">אֲכֹל</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx15">
+					<td>
+						15</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">יָשַׁבְתִּי</a></td>
+					<td>
+						<a class="heb">יָשַׁבְתָּ</a></td>
+					<td>
+						<a class="heb">יָשַׁבְתְּ</a></td>
+					<td class="heblexical">
+						<a class="heb">יָשַׁב</a></td>
+					<td>
+						<a class="heb">יָשְׁבָה</a></td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">יָשַׁבְנוּ</a></td>
+					<td>
+						<a class="heb">יָשַׁבְתֶּם</a></td>
+					<td>
+						<a class="heb">יְשַׁבְתֶּן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">יָשְׁבוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶשֵׁב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתֵּשֵׁב</a></td>
+					<td>
+						<a class="heb">וָתִּשְׁבִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וָיֵּשֵׁב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וָתֵּשֵׁב</a></td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וָנֵּשׁב</a></td>
+					<td>
+						<a class="heb">וָתִּשְׁבוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַיִּשֵׁבְנָה</a></td>
+					<td>
+						<a class="heb">וַתֵּשְׁבוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּשֵׁבְנָה</a></td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שֵׁב</a></td>
+					<td>
+						<a class="heb">שְׁבִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx16">
+					<td>
+						16</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">שְׁבוּ</a></td>
+					<td>
+						<a class="heb">שׁבְנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">עָמַדתִי</a></td>
+					<td>
+						<a class="heb">עָמַדתָ</a></td>
+					<td>
+						<a class="heb">עָמַדתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">עָמַד</a></td>
+					<td>
+						<a class="heb">עָמַדָה</a></td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">עָמַדנוּ</a></td>
+					<td>
+						<a class="heb">עָמַדתֶם</a></td>
+					<td>
+						<a class="heb">עָמַדתֵן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">עָמַדוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיַּעֲמֹד</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲמֹד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx17">
+					<td>
+						17</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">זָכַר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּזְכֹּר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">זְכֹר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx18">
+					<td>
+						18</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">עָלִיתִי</a></td>
+					<td>
+						<a class="heb">עָלִיתָ</a></td>
+					<td>
+						<a class="heb">עָלִיתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">עָלָה</a></td>
+					<td>
+						<a class="heb">עָלִתָה</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">עָלִינוּ</a></td>
+					<td>
+						<a class="heb">עָלִיתֶם</a></td>
+					<td>
+						<a class="heb">עָלִיתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">עָלוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶעָלָ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וְתִּעָלָ</a></td>
+					<td>
+						<a class="heb">וְתִּעָלִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּעַל</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וְתִּעָלָ</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וְנִּעָלָ</a></td>
+					<td>
+						<a class="heb">וְתִּעָלוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וְתִּעָלִינָה</a></td>
+					<td>
+						<a class="heb">וַיִּעָלנָה</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וְתִּעָלָינָה</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲלֵה</a></td>
+					<td>
+						<a class="heb">עֲלֵהי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">עֲלוּ</a></td>
+					<td>
+						<a class="heb">עֲלֵינָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						Active</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָוֹלָה</a></td>
+					<td>
+						<a class="heb">עָוֹלָת</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						Active</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָוֹלִים</a></td>
+					<td>
+						<a class="heb">עָוֹלָוֹת</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						Passive</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָלָוּה</a></td>
+					<td>
+						<a class="heb">עָלָוּה</a></td>
+				</tr>
+				<tr class="idx19">
+					<td>
+						19</td>
+					<td>
+						Passive</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָלָוּה</a></td>
+					<td>
+						<a class="heb">עָלָוּה</a></td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">יָרַד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיֵּרֶד</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">רֵד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx20">
+					<td>
+						20</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">עָשִׂיתִי</a></td>
+					<td>
+						<a class="heb">עָשִׂיתָ</a></td>
+					<td>
+						<a class="heb">עָשִׂתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">עָשָׂה</a></td>
+					<td>
+						<a class="heb">עָשִׂיָה</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">עָשִׂינוּ</a></td>
+					<td>
+						<a class="heb">עָשָׂיתֶם</a></td>
+					<td>
+						<a class="heb">עָשָׂיתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">עָשָׂוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאָעָשָׂה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וְתִּעָשָׂ</a></td>
+					<td>
+						<a class="heb">וְתִּעָשָׂי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיַּעַשׂ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וְנִּעָשָׂה</a></td>
+					<td>
+						<a class="heb">וְתִּעָשָׂוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וְתִּעָשָׂנָה</a></td>
+					<td>
+						<a class="heb">וַיִּעָשָׂוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וְתִּעָשָׂנָה</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲשֵׁה</a></td>
+					<td>
+						<a class="heb">עֲשֵׁי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">עֲשֵׁוּ</a></td>
+					<td>
+						<a class="heb">עֲשֵׁנָה</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						Active</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עֹשָׂה</a></td>
+					<td>
+						<a class="heb">עֹשָׂת</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						Active</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עֹשִׂם</a></td>
+					<td>
+						<a class="heb">עֹשָׂוֹת</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						Passive</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָשָׂוּה</a></td>
+					<td>
+						<a class="heb">עָשָׂוּת</a></td>
+				</tr>
+				<tr class="idx21">
+					<td>
+						21</td>
+					<td>
+						Passive</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">עָשָׂוּם</a></td>
+					<td>
+						<a class="heb">עָשָׂוּוֹת</a></td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">לָקַח</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּקַּח</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">קַח</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx22">
+					<td>
+						22</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">יָצָא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיֵּצֵא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">צֵא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx23">
+					<td>
+						23</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">מָכַר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּמְכֹר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">מְכֹר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx24">
+					<td>
+						24</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">פָּקַדתִי</a></td>
+					<td>
+						<a class="heb">פָּקַדתָ</a></td>
+					<td>
+						<a class="heb">פָּקַדתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">פָּקַד</a></td>
+					<td>
+						<a class="heb">פָּקַדָה</a></td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">פָּקַדנוּ</a></td>
+					<td>
+						<a class="heb">פָּקַדתֶם</a></td>
+					<td>
+						<a class="heb">פָּקַדתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">פָּקַדוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶפָּקַד</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּפָּקַד</a></td>
+					<td>
+						<a class="heb">וַתִּפָּקַדִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּפְקֹד</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּפָּקַד</a></td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּפָּקַד</a></td>
+					<td>
+						<a class="heb">וַתִּפָּקַדוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּפָּקַדִנָה</a></td>
+					<td>
+						<a class="heb">וַיִּפָּקַדוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּפָּקַדנָה</a></td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">פְּקֹד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx25">
+					<td>
+						25</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">אָהֵב, אָהַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיֶּאֱהַב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">אֱהַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx26">
+					<td>
+						26</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">חָיִיתִי</a></td>
+					<td>
+						<a class="heb">חָיִיתָ</a></td>
+					<td>
+						<a class="heb">חָיִיתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">חָיָה</a></td>
+					<td>
+						<a class="heb">חָיְתָה</a></td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">חָיִינוּ</a></td>
+					<td>
+						<a class="heb">חֱיִיתֶם</a></td>
+					<td>
+						<a class="heb">חֱיִיתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">חָיוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וָאֶחְיֶח<br />
+						וָאֶחִי</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתְּחִי</a></td>
+					<td>
+						<a class="heb">וַתְּחִי</a></td>
+					<td class="basicChange">
+						<a class="heb">וָיְחִי</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתְּחִי</a></td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וָנְּחִי</a></td>
+					<td>
+						<a class="heb">וַתְּחִיוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּחְיֶיןָ</a></td>
+					<td>
+						<a class="heb">וַיִּחְיוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּחְיֶיןָ</a></td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">חֱיֵח</a></td>
+					<td>
+						<a class="heb">חֲיִי</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx27">
+					<td>
+						27</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">חְיִוּ</a></td>
+					<td>
+						<a class="heb">&ndash;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">גָּנַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּגְנבֹ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">גְּנבֹ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx28">
+					<td>
+						28</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">יָרֵא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּירַא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">&ndash;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx29">
+					<td>
+						29</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">יָסַף</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx30">
+					<td>
+						30</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">בַּכִיתִי</a></td>
+					<td>
+						<a class="heb">בַּכִיתָ</a></td>
+					<td>
+						<a class="heb">בַּכִיתְ</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּכָה</a></td>
+					<td>
+						<a class="heb">בָּכָתָה</a></td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">בַּכִינוּ</a></td>
+					<td>
+						<a class="heb">בַּכִיתֶם</a></td>
+					<td>
+						<a class="heb">בֶּכִיתֶן</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">בָּכוּ</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶבִּכִי</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּבְכִי</a></td>
+					<td>
+						<a class="heb">וַתִּבְכִיי</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּבְכ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">וַתִּבְכ</a></td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">וַנִּבַכִי</a></td>
+					<td>
+						<a class="heb">וַתִּבְכִיוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּבְכִינָה</a></td>
+					<td>
+						<a class="heb">וַיִּבְכִיוּ</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">וַתִּבְכִינָה</a></td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">?</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx31">
+					<td>
+						31</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">בֵּרַךְ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּבְרֵךְ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">בָּרֵךְ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx32">
+					<td>
+						32</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">דָּרַשׁ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּדְרשׁ</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">דְּרשׁ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx33">
+					<td>
+						33</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">חָסֵר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">וַאֶחְסֶּר</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx34">
+					<td>
+						34</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">עָזַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּעַזֹב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲזֹב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx35">
+					<td>
+						35</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">קָרָא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּקְרָא</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">קְרָא</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx36">
+					<td>
+						36</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשׁוֹב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שׁוֹב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx37">
+					<td>
+						37</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁכַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁכַּּב</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שׁכָב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx38">
+					<td>
+						38</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁאַל</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁאַל</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שְׁאַל</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx39">
+					<td>
+						39</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּנָה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּבְּנֶה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">בְּנֵה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx40">
+					<td>
+						40</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׁתָה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשְׁתֶה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שְׁתֵה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx41">
+					<td>
+						41</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">עָבַד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּעֲבֹד</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲבֹד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx42">
+					<td>
+						42</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">עָנָה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּעֲנֶה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">עֲנֵה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx43">
+					<td>
+						43</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">הָרַג</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּהֲרֹג</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">הֲרֹג</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx44">
+					<td>
+						44</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">צִוָּה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּצַוֶּה</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">צַוֵּה</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx45">
+					<td>
+						45</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">נָסַע</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּסִּע</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">נְסַע</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx46">
+					<td>
+						46</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">שָׂם</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx47">
+					<td>
+						47</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּלַע</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx48">
+					<td>
+						48</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">סָבַב</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx49">
+					<td>
+						49</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">אָסַר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx50">
+					<td>
+						50</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">לָמַד</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx51">
+					<td>
+						51</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">בָּחַר</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx52">
+					<td>
+						52</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">גָּדַל</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx53">
+					<td>
+						53</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						perfect</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="heblexical">
+						<a class="heb">מָלַךְ</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						perfect</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="perfect_p3_p4">
+						&nbsp;</td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						narrative</td>
+					<td>
+						s</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="basicChange">
+						<a class="heb">וַיִּשִׂים</a></td>
+					<td class="narrative_s1_s4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						narrative</td>
+					<td>
+						p</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td class="narrative_p2_p4">
+						<a class="heb">&nbsp;&nbsp;</a></td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						imperative</td>
+					<td>
+						s</td>
+					<td>
+						x</td>
+					<td class="basicChange">
+						<a class="heb">שִׂים</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+				<tr class="idx54">
+					<td>
+						54</td>
+					<td>
+						imperative</td>
+					<td>
+						p</td>
+					<td>
+						x</td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						<a class="heb">&nbsp;&nbsp;</a></td>
+					<td>
+						x</td>
+					<td>
+						x</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>
+			ַ</p>
+	</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<title></title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<base target="_blank" />
+		<script type="text/javascript" src="./../../jquery.js"></script>
+		<script src="../../../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="../noduti/css/table_Strong.css"></link>
+		<script src="../noduti/js/table_Indexer.js"></script>
+
+
+
+       <script src="./out/Genesis/oStrongCode_Frq.js"> </script>
+       <script src="./out/Genesis/oStrongCode_Usage.js"></script>
+       <script src="./out/OT/oStrongCode_Frq.js"></script>
+       <script src="./out/OT/oStrongCode_Usage.js"></script>
+		<style type="text/css">
+body{
+    font-size: 50%;
+    font-family: 'Times New Roman';
+    text-align: left;
+}  
+td:nth-child(3){
+    font-size: 200%;
+    font-family: 'Times New Roman';
+    text-align: right;
+
+    max-width: 60px;
+    word-wrap:break-word;
+}  
+td:nth-child(6){
+    font-size: 200%;
+    font-family: 'Times New Roman';
+    text-align: right;
+} 
+
+.w{
+	background-color: yellow;
+	text-decoration: none;
+}
+.x{
+	background-color: #cde0eb;
+	text-decoration: none;
+}
+.y{
+	background-color: pink;
+	text-decoration: none;
+} 
+.z{
+	background-color: #d3ec9e;
+	text-decoration: none;
+}
+.frq{
+	font-size: 6px;
+}
+.tt{
+	text-align: left;
+}
+.heb{
+	text-decoration: none;
+}
+</style>
+		<script type="text/javascript">
+
+$(document).ready(function(){ 
+	genTable();
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+
+    });
+});//
+var my_url="";
+function getJson(my_url) {
+    var json = null;
+    $.ajax({
+        'async': false,
+        'global': false,
+        'url': my_url,
+        'dataType': "json",
+        'success': function (data) {
+            json = data;
+        }
+    });
+    return json;
+}; 
+function genTable(){
+	//var oUsage=getJson("./out/Genesis/oStrongCode_Frq.js");
+	var s=save2Table(oStrongCode_Usage2, oStrongCode_Frq);
+	$("#out").html(s);
+}
+var g_PATH="../../../../../../___bigdata/unzipped/rel/ham12/hgsbible/";
+var g_voiceUrl="https://www.blueletterbible.org/lang/Lexicon/Lexicon.cfm?strongs=H";
+function save2Table(m_Stats, oOT){
+ 	function _getFrq(StronCode){
+        var obj=m_Stats[StronCode];
+        var keys2Arr=Object.keys(obj) ;
+        var nTot=0;
+        for(var i=0;i<keys2Arr.length;i++){
+            nTot+=obj[keys2Arr[i]];
+        }
+        return nTot;
+	}
+    function _getCodeLink(StrongCode){
+        var iStrongCode=parseInt(StrongCode);
+        if(iStrongCode>8674){
+            var url="http://lexiconcordance.com/hebrew/";//8650.html
+            return "<a class='xsc' href='"+url+StrongCode+".html'>"+StrongCode+"</a>";
+        }
+        var ret="<a href='"+g_PATH+"s/h"+StrongCode+".htm'>"+StrongCode+"</a>";
+        return ret;
+    }
+    function _htlist(StrongCode){
+        var iStrongCode=parseInt(StrongCode);
+        var obj=m_Stats[StrongCode];   
+
+        var ret="<div>", sremain="";
+        var keysArr=Object.keys(obj) ;
+        var nMax=keysArr.length;
+        if( iStrongCode>=9000){
+            nMax=10;//return "(many)";
+            sremain="(and so on)"
+        }
+        for(var i=0;i<nMax;i++){
+            var word=keysArr[i];
+            if(!word) break;
+            var freq=obj[word];
+            ret+=""+word +"&lrm;<span class='frq'>("+freq+")</span> ";
+        }
+        ret +=sremain+"</div>";
+        return ret;
+    }
+    var stb="\n<table border='1'><thead><tr><th>#</th><th>Strong</th><th>Hebrew</th><th>Frq</th><th>frq2</th><th>lst</th></tr><thead>\n";
+    stb+="<tbody>\n";
+    var keysArr=Object.keys(m_Stats) ;
+    for(var i=0;i<keysArr.length;i++){
+        var key=keysArr[i];
+        //var obj=this.m_Stats[key];
+        var str=_htlist(key);
+        //for( key in obj ){
+        //    var oob=obj[key];
+        var strd=_getCodeLink(key);
+        var shbr=GetHebrewDivFromStrongCode(key);
+        var n=_getFrq(key);
+
+        var otary=oOT[key];
+        var sotfrq="", incrate=0;
+        if( otary){
+        	sotfrq=otary[0];
+        	incrate=parseInt(sotfrq)/parseInt(n);
+        	incrate=incrate.toFixed(2);
+        }
+        stb+="<tr><td>"+i+"</td><td>"+strd+"</td><td>"+shbr+"</td><td>"+n+"</td><td>"+sotfrq+"</td><td>"+incrate+"</td><td>"+str+"</td></tr>\n\n";
+        //}
+    }
+    stb+="</tbody></table>";
+    return stb;
+
+ }
+
+function GetHebrewDivFromStrongCode(StrongCode){
+    //$('p.c').each(process_verse);
+    var arr=oStrongCode_Frq[StrongCode];
+    var shbr="notfound";
+    if(arr){
+    	shbr=arr[1];
+    }
+    return "<a class='heb' href='"+g_voiceUrl+StrongCode+"'>"+ shbr +"</a>";
+}
+</script>
+	</head>
+	<body>
+
+<button id='indxer'>indxer</button>
+<hr/>
+<div id='out'></div>
+
+</body>
+</html>

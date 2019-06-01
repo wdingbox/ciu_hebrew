@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he">
+<head>
+	<title>v-grp</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="./jquery.js"></script>
+
+    <script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+
+
+
+
+
+<script type="text/javascript" src="wordsgroups.js"></script>
+<style type="text/css">
+.chkclr{
+	background: #ff0000;
+}
+.heb{
+	font-size: 200%;
+	font-family: 'Times New Roman';
+}
+.txtcolr_white{
+	color: white;
+}
+th, caption{
+	background-color: #cccccc;
+}
+</style>
+<script type="text/javascript">
+
+$(document).ready(function(){ 
+	//gen_table();
+	gen_table_ahat();
+
+	$("table").tablesorter({
+    //  theme: 'blue',
+        usNumberFormat : false,
+        sortReset      : true,
+        sortRestart    : true,  
+
+        widgets: ['columns','output', ],//'zebra', 'editable'
+    });
+
+
+
+	$("caption").click(function(){
+		var ss="var hebrew_word_verb=[\n";
+		$(this).parent().find("tbody").find("tr").each(function(i){
+			//ss+="[\n";
+			$(this).find("td").each(function(j){
+				var vs=$(this).text();
+				if(0===j) return true;
+				if(1===j) {
+					ss+=gen_js_data(vs);//"{'"+vs+"':[";
+					console.log(vs);
+					return true;
+				}
+				//ss+="'"+vs+"', ";
+				console.log(i);
+			});
+			ss+="\n";
+		});
+		ss+="];\n";
+		$("#txtout").val(ss);
+	});
+
+
+});//
+function gen_js_data(sheb){
+	var ss="{\n";
+	var arr=["perfect","narrative","imperative"];
+	$.each(arr,function(i,v){
+		ss+="'"+v+"':[";
+		for(var j=0;j<10;j++){
+			if(v==="perfect" && j==3){
+				ss+="'"+sheb+"',";
+			}
+			else{ss+="'',"}			
+		}
+
+		ss+="],\n"
+	});
+
+	ss+="},\n";
+	return ss;
+}
+function gen_table_ahat(){
+	var s="";
+	$.each(wordsgroups,function(i,grp){
+		var str=table_trs(grp);
+		s+=trs_2_table(str,i);
+	});
+
+	$("#show").append(s);	
+	table_bind();
+}
+function table_trs(jsdat){
+	var s="";
+	var i=0;
+	$.each(jsdat,function(v,ar){
+		i++;
+		s+="<tr><td>"+i+"</td><td class='heb' aud='"+ar[1]+"' title='"+ar[0]+"''>"+v+"</td>";
+		for(var k=0;k<50;k++){
+			s+="<td class='heb'  contenteditable>"+v+"</td>";
+		}
+		s+="</tr>";
+	});
+	return s;
+}
+function trs_2_table(trs,caption){
+	var s="<table class='tablesorter' border='1'><caption>"+caption+"</caption>";
+	s+="<thead>";
+	s+="<tr><th>#</th><th>Heb</th>";
+	for(var k=0;k<50;k++){
+			s+="<th>"+k+"</th>";
+		}
+	s+="</tr>";
+	s+="</thead>";
+	s+="<tbody>";
+	s+=trs;
+	s+="</tbody>";
+	s+="</table>";
+	return (s);
+}
+
+function table_bind(){
+	$("#show").find("td").bind("click",function(){
+		$(this).toggleClass("chkclr");
+		var src=$(this).attr("aud");
+		if(!!src){
+			var s2="<audio autoplay><source src='"+src+"' type='audio/mpeg' /></audio>";
+			$("#audio").html(s2);
+			console.log(src);			
+		};
+	});		
+}
+
+</script>
+</head>
+<body id="top">
+
+<textarea class='heb' id="txtout"></textarea>
+
+<div id="audio"></div>
+
+<div id="show"></div>
+
+
+
+</body></html>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<title></title>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<script type="text/javascript" src="./jquery.js"></script>
+		<link href="" rel="shortcut icon" />
+		<link href="../tablesorter_master/docs/css/jq.css" rel="stylesheet" />
+		<link href="../tablesorter_master/dist/css/theme.default.min.css" rel="stylesheet" />
+		<script src="../tablesorter_master/js/jquery.tablesorter.js"></script>
+		<style type="text/css">
+table{
+	background-color: #00eeee;
+	border-collapse: collapse;
+}
+thead tr th{
+	font-size: 150%;
+	text-align: center;
+}
+tbody tr th{
+	font-size: 150%;
+	text-align: right;
+}
+
+th{
+    background-color: #cccccc;
+}	
+tr,td,th{
+    border-style: solid;
+	border-width: 1px;	
+}
+	
+
+tbody tr{
+	/*position: fixed;*/
+	width:auto;
+	top:0px;
+
+	border-style: solid;
+	border-width: : 1px;
+}
+.hith
+{
+	border: 3px solid red;
+}
+
+thead tr th:nth-child(1){
+	width: 20px;
+}
+thead tr th:nth-child(2){
+	width: 105px;
+}
+thead tr th:nth-child(3){
+	width: 122px;
+}
+thead tr th:nth-child(4){
+	width: 122px;
+}
+thead tr th:nth-child(5){
+	width: 120px;
+}
+thead tr th:nth-child(6){
+	width: 120px;
+}
+thead tr th:nth-child(7){
+	width: 130px;
+}
+thead tr th:nth-child(8){
+	width: 130px;
+}
+thead tr th:nth-child(9){
+	width: 150px;
+}
+
+tr:nth-child(9),
+tr:nth-child(19),
+tr:nth-child(26),
+tr:nth-child(27),
+tr:nth-child(22),
+tr:nth-child(20),
+tr:nth-child(28),
+tr:nth-child(30)
+{
+	border-style: solid;
+	border-bottom-width: 11px; 
+	border-bottom-color: #777777;
+}
+
+tr:nth-child(10),
+tr:nth-child(11),
+tr:nth-child(12),
+tr:nth-child(13),
+tr:nth-child(14),
+tr:nth-child(15),
+tr:nth-child(16),
+tr:nth-child(17),
+tr:nth-child(18),
+tr:nth-child(19),
+tr:nth-child(21),
+tr:nth-child(22),
+
+tr:nth-child(27),
+
+tr:nth-child(29),
+tr:nth-child(30),
+
+tr:nth-child(36),
+tr:nth-child(37),
+tr:nth-child(38),
+tr:nth-child(39)
+{
+	background-color: grey;
+}
+
+th[contxt*='perfect3ms']{
+	background-color: red;
+}
+th[contxt*='imperfect2fp'],
+th[contxt*='imperfect3fp']{
+	background-color: #23f23f;
+}
+th[contxt*='imperfect2ms'],
+th[contxt*='imperfect3fs']{
+	background-color: #eeee00;
+}
+th[contxt*='imperfect3ms'],
+th[contxt*='Jussive3ms']{
+	background-color: #ff716f;
+}
+th[contxt*='imperative2ms'],
+th[contxt*='InfinConimpv_2ms']{
+	background-color: #00a1e1;
+}
+
+
+
+.hbroot_letter{
+	color: #efefee;
+	font-weight: lighter;/*bold;*/
+}
+.hbroot_vows{
+	color: black;
+	font-weight: normal;/*bold;*/
+}
+.hbroot_prefix{
+	color: red;
+	font-weight: normal;/*bold;*/
+}
+.hbroot_suffix{
+	color: blue;
+	font-weight: normal;/*bold;*/
+}
+
+
+
+
+#out, td, body, .hebrew, .script-hebrew{
+    font-size: 330%;
+    font-family: 'Times New Roman';
+    text-align: right;
+}  
+
+.MySpace{
+ 
+}
+.MyYod
+{letter-spacing: 1.01px;
+}
+
+
+.Clichili{
+    background-color: #e1aae1;
+}	
+.ExactSame{
+    border: 3px solid red;
+}		</style>
+		<script type="text/javascript">
+
+////HebrewUniCode.
+var HUC={
+
+	Ha:function(clr){
+		return "<font class='"+clr+"'>&#1492;</font>";
+	},
+	Ta:function(clr){
+		return "<font class='"+clr+"'>&#1514;</font>";
+	},
+	Ti:function(clr){
+		return "<font class='"+clr+"'>&#64330;</font>";
+	},
+	Yod:function(clr){
+		return "<font class='MyYod "+clr+"'>&#1497;</font>";
+	},
+	Space:function(clr){
+		return "<font class='MySpace "+clr+"'> </font>";
+	},
+	Vaw:function(clr){
+		return "<font class='"+clr+"'>&#1493;</font>";
+	},
+	Noon:function(clr){
+		return "<font class='"+clr+"'>&#1504;</font>";
+	},
+	Noon2:function(clr){
+		return "<font class='"+clr+"'>&#1503;</font>";
+	},
+	Man:function(clr){
+		return "<font class='"+clr+"'>&#1502;</font>";
+	},	
+	Man2:function(clr){
+		return "<font class='"+clr+"'>&#1501;</font>";
+	},	
+	Aleph:function(clr){
+		return "<font class='"+clr+"'>&#1488;</font>";
+	},
+
+
+	dagesh:function(clr){
+		return "<font class='"+clr+"'>&#1468;</font>";
+	},
+	hiriq:function(clr){
+		return "<font class='"+clr+"'>&#1460;</font>";
+	},
+	tsere:function(clr){
+		return "<font class='"+clr+"'>&#1461;</font>";
+	},
+	segol:function(clr){
+		return "<font class='"+clr+"'>&#1462;</font>";
+	},
+	qibut:function(clr){
+		return "<font class='"+clr+"'>&#1467;</font>";
+	},
+	
+
+	shewa:function(clr){
+		return "<font class='"+clr+"'>&#1456;</font>";
+	},
+	qamet_shewa:function(clr){
+		return "<font class='"+clr+"'>&#1459;</font>";
+	},
+	patach_shewa:function(clr){
+		return "<font class='"+clr+"'>&#1458;</font>";
+	},
+	seghol_shewa:function(clr){
+		return "<font class='"+clr+"'>&#1457;</font>";
+	},
+
+	patach:function(clr){
+		return "<font class='"+clr+"'>&#1463;</font>";
+	},
+	qamats:function(clr){
+		return "<font class='"+clr+"'>&#1464;</font>";
+	},
+
+	holem:function(clr){
+		return "<font class='"+clr+"'>&#1465;</font>";
+	},
+
+
+	hbrw_letter:function(hbletter,clr){
+		var rot="";
+		rot+="<font class='"+clr+"'>"+hbletter+"</font>";	
+		return rot;
+	},
+	hbrw_fr_ary:function(hary,clr){
+		var ret="";
+		if(!hary){
+			return "";
+		}
+		$.each(hary,function(i,wmark){
+			if( wmark.length>0){
+				var ar=wmark.split(",");
+				$.each(ar,function(i,wmk){
+					if(!HUC[wmk]){
+						console.log("functionnotexist",wmk);
+						return "";
+					}
+					ret+=HUC[wmk](clr);
+				});	
+			}
+		});
+		return ret;
+	},
+}////HUC
+$(document).ready(function(){/////////////// 
+	var tt=HUC.Yod()+HUC.dagesh();
+	$("#tst").html(tt);
+
+	var Roots=["&#1505;","&#1505;","&#1505;"];
+	var hbverbs=new GenVerbs(Roots);
+	$("#out").html(hbverbs.m_stb);
+
+
+	$("td").click(function(){
+		//$(this).toggleClass("redpart");
+		var tt=$(this).text();
+		$("td").removeClass("Clichili").removeClass("ExactSame");
+		$( "td:contains('"+tt+"')" ).addClass("Clichili");
+		$("td").each(function(){
+			var tdt=$(this).text();
+			if(tdt==tt){
+				$(this).addClass("ExactSame");
+			}
+		});
+	});
+
+	$("th").click(function(){
+		$(this).toggleClass("hith");
+	});
+});//////////////////////////////////////////
+
+var GenVerbs=function(sHroot){
+	var Verbs=JSON.parse(JSON.stringify(StemsPattern));
+	$.each(StemsPattern,function(stemName,stemObj){
+		$.each(stemObj,function(formName,formObj){
+			$.each(formObj,function(pngName,pgnArr){
+				var s="";
+				s+=HUC.hbrw_fr_ary (FormsPattern[formName][pngName][0],"hbroot_suffix");
+				s+=HUC.hbrw_fr_ary (pgnArr[0],"hbroot_prefix");
+				s+=HUC.hbrw_letter (sHroot[0],"hbroot_letter");
+				s+=HUC.hbrw_fr_ary (pgnArr[1],"hbroot_prefix");
+				s+=HUC.hbrw_letter (sHroot[1],"hbroot_letter");
+				s+=HUC.hbrw_fr_ary (pgnArr[2],"hbroot_prefix");
+				s+=HUC.hbrw_letter (sHroot[2],"hbroot_letter");
+				s+=HUC.hbrw_fr_ary (FormsPattern[formName][pngName][1],"hbroot_suffix");
+				if(pgnArr[1].join("").length==0){
+					s="";
+				}
+				Verbs[stemName][formName][pngName]=s;
+			});
+		});
+	});
+
+	var Stems=Object.keys(Verbs);
+
+	var stb="<table ><caption>StrongVerbBasic</caption>";
+	stb+="<thead><tr class='tabtit'><th>#</th><th title='Forms of PersonNumGender'>FormPNG</th>";
+	$.each(Stems,function(i,stem){
+		var tit=" title='"+DescOfName[stem]+"'";
+		stb+="<th"+tit+">"+stem + "</th>";
+	});
+	stb+="</tr></thead>";
+	stb+="<tbody>";
+	var idx=1;
+	$.each(FormsPattern,function(formName,form){
+		$.each(form,function(pgnName,pgnArr){
+			var contxt=" contxt='" + formName+pgnName +"' title='" + DescOfName[formName]+"'";
+			stb+="<tr><th>"+(idx++)+"</th><th"+contxt+">"+formName+"<br>"+pgnName+"</th>";
+			$.each(Stems,function(i,stemName){
+				stb+="<td>"+Verbs[stemName][formName][pgnName]+"</td>";
+			});
+			stb+="</tr>";	
+		});
+	});
+
+	stb+="</tbody></table>";
+	this.m_stb=stb;	
+
+	$.each(Verbs,function(stemName,stemObj){
+		$.each(stemObj,function(formName,formObj){
+			$.each(formObj,function(pngName,pngArr){
+				var s=Verbs[stemName][formName][pngName];
+			});
+		});
+	});	
+}//GenVerbs
+var DescOfName={
+	"perfect":"past tense. done.\r\nTi-Tar-Tar--Hu;\r\nNu-Tim-Tin-Wu;",
+	"imperfect":"future tense, will do. \r\nEo-Tio-Tioyi-Yo-Ti; \r\nNio-Tiwu-Tinu-Yowu-Tinu;\r\n --Wu-Nar-Wu-Nar \r\nhttps://www.youtube.com/watch?v=Zhach-lDeZk",
+	"NarPret":"Narrative Preverite = imperfect + wav; then did'",
+	"Cohortative":"indirect commands 1p,append Ha on imperfect, let me do",
+	"Imperative":"indirect commands 2p,remove Ti fr imperfect, let you do",
+	"Jussive":"indirect commands 3p, keep unchanged imperfect, let him do",
+	"InfinCon":"Infinitive Construct,",
+	"InfinAbs":"Infinitive Absolute, surely do",
+	"PartAct":"Participate Active,",
+	"PartPas":"Participate Passive,",
+
+	"Qal":"Lex form, he did",
+	"Niphal":"passive, he was done",
+	"Piel":"Strong, he intensively do",
+	"Pual":"Strong passive, ",
+	"Hiphil":"Causitive, he cause to do",
+	"Hophal":"Causitive passive, he was caused to do",
+	"Hithpael":"Reflective, he did himself"
+}
+var FormsPattern={
+	"perfect":{
+			"1cs":[[""],["shewa","Ti","hiriq","Yod"]],
+			"2ms":[[""],["shewa","Ti","qamats"]],
+			"2fs":[[""],["shewa","Ti","shewa"]],
+			"3ms":[[""],[]],
+			"3fs":[[""],["qamats","Ha"]],
+			"1cp":[[""],["shewa","Noon","Vaw","dagesh"]],
+			"2mp":[[""],["shewa","Ti","segol","Man2"]],
+			"2fp":[[""],["shewa","Ti","segol","Noon2"]],
+			"3cp":[[""],["Vaw","dagesh"]],
+	},
+	"imperfect":{
+			"1cs":[["Aleph",],  []								],
+			"2ms":[["Ti",   ],  []								],
+			"2fs":[["Ti",   ],  ["hiriq","Yod"]					],
+			"3ms":[["Yod",  ],  []								],
+			"3fs":[["Ti",   ],  []								],
+			"1cp":[["Noon", ],  []								],
+			"2mp":[["Ti",   ],  ["Vaw","dagesh"]				],
+			"2fp":[["Ti",   ],  ["shewa","Noon","qamats","Ha"]	],
+			"3mp":[["Yod",  ],  ["Vaw","dagesh"]				],
+			"3fp":[["Ti",   ],  ["shewa","Noon","qamats","Ha"]	],
+	},//imperfect
+	"NarPret":{
+			"3ms":[["Vaw","patach","Yod"],  [""]],
+		},//NarPret
+	"Cohortative":{
+			"1cs":[["Aleph"],["qamats","Ha"]],
+			"1cp":[["Noon"], ["qamats","Ha"]],
+		},
+	"Imperative":{
+			"2ms":[[""],[]					],
+			"2fs":[[""],["hiriq","Yod"]		],
+			"2mp":[[""],["Vaw","dagesh"]				],
+			"2fp":[[""],["shewa","Noon","qamats","Ha"]],
+		},
+	"Jussive":{
+			"3ms":[["Yod"],         []],
+		},
+	"InfinCon":{
+			"impv_2ms":[[""], [""],[]],
+		},
+	"InfinAbs":{
+			"a":[[""],  ["",""],[]],
+			"b":[[""],  ["",""],[]],
+		},
+	"PartAct":{
+			"ms":[[],  []],
+			"fsA":[[],  ["qamats","Ha"]],
+			"fsB":[[],  ["segol","Ta"]],
+			"mp":[[],  ["hiriq","Yod","Man2"]],
+			"fp":[[],  ["Vaw","holem","Ta"]],
+		},
+	"PartPas":{
+			"ms":[[],  []],
+			"fs":[[],  ["qamats","Ha"]],
+			"mp":[[],  ["hiriq","Yod","Man2"]],
+			"fp":[[],  ["Vaw","holem","Ta"]],
+		}
+}//FormsPattern
+var StemsPattern={
+	"Qal":{
+		"perfect":{
+			"1cs":[[""], ["qamats"], ["patach"]],
+			"2ms":[[""], ["qamats"], ["patach"]],
+			"2fs":[[""], ["qamats"], ["patach"]],
+			"3ms":[[""], ["qamats"], ["patach"]],
+			"3fs":[[""], ["qamats"], ["shewa" ]],
+			"1cp":[[""], ["qamats"], ["patach"]],
+			"2mp":[[""], ["shewa"],  ["patach"]],
+			"2fp":[[""], ["shewa"],  ["patach"]],
+			"3cp":[[""], ["qamats"], ["shewa"]],
+		},
+		"imperfect":{
+			"1cs":[["segol"],	["shewa"], ["holem"]],
+			"2ms":[["hiriq"],   ["shewa"], ["holem"]],
+			"2fs":[["hiriq"],   ["shewa"], ["shewa"]],
+			"3ms":[["hiriq"],  	["shewa"], ["holem"]],
+			"3fs":[["hiriq"],   ["shewa"], ["holem"]],
+			"1cp":[["hiriq"], 	["shewa"], ["holem"]],
+			"2mp":[["hiriq"],   ["shewa"], ["shewa"]],
+			"2fp":[["hiriq"],   ["shewa"], ["holem"]],
+			"3mp":[["hiriq"],  	["shewa"], ["shewa"]],
+			"3fp":[["hiriq"],   ["shewa"], ["holem"]],
+		},//imperfect
+		"NarPret":{
+			"3ms":[["hiriq","Space", "dagesh",],  ["shewa"],  ["holem"]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["segol"],   ["shewa"],  ["shewa"]],
+			"1cp":[["hiriq"],   ["shewa"],  ["shewa"]],
+		},
+		"Imperative":{
+			"2ms":[[],   ["shewa"], ["holem"]],
+			"2fs":[[],   ["hiriq"], ["shewa"]],
+			"2mp":[[],   ["hiriq"], ["shewa"]],
+			"2fp":[[],   ["shewa"], ["holem"]],			
+		},
+		"Jussive":{
+			"3ms":[["hiriq"],   ["shewa"], ["holem"]],
+		},
+		"InfinCon":{
+			"impv_2ms":[[""],  ["shewa"], ["holem"]],
+		},
+		"InfinAbs":{
+			"a":[[""],  ["qamats"],["holem"]    ],
+			"b":[[""],  ["qamats"],["Vaw,holem"]],
+		},
+		"PartAct":{
+			"ms":[[],  ["holem"],  ["tsere"]],
+		    "fsA":[[],  ["holem"],  ["shewa"]],
+		    "fsB":[[],  ["holem"],  ["segol"]],
+			"fp":[[],  ["holem"],  ["shewa"]],
+			"mp":[[],  ["holem"],  ["shewa"]],
+		},
+		"PartPas":{
+			"ms":[[],  ["qamats"],["Vaw,dagesh"]],
+			"fs":[[],  ["shewa" ],["Vaw,dagesh"]],
+			"mp":[[],  ["shewa" ],["Vaw,dagesh"]],
+			"fp":[[],  ["shewa" ],["Vaw,dagesh"]],
+		}
+	},//qal
+	"Niphal":{
+		"perfect":{
+			"1cs":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"2ms":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"2fs":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"3ms":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"3fs":[["Noon","hiriq"], ["shewa"], ["shewa" ]],
+			"1cp":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"2mp":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"2fp":[["Noon","hiriq"], ["shewa"], ["patach"]],
+			"3cp":[["Noon","hiriq"], ["shewa"], ["shewa"]],
+		},
+		"imperfect":{
+			"1cs":[["","segol"],   ["dagesh","qamats"],["tsere",]],
+			"2ms":[["","hiriq"],   ["dagesh","qamats"],["tsere",]],
+			"2fs":[["","hiriq"],   ["dagesh","qamats"],["shewa",]],
+			"3ms":[["","hiriq"],   ["dagesh","qamats"],["tsere",]],
+			"3fs":[["","hiriq"],   ["dagesh","qamats"],["tsere",]],
+			"1cp":[["","hiriq"],   ["dagesh","qamats"],["tsere",]],
+			"2mp":[["","hiriq"],   ["dagesh","qamats"],["shewa",]],
+			"2fp":[["","hiriq"],   ["dagesh","qamats"],["patach"]],
+			"3mp":[["","hiriq"],   ["dagesh","qamats"],["shewa" ]],
+			"3fp":[["","hiriq"],   ["dagesh","qamats"],["patach"]],
+		},
+		"NarPret":{
+			"3ms":[["hiriq","Space", "dagesh",],  ["qamats","dagesh"],  ["tsere"]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["","segol"],  ["dagesh","qamats"],  ["shewa"]],
+			"1cp":[["","hiriq"],  ["dagesh","qamats"],   ["shewa"]],
+		},
+		"Imperative":{
+			"2ms":[["Ha","hiriq"],   ["dagesh","qamats"],["tsere"]],
+			"2fs":[["Ha","hiriq"],   ["dagesh","qamats"],["shewa"]],
+			"2mp":[["Ha","hiriq"],   ["dagesh","qamats"],["shewa"]],
+			"2fp":[["Ha","hiriq"],   ["dagesh","qamats"],["shewa"]],			
+		},
+		"Jussive":{
+			"3ms":[["hiriq"],   ["dagesh","qamats"],["tsere"]],
+		},
+		"InfinCon":{
+		    "impv_2ms":[["Ha","hiriq"],  ["dagesh","qamats"],["tsere"]],
+		},
+		"InfinAbs":{
+			"a":[["Ha","hiriq"],    ["dagesh","qamats"],["Vaw,holem",""]],
+			"b":[["Noon","hiriq"],  ["shewa"], ["Vaw,holem",""]],
+		},
+		"PartAct":{
+			"ms":[["Noon","hiriq"],  ["shewa"],  ["qamats",""]],
+		    "fsA":[["Noon","hiriq"],  ["shewa"],  ["qamats",""]],
+		    "fsB":[["Noon","hiriq"],  ["shewa"],  ["segol", ""]],
+			"fp":[["Noon","hiriq"],  ["shewa"],  ["qamats",""]],
+			"mp":[["Noon","hiriq"],  ["shewa"],  ["qamats",""]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+		}
+	},//Niphal
+	"Piel":{
+		"perfect":{
+			"1cs":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"2ms":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"2fs":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"3ms":[[],                  ["hiriq"],   ["dagesh,tsere",""]],
+			"3fs":[[],                  ["hiriq"],   ["dagesh,shewa" ,""]],
+			"1cp":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"2mp":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"2fp":[[],                  ["hiriq"],   ["dagesh,patach",""]],
+			"3cp":[[],                  ["hiriq"],   ["dagesh,shewa", ""]],
+		},
+		"imperfect":{
+			"1cs":[["","patach_shewa"], ["patach"],  ["dagesh,tsere",""]],
+			"2ms":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+			"2fs":[["","shewa"],        ["patach"],  ["dagesh,shewa",""]],
+			"3ms":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+			"3fs":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+			"1cp":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+			"2mp":[["","shewa"],        ["patach"],  ["dagesh,shewa",""]],
+			"2fp":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+			"3mp":[["","shewa"],        ["patach"],  ["dagesh,shewa",""]],
+			"3fp":[["","shewa"],        ["patach"],  ["dagesh,tsere",""]],
+		},//imperfect
+		"NarPret":{
+			"3ms":[["shewa",""],  ["patach"],["dagesh,tsere"]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["","patach_shewa"],["patach"],["dagesh,shewa"]],
+			"1cp":[["","shewa"],       ["patach"],["dagesh,shewa"]],
+		},
+		"Imperative":{
+			"2ms":[[],          ["patach"],  ["dagesh,tsere",""]],
+			"2fs":[[],          ["patach"],  ["dagesh,shewa",""]],
+			"2mp":[[],          ["patach"],  ["dagesh,shewa",""]],
+			"2fp":[[],          ["patach"],  ["dagesh,tsere",""]],
+		},
+		"Jussive":{
+			"3ms":[["shewa"],   ["patach"],  ["dagesh,tsere",""]],
+		},
+		"InfinCon":{
+			"impv_2ms":[[],     ["patach"],["dagesh,tsere",""]],
+		},
+		"InfinAbs":{
+			"a":[[""],  ["patach"],["dagesh,tsere",""]    ],
+			"b":[[""],  ["patach"],["dagesh,Vaw,holem",""]],
+		},
+		"PartAct":{
+			"ms":[["Man","shewa"],  ["patach"], ["dagesh,tsere",""]],
+		    "fsA":[["Man","shewa"],  ["patach"], ["dagesh,shewa",""]],
+		    "fsB":[["Man","shewa"],  ["patach"], ["dagesh,segol",""]],
+			"fp":[["Man","shewa"],  ["patach"], ["dagesh,shewa",""]],
+			"mp":[["Man","shewa"],  ["patach"], ["dagesh,shewa",""]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+		}
+	},//Piel
+	"Pual":{
+		"perfect":{
+			"1cs":[[],["qibut"],  ["dagesh,patach",""]],
+			"2ms":[[],["qibut"],  ["dagesh,patach",""]],
+			"2fs":[[],["qibut"],  ["dagesh,patach",""]],
+			"3ms":[[],["qibut"],  ["dagesh,patach",""]],
+			"3fs":[[],["qibut"],  ["dagesh,shewa" ,""]],
+			"1cp":[[],["qibut"],  ["dagesh,patach",""]],
+			"2mp":[[],["qibut"],  ["dagesh,patach",""]],
+			"2fp":[[],["qibut"],  ["dagesh,patach",""]],
+			"3cp":[[],["qibut"],  ["dagesh,shewa", ""]],
+		},
+		"imperfect":{
+			"1cs":[["","patach_shewa"],   ["qibut"],  ["dagesh,patach",""]],
+			"2ms":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+			"2fs":[["","shewa"],          ["qibut"],  ["dagesh,shewa", ""]],
+			"3ms":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+			"3fs":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+			"1cp":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+			"2mp":[["","shewa"],          ["qibut"],  ["dagesh,shewa", ""]],
+			"2fp":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+			"3mp":[["","shewa"],          ["qibut"],  ["dagesh,shewa", ""]],
+			"3fp":[["","shewa"],          ["qibut"],  ["dagesh,patach",""]],
+		},//imperfect
+		"NarPret":{
+			"3ms":[["shewa",""],  ["qibut"],["dagesh,patach",""]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["","patach_shewa"], ["qibut"],["dagesh,shewa",""]],
+			"1cp":[["","shewa"],        ["qibut"],["dagesh,shewa",""]],
+		},
+		"Imperative":{
+			"2ms":[[],          [""],["",""]],
+			"2fs":[[],          [""],["",""]],
+			"2mp":[[],          [""],["",""]],
+			"2fp":[[],          [""],["",""]],
+		},
+		"Jussive":{
+			"3ms":[["shewa"],  ["qibut"],  ["dagesh,patach",""]],
+		},
+		"InfinCon":{
+			"impv_2ms":[[],          ["qibut"], ["dagesh,patach",""]],
+		},
+		"InfinAbs":{
+			"a":[[""],  [""], ["",""]],
+			"b":[[""],  ["qibut"], ["dagesh,Vaw,holem",""]],
+		},
+		"PartAct":{
+			"ms":[["Man","shewa"],  ["qibut"],["dagesh,qamats",""]],
+		    "fsA":[["Man","shewa"],  ["qibut"],["dagesh,qamats",""]],
+		    "fsB":[["Man","shewa"],  ["qibut"],["dagesh,segol", ""]],
+			"fp":[["Man","shewa"],  ["qibut"],["dagesh,qamats",""]],
+			"mp":[["Man","shewa"],  ["qibut"],["dagesh,qamats",""]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+		}
+	},//Pual
+	"Hiphil":{
+		"perfect":{
+			"1cs":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"2ms":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"2fs":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"3ms":[["Ha","hiriq"],  ["shewa"],["hiriq,Yod",""]],
+			"3fs":[["Ha","hiriq"],  ["shewa"],["hiriq,Yod",""]],
+			"1cp":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"2mp":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"2fp":[["Ha","hiriq"],  ["shewa"],["patach",   ""]],
+			"3cp":[["Ha","hiriq"],  ["shewa"],["hiriq,Yod",""]],
+		},
+		"imperfect":{
+			"1cs":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"2ms":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"2fs":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"3ms":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"3fs":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"1cp":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"2mp":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"2fp":[["patach"],   ["shewa"], ["tsere",""    ]],
+			"3mp":[["patach"],   ["shewa"], ["hiriq,Yod",""]],
+			"3fp":[["patach"],   ["shewa"], ["tsere",""    ]],
+		},
+		"NarPret":{
+			"3ms":[["patach","Space", "dagesh",],  ["shewa"], ["tsere",""]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["","patach"],  ["shewa"], ["hiriq,Yod",""]],
+			"1cp":[["","patach"],  ["shewa"], ["hiriq,Yod",""]],
+		},
+		"Imperative":{
+			"2ms":[["Ha","patach"],   ["shewa"],  ["tsere",""    ]],
+			"2fs":[["Ha","patach"],   ["shewa"],  ["hiriq,Yod",""]],
+			"2mp":[["Ha","patach"],   ["shewa"],  ["hiriq,Yod",""]],
+			"2fp":[["Ha","patach"],   ["shewa"],  ["tsere",""    ]],			
+		},
+		"Jussive":{
+			"3ms":[["patach"],   ["shewa"], ["tsere",""]],
+		},
+		"InfinCon":{
+		    "impv_2ms":[["Ha","patach"],  ["shewa"],["hiriq,Yod",""]],
+		},
+		"InfinAbs":{
+			"a":[["Ha","patach"],    ["shewa"],["tsere",""]],
+			"b":[[""],  ["","",""],[]],
+		},
+		"PartAct":{
+			"ms":[["Man","patach"],  ["shewa"],  ["hiriq,Yod",""]],
+		    "fsA":[["Man","patach"],  ["shewa"],  ["hiriq,Yod",""]],
+		    "fsB":[["Man","patach"],  ["shewa"],  ["segol",""    ]],
+			"fp":[["Man","patach"],  ["shewa"],  ["hiriq,Yod",""]],
+			"mp":[["Man","patach"],  ["shewa"],  ["hiriq,Yod",""]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+		}
+	},//Hiphil<==Niphal
+	"Hophal":{
+		"perfect":{
+			"1cs":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"2ms":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"2fs":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"3ms":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"3fs":[["Ha","qamats"],["shewa"],  ["shewa" ,""]],
+			"1cp":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"2mp":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"2fp":[["Ha","qamats"],["shewa"],  ["patach",""]],
+			"3cp":[["Ha","qamats"],["shewa"],  ["shewa","" ]],
+		},
+		"imperfect":{
+			"1cs":[["qamats"],   ["shewa"], ["patach",""]],
+			"2ms":[["qamats"],   ["shewa"], ["patach",""]],
+			"2fs":[["qamats"],   ["shewa"], ["shewa",""],],
+			"3ms":[["qamats"],   ["shewa"], ["patach",""]],
+			"3fs":[["qamats"],   ["shewa"], ["patach",""]],
+			"1cp":[["qamats"],   ["shewa"], ["patach",""]],
+			"2mp":[["qamats"],   ["shewa"], ["shewa",""],],
+			"2fp":[["qamats"],   ["shewa"], ["patach",""]],
+			"3mp":[["qamats"],   ["shewa"] ,["shewa","" ]],
+			"3fp":[["qamats"],   ["shewa"] ,["patach",""]],
+		},
+		"NarPret":{
+			"3ms":[["qamats","Space", "dagesh",],  ["shewa"], ["tsere",""]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["qamats"],   ["shewa"], ["shewa",""]],
+			"1cp":[["qamats"],   ["shewa"], ["shewa",""]],
+		},
+		"Imperative":{
+			"2ms":[[],   ["","",""],[]],
+			"2fs":[[],   ["","",""],[]],
+			"2mp":[[],   ["","",""],[]],
+			"2fp":[[],   ["","",""],[]],			
+		},
+		"Jussive":{
+			"3ms":[["","qamats"],   ["shewa"],["patach",""]],
+		},
+		"InfinCon":{
+		    "impv_2ms":[["Ha","qamats"],  ["shewa"],["patach",""]],
+		},
+		"InfinAbs":{
+			"a":[["Ha","qamats"],    ["shewa"],["tsere",""],[]],
+			"b":[[""],  ["","",""],[]],
+		},
+		"PartAct":{
+			"ms":[["Man","qamats"],  ["shewa"], ["qamats",""]],
+		    "fsA":[["Man","qamats"],  ["shewa"], ["qamats",""]],
+		    "fsB":[["Man","qamats"],  ["shewa"], ["segol","" ]],
+			"fp":[["Man","qamats"],  ["shewa"], ["qamats",""]],
+			"mp":[["Man","qamats"],  ["shewa"], ["qamats",""]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+		}
+	},//Hophal<==Hiphil<==Niphal
+	"Hithpael":{
+		"perfect":{
+			"1cs":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"2ms":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"2fs":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"3ms":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,tsere" ]],
+			"3fs":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,shewa" ]],
+			"1cp":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"2mp":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"2fp":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,patach"]],
+			"3cp":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,shewa" ]],
+		},
+		"imperfect":{
+			"1cs":[["segol","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"2ms":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"2fs":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"3ms":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"3fs":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"1cp":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"2mp":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,shewa"]],
+			"2fp":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+			"3mp":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,shewa"]],
+			"3fp":[["hiriq","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+		},//imperfect
+		"NarPret":{
+			"3ms":[["hiriq","Space", "dagesh","Ta","shewa"],  ["patach"],  ["dagesh,tsere"]],
+		},//NarPret
+		"Cohortative":{
+			"1cs":[["segol","Ta","shewa"],  ["patach"], ["dagesh,shewa"]],
+			"1cp":[["hiriq","Ta","shewa"],  ["patach"], ["dagesh,shewa"]],
+		},
+		"Imperative":{
+			"2ms":[["Ha","hiriq","Ta","shewa"],  ["patach"],   ["dagesh,tsere"]],
+			"2fs":[["Ha","hiriq","Ta","shewa"],  ["patach"],   ["dagesh,shewa"]],
+			"2mp":[["Ha","hiriq","Ta","shewa"],  ["patach"],   ["dagesh,shewa"]],
+			"2fp":[["Ha","hiriq","Ta","shewa"],  ["patach"],   ["dagesh,tsere"]],
+		},
+		"Jussive":{
+			"3ms":[["hiriq","Ta","shewa"],  ["patach"],   ["dagesh,tsere"]],
+		},
+		"InfinCon":{
+			"impv_2ms":[["Ha","hiriq","Ta","shewa"], ["patach"], ["dagesh,tsere"]],
+		},
+		"InfinAbs":{
+			"a":[["Ha","hiriq","Ta","shewa"],   ["patach"],["dagesh,tsere"]],
+			"b":[[""],  ["","",""],[]],
+		},
+		"PartAct":{
+			"ms":[["Man","hiriq","Ta","shewa"],  ["patach"], ["dagesh,tsere"]],
+		    "fsA":[["Man","hiriq","Ta","shewa"],  ["patach"], ["dagesh,shewa"]],
+		    "fsB":[["","","",""],  [""], [""]],
+			"fp":[["Man","hiriq","Ta","shewa"],  ["patach"], ["dagesh,shewa"]],
+			"mp":[["Man","hiriq","Ta","shewa"],  ["patach"], ["dagesh,shewa"]],
+		},
+		"PartPas":{
+			"ms":[[],  ["","",""],[]],
+			"fs":[[],  ["","",""],[]],
+			"mp":[[],  ["","",""],[]],
+			"fp":[[],  ["","",""],[]],
+		}
+	},//Hithpael	
+}//StemsPattern
+</script>
+	</head>
+	<body>
+		<div id="out">
+			&nbsp;tab</div>		
+		
+
+
+			<table border="1" cellpadding="1" cellspacing="1" style="width: 500px">
+				<caption>
+					Feature Desc</caption>
+				<tbody>
+					<tr>
+						<td>
+							&nbsp;</td>
+						<td>
+							Qal</td>
+						<td>
+							Niphil</td>
+						<td>
+							Piel</td>
+						<td>
+							Pual</td>
+						<td>
+							Hiphil</td>
+						<td>
+							Hophal</td>
+						<td>
+							Hithpael</td>
+					</tr>
+					<tr>
+						<td>
+							perfect+</td>
+						<td>
+							סִסָסַס</td>
+						<td>
+							סִנִסְסַס</td>
+						<td>
+							סִסִסֵּס</td>
+						<td>
+							סִסֻסַּס</td>
+						<td>
+							סִהִסְסִיס</td>
+						<td>
+							סִחֻסְסַס</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+							<span >imperfect</span></td>
+						<td>
+							סִסְסֹס</td>
+						<td>
+							סִסָּסֵס</td>
+						<td>
+							סְסַסֵּס</td>
+						<td>
+							סְסֻסַּס</td>
+						<td>
+							סַסְסִס</td>
+						<td>
+							סָסְסַס</td>
+						<td>
+							&nbsp;</td>
+					</tr>
+					<tr>
+						<td>
+							<span style="font-size:12px;">desc</span></td>
+						<td>
+							<span style="font-size:12px;">qamat move</span></td>
+						<td>
+							<span style="font-size:12px;">assimilate to next qamat</span></td>
+						<td>
+							<span style="font-size:12px;">no dull&nbsp;</span></td>
+						<td>
+							<span style="font-size:12px;">qibut strong</span></td>
+						<td>
+							<span style="font-size:12px;">Hi lengthen precede</span></td>
+						<td>
+							<span style="font-size:12px;">Ho lengthen preceding to qamat</span></td>
+						<td>
+							&nbsp;</td>
+					</tr>
+										<tr>
+						<td>
+							<span style="font-size:12px;">Stems</span></td>
+						<td>
+							<span style="font-size:12px;">he did</span></td>
+						<td>
+							<span style="font-size:12px;">he was done</span></td>
+						<td>
+							<span style="font-size:12px;">he repeatedly did</span></td>
+						<td>
+							<span style="font-size:12px;">he was repeatedly done</span></td>
+						<td>
+							<span style="font-size:12px;">he caused sb to do</span></td>
+						<td>
+							<span style="font-size:12px;">he was caused by sb to do</span></td>
+						<td>
+							he caused himself to do</td>
+					</tr>
+				</tbody>
+			</table>
+
+	</body>
+</html>

@@ -1,0 +1,365 @@
+{
+  "name": "root111",
+  "children": [
+    {
+      "name": "grp1",
+      "children": [
+        {
+          "name": "2281",
+          "hebrew": "חֲבִתִּים",
+          "english": "pans (1x).",
+          "root": "From an unused root probably meaning to cook [compare מַחֲבַת (H4227)]",
+          "PoS": "masculine plural noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "4227",
+              "hebrew": "מַחֲבַת",
+              "english": "pan (5x).",
+              "root": "From the same as חֲבִתִּים (H2281)",
+              "PoS": "feminine noun",
+              "notes": "",
+              "parentName": "2281",
+              "children": [
+                {
+                  "name": "2281",
+                  "hebrew": "חֲבִתִּים",
+                  "english": "pans (1x).",
+                  "root": "From an unused root probably meaning to cook [compare מַחֲבַת (H4227)]",
+                  "PoS": "masculine plural noun",
+                  "notes": "",
+                  "parentName": "4227",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "3389",
+          "hebrew": "יְרוּשָׁלַם",
+          "english": "Jerusalem (643x).",
+          "root": "A dual (in allusion to its two main hills [the true pointing, at least of the former reading, seems to be that of יְרוּשְׁלֵם (H3390)]), probably from (the passive participle of) יָרָה (H3384) and שָׁלַם (H7999)",
+          "PoS": "proper locative noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "3390",
+              "hebrew": "יְרוּשְׁלֵם",
+              "english": "Jerusalem (26x).",
+              "root": "Corresponding to יְרוּשָׁלַם (H3389)",
+              "PoS": "proper locative noun",
+              "notes": "",
+              "parentName": "3389",
+              "children": [
+                {
+                  "name": "3389",
+                  "hebrew": "יְרוּשָׁלַם",
+                  "english": "Jerusalem (643x).",
+                  "root": "A dual (in allusion to its two main hills [the true pointing, at least of the former reading, seems to be that of יְרוּשְׁלֵם (H3390)]), probably from (the passive participle of) יָרָה (H3384) and שָׁלַם (H7999)",
+                  "PoS": "proper locative noun",
+                  "notes": "",
+                  "parentName": "3390",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "7733",
+          "hebrew": "שׁוֹבֵק",
+          "english": "Shobek (1x).",
+          "root": "Act part from a primitive root meaning to leave (compare שְׁבַק (H7662))",
+          "PoS": "proper masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "7662",
+              "hebrew": "שְׁבַק",
+              "english": "leave (4x), let alone (1x).",
+              "root": "Corresponding to the root of שׁוֹבֵק (H7733)",
+              "PoS": "verb",
+              "notes": "",
+              "parentName": "7733",
+              "children": [
+                {
+                  "name": "7733",
+                  "hebrew": "שׁוֹבֵק",
+                  "english": "Shobek (1x).",
+                  "root": "Act part from a primitive root meaning to leave (compare שְׁבַק (H7662))",
+                  "PoS": "proper masculine noun",
+                  "notes": "",
+                  "parentName": "7662",
+                  "children": []
+                },
+                {
+                  "name": "3435",
+                  "hebrew": "יִשְׁבָּק",
+                  "english": "Ishbak (2x).",
+                  "root": "From an unused root corresponding to שְׁבַק (H7662)",
+                  "PoS": "proper masculine noun",
+                  "notes": "",
+                  "parentName": "7662",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "5216",
+          "hebrew": "נִיר",
+          "english": "lamp (35x), candle (9x), light (4x).",
+          "root": "From a primitive root [see נִיר (H5214); נוּר (H5135)] properly, meaning to glisten",
+          "PoS": "masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "5214",
+              "hebrew": "נִיר",
+              "english": "break up (2x).",
+              "root": "A root probably identical with that of נִיר (H5216), through the idea of the gleam of a fresh furrow",
+              "PoS": "verb",
+              "notes": "",
+              "parentName": "5216",
+              "children": [
+                {
+                  "name": "5215",
+                  "hebrew": "נִיר",
+                  "english": "fallow ground (2x), tillage (1x), plowing (1x).",
+                  "root": "From נִיר (H5214)",
+                  "PoS": "masculine noun",
+                  "notes": "",
+                  "parentName": "5214",
+                  "children": []
+                },
+                {
+                  "name": "5216",
+                  "hebrew": "נִיר",
+                  "english": "lamp (35x), candle (9x), light (4x).",
+                  "root": "From a primitive root [see נִיר (H5214); נוּר (H5135)] properly, meaning to glisten",
+                  "PoS": "masculine noun",
+                  "notes": "",
+                  "parentName": "5214",
+                  "children": []
+                },
+                {
+                  "name": "4500",
+                  "hebrew": "מָנוֹר",
+                  "english": "beam (4x).",
+                  "root": "From נִיר (H5214)",
+                  "PoS": "masculine noun",
+                  "notes": "",
+                  "parentName": "5214",
+                  "children": [
+                    {
+                      "name": "4501",
+                      "hebrew": "מְנוֹרָה",
+                      "english": "candlestick (40x).",
+                      "root": "From מָנוֹר (H4500) (in the original sense of נִיר (H5216))",
+                      "PoS": "feminine noun",
+                      "notes": "",
+                      "parentName": "4500",
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "5369",
+              "hebrew": "נֵר",
+              "english": "Ner (16x).",
+              "root": "The same as נִיר (H5216)",
+              "PoS": "proper masculine noun",
+              "notes": "",
+              "parentName": "5216",
+              "children": []
+            },
+            {
+              "name": "5374",
+              "hebrew": "נֵרִיָּה",
+              "english": "Neriah (10x).",
+              "root": "From נִיר (H5216) and יָהּ (H3050)",
+              "PoS": "proper masculine noun",
+              "notes": "",
+              "parentName": "5216",
+              "children": []
+            },
+            {
+              "name": "8574",
+              "hebrew": "תַּנּוּר",
+              "english": "oven (11x), furnace (4x).",
+              "root": "From נִיר (H5216)",
+              "PoS": "masculine noun",
+              "notes": "",
+              "parentName": "5216",
+              "children": []
+            },
+            {
+              "name": "5135",
+              "hebrew": "נוּר",
+              "english": "fiery (10x), fire (7x).",
+              "root": "From an unused root (corresponding to that of נִיר (H5216)) meaning to shine",
+              "PoS": "masculine/feminine noun",
+              "notes": "",
+              "parentName": "5216",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "4500",
+          "hebrew": "מָנוֹר",
+          "english": "beam (4x).",
+          "root": "From נִיר (H5214)",
+          "PoS": "masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": []
+        },
+        {
+          "name": "5216",
+          "hebrew": "נִיר",
+          "english": "lamp (35x), candle (9x), light (4x).",
+          "root": "From a primitive root [see נִיר (H5214); נוּר (H5135)] properly, meaning to glisten",
+          "PoS": "masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": []
+        },
+        {
+          "name": "5247",
+          "hebrew": "נִמְרָה",
+          "english": "Nimrah (1x).",
+          "root": "From the same as נָמֵר (H5246)",
+          "PoS": "proper locative noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "5246",
+              "hebrew": "נָמֵר",
+              "english": "leopard (6x).",
+              "root": "From an unused root meaning properly, to filtrate, i.e. be limpid [comp נִמְרָה (H5247) and נִמְרִים (H5249)]",
+              "PoS": "masculine noun",
+              "notes": "",
+              "parentName": "5247",
+              "children": [
+                {
+                  "name": "5247",
+                  "hebrew": "נִמְרָה",
+                  "english": "Nimrah (1x).",
+                  "root": "From the same as נָמֵר (H5246)",
+                  "PoS": "proper locative noun",
+                  "notes": "",
+                  "parentName": "5246",
+                  "children": []
+                },
+                {
+                  "name": "5245",
+                  "hebrew": "נְמַר",
+                  "english": "leopard (1x).",
+                  "root": "Corresponding to נָמֵר (H5246)",
+                  "PoS": "masculine noun",
+                  "notes": "",
+                  "parentName": "5246",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "5249",
+              "hebrew": "נִמְרִים",
+              "english": "Nimrim (2x).",
+              "root": "Corresponding to נִמְרָה (H5247)",
+              "PoS": "proper masculine locative plural noun",
+              "notes": "",
+              "parentName": "5247",
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "8658",
+          "hebrew": "תַּרְשִׁישׁ",
+          "english": "beryl (7x).",
+          "root": "Probably of foreign derivation [compare תַּרְשִׁישׁ (H8659)]",
+          "PoS": "masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "8659",
+              "hebrew": "תַּרְשִׁישׁ",
+              "english": "Tarshish (24x), Tharshish (4x).",
+              "root": "Probably the same as תַּרְשִׁישׁ (H8658) (as the region of the stone, or the reverse)",
+              "PoS": "proper locative noun, proper masculine noun",
+              "notes": "",
+              "parentName": "8658",
+              "children": [
+                {
+                  "name": "8658",
+                  "hebrew": "תַּרְשִׁישׁ",
+                  "english": "beryl (7x).",
+                  "root": "Probably of foreign derivation [compare תַּרְשִׁישׁ (H8659)]",
+                  "PoS": "masculine noun",
+                  "notes": "",
+                  "parentName": "8659",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "0089",
+          "hebrew": "אָגֵא",
+          "english": "Agee (1x).",
+          "root": "Of uncertain derivation, compare with אֲגַג (H90)",
+          "PoS": "proper masculine noun",
+          "notes": "",
+          "parentName": "grp1",
+          "children": [
+            {
+              "name": "0090",
+              "hebrew": "אֲגַג",
+              "english": "Agag (8x).",
+              "root": "Of uncertain derivation, compare with אָגֵא (H89)",
+              "PoS": "proper masculine noun",
+              "notes": "",
+              "parentName": "0089",
+              "children": [
+                {
+                  "name": "0091",
+                  "hebrew": "אֲגָגַי",
+                  "english": "Agagite (5x).",
+                  "root": "Patrial or patronymic from אֲגַג (H90)",
+                  "PoS": "adjective",
+                  "notes": "",
+                  "parentName": "0090",
+                  "children": []
+                },
+                {
+                  "name": "0089",
+                  "hebrew": "אָגֵא",
+                  "english": "Agee (1x).",
+                  "root": "Of uncertain derivation, compare with אֲגַג (H90)",
+                  "PoS": "proper masculine noun",
+                  "notes": "",
+                  "parentName": "0090",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    ]
+}

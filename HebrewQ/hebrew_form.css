@@ -1,0 +1,87 @@
+
+.hebrew, .script-hebrew{
+    font-size: 250%;
+    font-family: 'Times New Roman';
+    text-align: right;
+}  
+.heb_left{
+    text-align: left;
+}
+.redpart{
+    color: red;
+}
+.eng_pgn{
+	font-size: 8px;
+}
+.eng_title1{
+	font-size: 10px;
+}
+.c, .cs1{
+    background-color: #ffeeee;
+}	
+.ms2{
+    background-color: #eeeeee;
+}	
+.fs2{
+    background-color: #ffeeff;
+}	
+.ms3{
+    background-color: #e1e1e1;
+}	
+.fs3{
+    background-color: #f1e1f1;
+}	
+	
+
+
+.cp1{
+    background-color: #ffeee1;
+}		
+.mp2{
+    background-color: #eeeee1;
+}	
+.fp2{
+    background-color: #ffeef1;
+}	
+.mp3{
+    background-color: #eeeee1;
+}	
+.fp3{
+    background-color: #f1e1f1;
+}	
+
+
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+th{
+    background-color: #cccccc;
+}		
+
+
+.impevStyle1{
+	border-color: rgb(255, 0, 51);  
+	border-top-color: rgb(255, 0, 0); 
+	border-width: 2px; 
+}
+.impevBkClor{
+	background-color: rgb(255, 255, 1);
+}
+.impevBorderNoneTop{
+	border-top: none;
+}
+.impevBorderNoneBottom{
+	border-bottom-color: rgb(0, 0, 0);
+	border-bottom-width: 1px; 
+}
+.tdBorderTop2{
+	border-top-width: 2px; 
+}
+.tdBorderBottom2{
+	border-bottom-width: 2px; 
+}		
+
+
+

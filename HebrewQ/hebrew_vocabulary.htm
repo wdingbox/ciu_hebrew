@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://www.i18nguy.com/unicode/shma.html -->
+<html lang="he">
+
+<head>
+    <TITLE>HebrewQ</TITLE>
+    <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+    <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+
+
+
+    <base target="_blank" />
+
+    <script type="text/javascript" src="../jq/jquery.js"></script>
+
+    <script src="../jq/jquery.tablesorter.js"></script>
+
+    <script src="../Hebrew2/nodjs/noduti/js/table_Indexer.js"></script>
+
+    <script type="text/javascript" src="./audjs/VocabHebrewBuf.js"></script>
+    <script type="text/javascript" src="./audjs/VocabHebrewDat.js"></script>
+    <script type="text/javascript" src="./hebrew_vocabulary.js"></script>
+
+    <script src_test="http://localhost:7778/Jsonpster/" src="http://104.188.182.128:7778/Jsonpster/"></script>
+
+
+
+    <style type="text/css">
+        .chkclr {
+            background: #ff0000;
+        }
+
+        .heb {
+            font-size: 200%;
+            font-family: 'Times New Roman';
+            text-align: right;
+        }
+
+        .eng {}
+
+        .txtcolr_white {
+            color: white;
+        }
+
+        #ctr_menu {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            font-family: 'Times New Roman';
+        }
+
+        .SCH[contenteditable],
+        .frq[contenteditable],
+        .err[contenteditable],
+        .cat[contenteditable],
+        .pos[contenteditable] {
+            background-color: #ccccff;
+        }
+
+        th,
+        .hilite {
+            background-color: #cccccc;
+        }
+
+        a[href] {
+            text-decoration: none;
+        }
+
+        .modified {
+            color: #00ff00;
+        }
+
+        .diff2Eff {
+            border-width: 3px;
+            border-color: red;
+        }
+
+        .found {
+            background-color: #ffff00;
+        }
+    </style>
+    <script type="text/javascript">
+        function table_sorter() {
+            $("table").tablesorter({
+                //  theme: 'blue',
+                usNumberFormat: false,
+                sortReset: true,
+                sortRestart: true,
+
+                widgets: ['columns', 'output',],//'zebra', 'editable'
+
+            });
+        }
+        $(document).ready(function () {
+            ankors();
+            gen_table_ahard();
+            table_sorter();
+
+            $(".eng").click(function () {
+                var dfy = $(this).next().next().next().text();
+                var sdf = parseInt(dfy) + 1;
+                $(this).next().next().next().text(sdf);
+            });
+
+            $("#togEnglis").click(function () {
+                $(".eng")//.slideToggle();
+                    .toggleClass("txtcolr_white")
+            });
+            $("#togHebrew").click(function () {
+                $(".heb")//.slideToggle();
+                    .toggleClass("txtcolr_white")
+            });
+
+            $("#toggle_autoplay").click(function () {
+                toggle_auto_play_audio();
+                $(this).toggleClass("hilite");
+            });
+            $("#outall").click(function () {
+                outputAll2texta("VocabChapsBuf");
+            });
+
+            $("#iEdit").click(function () {
+                $(this).toggleClass("hilite");
+                if ($(this).hasClass("hilite")) {
+                    outputAll2texta("VocabChapsBuf");
+                    $(".SCH, .frq").attr("contenteditable", "true");
+                } else {
+                    outputAll2texta("VocabChapsDat");
+                    $(".SCH, .frq").attr("contenteditable", null);
+                }
+
+            });
+            $("#search").click(function () {
+                var val = $("#texta").val();
+                var tdar = [];
+                $("td").each(function () {
+                    var tx = $(this).text();
+                    if (tx.indexOf(val) > 0) {
+                        tdar.push($(this));
+                    }
+                });
+                if (!this.m_idx) {
+                    this.m_idx = -1;
+                }
+                this.m_idx++;
+                if (this.m_idx >= tdar.length) {
+                    this.m_idx = 0;
+                }
+                $(tdar[this.m_idx]).toggleClass("found");
+                $(tdar[this.m_idx])[0].scrollIntoView();
+            });
+            $("#clear").click(function () {
+                $("#texta").val("");
+                $("table").trigger("updateAll");
+
+                //swap_arr_6and7();
+            });
+            $("#iExport").click(function () {
+                export_arr_no_marker();
+            });
+
+
+            $("#save").click(function () {
+                var s = $("#texta").val();
+                var fname = "../out/tmp/ttt.js";
+                restapi_upHebewVocab(fname, s);
+            })
+        });//
+
+
+        function ankors() {
+            var aobj = {
+                "merg": "../../tool/Hebrew2/nodjs/myapp/oStrongCodeTable_Merged.htm",
+                "tree": "../../tool/Hebrew2/nodjs/myapp/d3/treeIndented.htm",
+                "abcd": "alphabet.htm",
+                "inpu": "alphabet_HebrewInput.htm",
+                "pgn-":"hebrew_form_pgn.htm",
+                "conj": "hebrew_word_verb_strong.htm",
+                "impr": "hebrew_word_verb_imperfect.htm",
+                "verb":"hebrew_word_verb_dat_reader.htm",
+                "vbed":"hebrew_word_verb_editor.htm",
+                "test": "hebrewTest.htm",
+                "grps": "wordsgroups.htm",
+            };
+            var s = "";
+            $.each(aobj,function (k, sr) {
+                s += "<a href='" + sr + "'>" + k + "</a> | ";
+            });
+            $("#anks").html(s);
+
+        }
+    </script>
+</head>
+
+
+<body id="top">
+
+    <div id="audio"></div>
+
+
+    <h1>שְׁמַע | יִשְׂרָאֵל, יְיָ | אֱלֹהֵינוּ, יְיָ | אֶחָֽד: | רֵאשִׁית</h1>
+    <div id="anks">-444-</div>
+  
+    
+
+    <div id="ctr_menu">
+        <button id="iExport" title='export whole obj from ui table'>export</button>
+        <button id="outall" title='output changes only'>out</button>
+        <button id='save' title="save changes on server site. restapi must be on.">up</button>
+        <button id="iEdit">iEdit</button>
+        <button id="indxer">indxer</button>
+
+        <br>
+        <button id="toggle_autoplay">autoplay</button>
+
+        <button id='search'>search</button>
+        <button id='clear'>clear</button>
+
+        <br>
+
+        <textarea id="texta"></textarea><br>
+    </div>
+
+
+
+
+
+    <div id="show"></div>
+
+
+
+</body>
+
+</html>
