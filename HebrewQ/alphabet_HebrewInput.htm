@@ -9,7 +9,7 @@
 	<script src="../jq/jquery.tablesorter.js"></script>
 
 	<script src="./audjs/VocabChapsDat.js"></script>
-	
+
 	<style type="text/css">
 		.chkclr {
 			background: #ff0000;
@@ -87,6 +87,12 @@
 
 		.hexd {
 			background-color: #ccc000;
+		}
+		.latx{
+			background-color: aqua;
+			width:20px;
+			float: right;
+			margin-right: 20px;
 		}
 
 		.hilit,
@@ -184,8 +190,12 @@
 			function _td(alph) {
 				var chcod = alph.charCodeAt(0);
 				var hexcd = chcod.toString(16).padStart(4, "0");
-				var s = "<td><a class='script-hebrew'>" + alph + "</a><br><a class='ccd'>" + chcod + "</a> <a class='hexd'>" + hexcd + "</a>";
-				s += " <a class='kn' hex='"+hexcd+"'>" + Hbr2MacProKeyboard[alph] + "</a></td>";
+				var s = `<td><a class='script-hebrew'>${alph}</a><br>`;
+				s+=`<a class='ccd' title='unicode decimal'>${chcod}</a> `;
+				s+=`<a class='hexd' title='unicode hex'>${hexcd}</a><br>`;
+				s+=`<a class='kn' hex='"+hexcd+"' title='Keyboard MacBook'>${Hbr2MacProKeyboard[alph]}</a> `;
+				s+=`<div class='latx' hex='"+hexcd+"' title='Latex cjhebrew Consonent Codes'>${Latex_cjHebrew_Consonant_Codes[alph]}</div>`;
+				s+=`</td>`;
 				return s;
 			}
 			var tr = "";
@@ -305,20 +315,68 @@
     "ת": "t",
     "תּ": "t",
     "ש": "w",
-    "ַ": "opt+a",
-    "ָ": "shf+a",
-    "ֵ": "shf+e",
-    "ֶ": "opt+e",
+    "ַ":   "opt+a",
+    "ָ":  "shf+a",
+    "ֵ":   "shf+e",
+    "ֶ":   "opt+e",
+    "וֹ":  "shf+o",
+    "ֹ":   "opt+o",
+    "וּ":  "shf+u",
+    "ֻ":   "opt+u",
+    "ִ":   "opt+i",
+    "ְֲ":   "opt+1",
+    "ְֱ":   "opt+3",
+    "ְֳ":   "opt+2",
+    "ְ":   "shf+:",
+    "ּ":   "shf+b"
+}
+var Latex_cjHebrew_Consonant_Codes =
+		{
+    "ב": "b",
+    "בּ": "b",
+    "א": "'",
+    "ה": "h",
+    "ד": "d",
+    "ז": "z",
+    "ו": "w",
+    "כּ": "k",
+    "י": "y",
+    "ט": ".t",
+    "ל": "l",
+    "ך": "sh+k",
+    "כ": "k",
+    "נ": "n",
+    "ם": "M",
+    "מ": "m",
+    "ע": "`",
+    "ס": "s",
+    "ן": "N",
+    "ף": "P",
+    "פ": "p",
+    "פּ": "p",
+    "ק": "q",
+    "ץ": ".S",
+    "צ": ".s",
+    "שׂ": ",s",
+    "שׁ": "+s",
+    "ר": "r",
+    "ת": "t",
+    "תּ": "t",
+    "ש": "/w",
+    "ַ":  "opt+a",
+    "ָ":  "shf+a",
+    "ֵ":  "shf+e",
+    "ֶ":  "opt+e",
     "וֹ": "shf+o",
-    "ֹ": "opt+o",
+    "ֹ":  "opt+o",
     "וּ": "shf+u",
-    "ֻ": "opt+u",
-    "ִ": "opt+i",
-    "ְֲ": "opt+1",
-    "ְֱ": "opt+3",
-    "ְֳ": "opt+2",
-    "ְ": "shf+:",
-    "ּ": "shf+b"
+    "ֻ":  "opt+u",
+    "ִ":  "opt+i",
+    "ְֲ":  "opt+1",
+    "ְֱ":  "opt+3",
+    "ְֳ":  "opt+2",
+    "ְ":  "shf+:",
+    "ּ":  "shf+b"
 }
 	</script>
 </head>
