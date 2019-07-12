@@ -77,6 +77,9 @@
 		.kn {
 			font-weight: bold;
 			background-color: #aaaaff;
+			width:20px;
+			float: left;
+			margin-left: 20px;
 		}
 
 		.ccd {
@@ -88,7 +91,7 @@
 		.hexd {
 			background-color: #ccc000;
 		}
-		.latx{
+		.Latex{
 			background-color: aqua;
 			width:20px;
 			float: right;
@@ -193,8 +196,8 @@
 				var s = `<td><a class='script-hebrew'>${alph}</a><br>`;
 				s+=`<a class='ccd' title='unicode decimal'>${chcod}</a> `;
 				s+=`<a class='hexd' title='unicode hex'>${hexcd}</a><br>`;
-				s+=`<a class='kn' hex='"+hexcd+"' title='Keyboard MacBook'>${Hbr2MacProKeyboard[alph]}</a> `;
-				s+=`<div class='latx' hex='"+hexcd+"' title='Latex cjhebrew Consonent Codes'>${Latex_cjHebrew_Consonant_Codes[alph]}</div>`;
+				s+=`<div class='kn' hex='"+hexcd+"' title='Keyboard MacBook'>${Hbr2MacProKeyboard[alph]}</div> `;
+				s+=`<div class='Latex' hex='"+hexcd+"' title='Latex cjhebrew Consonent Codes'>${Latex_cjHebrew_Consonant_Codes[alph]}</div>`;
 				s+=`</td>`;
 				return s;
 			}
@@ -330,6 +333,8 @@
     "ְ":   "shf+:",
     "ּ":   "shf+b"
 }
+
+//=== http://mirrors.concertpass.com/tex-archive/language/hebrew/cjhebrew/cjhebrew.pdf
 var Latex_cjHebrew_Consonant_Codes =
 		{
     "ב": "b",
@@ -345,7 +350,7 @@ var Latex_cjHebrew_Consonant_Codes =
     "י": "y",
     "ט": ".t",
     "ל": "l",
-    "ך": "sh+k",
+    "ך": "K",
     "כ": "k",
     "נ": "n",
     "ם": "M",
