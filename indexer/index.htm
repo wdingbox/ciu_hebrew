@@ -1,0 +1,173 @@
+
+<HTML>
+    <HEAD>
+        <TITLE>ind</TITLE>
+        <META http-equiv="Content-Type" content="text/html;" charset="UTF-8">
+        <META name="viewport" content="width=device-witdh, initial-scale=1, maximum-scale=1, user-scale=0">
+        <base target="_blank" />
+    
+        <script src="https://wdingbox.github.io/ham12/jq/jquery-2_1_3.min.js"></script>
+        <script src="https://wdingbox.github.io/ham12/jq/jquery.tablesorter.js"></script>
+        <script src="https://wdingbox.github.io/ham12/jq/table_Indexer.js"></script>
+        <script src="https://wdingbox.github.io/ham12/jq/Pinyin7kzi.js?v=2"></script>
+
+        <script src="./index.js"></script>
+
+      
+        <style>
+        #paneltoggler, #panel{
+            position:fixed;
+            background-color: lightblue;
+        }
+        #paneltoggler{
+            right:20px;
+        }
+        #explorePanel{
+            margine-top:100px;
+            padding-top:100px;
+        }
+        #hilipathfile{
+            width: 100%;
+        }
+
+            textarea {
+                width: 500px;
+                height: 500px;
+            }
+            .dir{
+                display:block;
+            }
+            ol{
+                left:10px;
+            }
+            .collapse{
+                visibility:hidden;
+                display: none;
+            }
+            .expand{
+                visibility:visible;
+            }
+            .pathdir_expand{
+                background-color:cyan;
+            }
+            .Mark{
+                background-color:red;
+            }
+            .RemeberClosed{
+                background-color:lightgrey;
+
+            }
+            .file_open_Mark{
+                background-color:pink;
+            }
+            .toggleMarkFile{
+                background-color:lightgreen;
+            }
+
+            .hili{
+                background-color:lightgreen;
+            }
+            .HideItm{
+                display: none;
+                visibility: hidden;
+                
+            }
+            xa[href]{
+                background-color:cyan;
+            }
+            xxspan{
+                display:block;
+            }
+            
+        </style>
+    
+        <script>
+            function init_localhost_anchor(){
+                if(!localStorage.localhostbase){
+                    localStorage.localhostbase = /weidroot/;//"/weidroot/";
+                }
+                var curUrl = ""+window.location.href;
+                var posi = curUrl.indexOf(localStorage.localhostbase);
+                var localhost = "http://localhost/"+curUrl.substr(posi);
+                $("#panel").prepend(`<input value='${localStorage.localhostbase}'></input><a onclick="localStorage.localhostbase=$(this).prev().val();">*</a><a href='${localhost}'>${localhost}</a><br>`);
+            };///////////////
+
+            $(function () {
+                init_localhost_anchor();
+
+                $("#paneltoggler").click(function(){
+                    $("#panel").toggle();
+                });
+
+                $(".base").click(function(){
+                    var base = $(this).text();
+                    var sdir = $(this).prev().text();
+                    $(this).attr("href", sdir+base);
+                })
+
+                $(".dir").click(function(){
+                    var spath = $(this).find("a:eq(0)").attr("path");
+                    $("#hilipathfile").val(spath);
+                });
+                $(".dirNode").click(function(){
+                    $(this).parent().next().toggleClass("collapse");
+                    $(this).toggleClass("pathdir_expand");
+                    var totDir = $(this).parent().next().find("ol").length;
+                    var totFile = $(this).parent().next().find("li").length;
+                    var totSize=0;
+                    $(this).parent().next().find(".fsize").each(function(){
+                        totSize += parseInt( $(this).text() );
+                    })
+                    $(this).parent().find(".totInfo").text(" dir:" + totDir.toLocaleString()+", file:"+totFile.toLocaleString() +", size:"+totSize.toLocaleString());
+                })
+                $(".NumFiles").click(function(){
+                    $(this).parent().next().children("li").toggleClass("collapse");
+                    $(this).toggleClass("RemeberClosed");
+                });
+                $(".NumDirs").click(function(){
+                    $(this).parent().next().children("span").toggleClass("collapse");
+                    $(this).toggleClass("RemeberClosed");
+                });
+                $(".file").click(function(){
+                    $(".file_open_Mark").removeClass("file_open_Mark");
+                    $(this).addClass("file_open_Mark");
+                })
+                $(".lifile").click(function(){
+                    $(this).toggleClass("toggleMarkFile");
+                })
+
+                $(".idx").click(function(){
+                    $(this).toggleClass("hili");
+                    var sdir0 = $(this).next().text();
+                    $(".dir").not(".hili").each(function(i){
+                        if(0===i) return;
+                        var sdir = $(this).text();
+                        if(sdir0 === sdir){
+                            $(this).parent().toggleClass("HideItm");
+                        }
+                    })
+                });
+            });
+        </script>
+    </HEAD>
+    
+    <body>
+    <button id="paneltoggler">+</button>
+    <div id="panel">
+    <input readonly id="hilipathfile" value="generated by: /Users/weiding/Sites/weidroot/weidroot_2017-01-06/app/github/wdingbox/pubs/indexer/index_watch.nod.js"></input>
+    <a>totDirs: 0, totFiles: 5, size: 25,313 B</a>
+    </div>
+
+    <div id="explorePanel">
+    <span class='dir'><a class='dirNode' path='././'>[ . / ]</a> <a class='NumDirs'>( 0</a> / <a class='NumFiles'>5 )</a><a class='totInfo'></a></span>
+
+        <ol class='collapse'>
+<li class='lifile'><a class='file' href='index.htm'>index.htm</a>  (<a class='fsize'>6,478</a> B)</li>
+<li class='lifile'><a class='file' href='index.js'>index.js</a>  (<a class='fsize'>24</a> B)</li>
+<li class='lifile'><a class='file' href='index.nod.js'>index.nod.js</a>  (<a class='fsize'>9,184</a> B)</li>
+<li class='lifile'><a class='file' href='index.sh'>index.sh</a>  (<a class='fsize'>333</a> B)</li>
+<li class='lifile'><a class='file' href='index_watch.nod.js'>index_watch.nod.js</a>  (<a class='fsize'>9,294</a> B)</li>
+</ol>
+    </div>
+    </body>
+</HTML>
