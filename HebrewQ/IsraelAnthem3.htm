@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script type="text/javascript" src="../jq/jquery.js"></script>
 
 <head>
     <title></title>
@@ -13,7 +14,21 @@
         .righalign {
             text-align: right;
         }
+        .hilit{
+
+            background-color: lightblue;
+        }
     </style>
+
+    <script>
+        $(function(){
+            $("td").on("click",function(){
+                $(".hilit").removeClass("hilit")
+                $(this).addClass("hilit")
+
+            })
+        })
+    </script>
 </head>
 
 <body>
